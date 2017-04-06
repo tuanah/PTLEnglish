@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 
 namespace PTLEnglish.GUI
 {
@@ -75,33 +73,41 @@ namespace PTLEnglish.GUI
 		private void picMenuBtn_MouseEnter(object sender, EventArgs e)
 		{
 			picMenuBtn.BackColor = Cons.Hover;
+			picMenuBtn.Image = global::PTLEnglish.Properties.Resources.menu;
 		}
 
 		private void picMenuBtn_MouseLeave(object sender, EventArgs e)
 		{
 			picMenuBtn.BackColor = Color.Transparent;
+			picMenuBtn.Image = global::PTLEnglish.Properties.Resources.menu_def;
 		}
 
 		private void picAccount_MouseEnter(object sender, EventArgs e)
 		{
 			pnlInfo.BackColor = Cons.Hover;
-
+			picAccount.Image = global::PTLEnglish.Properties.Resources.account_icon;
+			lbllnfo.ForeColor = Cons.Text;
 		}
 
 		private void picAccount_MouseLeave(object sender, EventArgs e)
 		{
 			pnlInfo.BackColor = Color.Transparent;
+			picAccount.Image = global::PTLEnglish.Properties.Resources.account_def;
+			lbllnfo.ForeColor = SystemColors.ButtonFace;
 		}
 
 		private void picCourse_MouseEnter(object sender, EventArgs e)
 		{
 			pnlCourse.BackColor = Cons.Hover;
-
+			picCourse.Image = global::PTLEnglish.Properties.Resources.course;
+			lblCourse.ForeColor = Cons.Text;
 		}
 
 		private void picCourse_MouseLeave(object sender, EventArgs e)
 		{
 			pnlCourse.BackColor = Color.Transparent;
+			picCourse.Image = global::PTLEnglish.Properties.Resources.course_def;
+			lblCourse.ForeColor = SystemColors.ButtonFace;
 		}
 
 		private void picRenameBtn_Click(object sender, EventArgs e)

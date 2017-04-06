@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
 			this.pnlContent = new System.Windows.Forms.Panel();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.pnlSideBar = new System.Windows.Forms.Panel();
 			this.pnlCourse = new System.Windows.Forms.Panel();
 			this.lblCourse = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
 			this.lbllnfo = new System.Windows.Forms.Label();
 			this.picAccount = new System.Windows.Forms.PictureBox();
 			this.picMenuBtn = new System.Windows.Forms.PictureBox();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.pnlSideBar.SuspendLayout();
 			this.pnlCourse.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
@@ -102,6 +102,7 @@
 			// 
 			// picCourse
 			// 
+			this.picCourse.Image = global::PTLEnglish.Properties.Resources.course_def;
 			this.picCourse.Location = new System.Drawing.Point(0, 0);
 			this.picCourse.Name = "picCourse";
 			this.picCourse.Padding = new System.Windows.Forms.Padding(13, 10, 0, 0);
@@ -184,6 +185,7 @@
 			// 
 			// picAccount
 			// 
+			this.picAccount.Image = global::PTLEnglish.Properties.Resources.account_def;
 			this.picAccount.Location = new System.Drawing.Point(0, 0);
 			this.picAccount.Name = "picAccount";
 			this.picAccount.Padding = new System.Windows.Forms.Padding(13, 10, 0, 0);
@@ -196,6 +198,7 @@
 			// picMenuBtn
 			// 
 			this.picMenuBtn.BackColor = System.Drawing.Color.Transparent;
+			this.picMenuBtn.Image = global::PTLEnglish.Properties.Resources.menu_def;
 			this.picMenuBtn.Location = new System.Drawing.Point(0, 0);
 			this.picMenuBtn.Name = "picMenuBtn";
 			this.picMenuBtn.Padding = new System.Windows.Forms.Padding(13, 16, 0, 0);
