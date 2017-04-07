@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
 
+
 namespace PTLEnglish.GUI
 {
 	public partial class fMain : Form
@@ -17,7 +18,6 @@ namespace PTLEnglish.GUI
 		{
 			InitializeComponent();
 			lblName.Text = User.UserName;
-
 			CirclePictureBox cp = new CirclePictureBox();
 			try
 			{
