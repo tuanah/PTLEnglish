@@ -32,18 +32,19 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
 			this.pnlContent = new System.Windows.Forms.Panel();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.txtRename = new System.Windows.Forms.TextBox();
 			this.pnlSideBar = new System.Windows.Forms.Panel();
 			this.pnlCourse = new System.Windows.Forms.Panel();
 			this.lblCourse = new System.Windows.Forms.Label();
 			this.picCourse = new System.Windows.Forms.PictureBox();
 			this.pnlInfoContent = new System.Windows.Forms.Panel();
-			this.txtRename = new ZBobb.AlphaBlendTextBox();
 			this.picRenameBtn = new System.Windows.Forms.PictureBox();
 			this.lblName = new System.Windows.Forms.Label();
 			this.pnlInfo = new System.Windows.Forms.Panel();
 			this.lbllnfo = new System.Windows.Forms.Label();
 			this.picAccount = new System.Windows.Forms.PictureBox();
 			this.picMenuBtn = new System.Windows.Forms.PictureBox();
+			this.pnlContent.SuspendLayout();
 			this.pnlSideBar.SuspendLayout();
 			this.pnlCourse.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
@@ -57,12 +58,21 @@
 			// pnlContent
 			// 
 			this.pnlContent.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.pnlContent.Controls.Add(this.txtRename);
 			this.pnlContent.ForeColor = System.Drawing.Color.Black;
 			this.pnlContent.Location = new System.Drawing.Point(250, 0);
 			this.pnlContent.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlContent.Name = "pnlContent";
 			this.pnlContent.Size = new System.Drawing.Size(534, 561);
 			this.pnlContent.TabIndex = 1;
+			// 
+			// txtRename
+			// 
+			this.txtRename.Location = new System.Drawing.Point(123, 154);
+			this.txtRename.Name = "txtRename";
+			this.txtRename.Size = new System.Drawing.Size(100, 19);
+			this.txtRename.TabIndex = 0;
+			this.txtRename.Visible = false;
 			// 
 			// pnlSideBar
 			// 
@@ -115,7 +125,6 @@
 			// pnlInfoContent
 			// 
 			this.pnlInfoContent.BackColor = System.Drawing.Color.Transparent;
-			this.pnlInfoContent.Controls.Add(this.txtRename);
 			this.pnlInfoContent.Controls.Add(this.picRenameBtn);
 			this.pnlInfoContent.Controls.Add(this.lblName);
 			this.pnlInfoContent.Location = new System.Drawing.Point(50, 90);
@@ -123,24 +132,9 @@
 			this.pnlInfoContent.Size = new System.Drawing.Size(200, 140);
 			this.pnlInfoContent.TabIndex = 2;
 			// 
-			// txtRename
-			// 
-			this.txtRename.BackAlpha = 0;
-			this.txtRename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.txtRename.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtRename.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.txtRename.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.txtRename.Location = new System.Drawing.Point(0, 114);
-			this.txtRename.Name = "txtRename";
-			this.txtRename.Size = new System.Drawing.Size(120, 23);
-			this.txtRename.TabIndex = 4;
-			this.txtRename.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.txtRename.Visible = false;
-			this.txtRename.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRename_KeyPress);
-			// 
 			// picRenameBtn
 			// 
-			this.picRenameBtn.BackgroundImage = global::PTLEnglish.Properties.Resources.pencil_icon_614x460;
+			this.picRenameBtn.Image = global::PTLEnglish.Properties.Resources.pencil;
 			this.picRenameBtn.Location = new System.Drawing.Point(117, 110);
 			this.picRenameBtn.Name = "picRenameBtn";
 			this.picRenameBtn.Size = new System.Drawing.Size(23, 23);
@@ -225,11 +219,12 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PTLPTLEnglish";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fMain_FormClosed);
+			this.pnlContent.ResumeLayout(false);
+			this.pnlContent.PerformLayout();
 			this.pnlSideBar.ResumeLayout(false);
 			this.pnlCourse.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
 			this.pnlInfoContent.ResumeLayout(false);
-			this.pnlInfoContent.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picRenameBtn)).EndInit();
 			this.pnlInfo.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picAccount)).EndInit();
@@ -253,6 +248,6 @@
 		private System.Windows.Forms.PictureBox picCourse;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.PictureBox picRenameBtn;
-		private ZBobb.AlphaBlendTextBox txtRename;
+		private System.Windows.Forms.TextBox txtRename;
 	}
 }

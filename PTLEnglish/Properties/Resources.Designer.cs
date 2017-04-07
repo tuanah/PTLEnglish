@@ -85,7 +85,7 @@ namespace PTLEnglish.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap avatar_default {
             get {
-                object obj = ResourceManager.GetObject("avatar-default", resourceCulture);
+                object obj = ResourceManager.GetObject("avatar_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace PTLEnglish.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pencil_icon_614x460 {
+        internal static System.Drawing.Bitmap pencil {
             get {
-                object obj = ResourceManager.GetObject("pencil-icon-614x460", resourceCulture);
+                object obj = ResourceManager.GetObject("pencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AlphaBlendTextBox">
-      <HintPath>..\..\PTLEnglish_2\PTLEnglish\bin\Debug\AlphaBlendTextBox.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -113,9 +110,6 @@
     <None Include="Resources\account_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\avatar-default.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -126,9 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pencil-icon-614x460.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Plane.ico" />
@@ -156,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\course_def.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
