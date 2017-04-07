@@ -37,13 +37,13 @@
 			this.lblCourse = new System.Windows.Forms.Label();
 			this.picCourse = new System.Windows.Forms.PictureBox();
 			this.pnlInfoContent = new System.Windows.Forms.Panel();
+			this.txtRename = new System.Windows.Forms.TextBox();
 			this.picRenameBtn = new System.Windows.Forms.PictureBox();
 			this.lblName = new System.Windows.Forms.Label();
 			this.pnlInfo = new System.Windows.Forms.Panel();
 			this.lbllnfo = new System.Windows.Forms.Label();
 			this.picAccount = new System.Windows.Forms.PictureBox();
 			this.picMenuBtn = new System.Windows.Forms.PictureBox();
-			this.txtRename = new System.Windows.Forms.TextBox();
 			this.pnlSideBar.SuspendLayout();
 			this.pnlCourse.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
@@ -73,6 +73,7 @@
 			this.pnlSideBar.Controls.Add(this.picMenuBtn);
 			this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
 			this.pnlSideBar.Margin = new System.Windows.Forms.Padding(0);
+			this.pnlSideBar.MinimumSize = new System.Drawing.Size(50, 0);
 			this.pnlSideBar.Name = "pnlSideBar";
 			this.pnlSideBar.Size = new System.Drawing.Size(250, 561);
 			this.pnlSideBar.TabIndex = 0;
@@ -123,6 +124,18 @@
 			this.pnlInfoContent.Size = new System.Drawing.Size(200, 140);
 			this.pnlInfoContent.TabIndex = 2;
 			// 
+			// txtRename
+			// 
+			this.txtRename.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtRename.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.txtRename.Location = new System.Drawing.Point(25, 110);
+			this.txtRename.Name = "txtRename";
+			this.txtRename.Size = new System.Drawing.Size(94, 23);
+			this.txtRename.TabIndex = 0;
+			this.txtRename.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.txtRename.Visible = false;
+			this.txtRename.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRename_KeyPress);
+			// 
 			// picRenameBtn
 			// 
 			this.picRenameBtn.Image = global::PTLEnglish.Properties.Resources.pencil;
@@ -154,6 +167,7 @@
 			this.pnlInfo.Name = "pnlInfo";
 			this.pnlInfo.Size = new System.Drawing.Size(250, 45);
 			this.pnlInfo.TabIndex = 1;
+			this.pnlInfo.Click += new System.EventHandler(this.pnlInfo_Click);
 			// 
 			// lbllnfo
 			// 
@@ -165,6 +179,7 @@
 			this.lbllnfo.TabIndex = 1;
 			this.lbllnfo.Text = "Infomation";
 			this.lbllnfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lbllnfo.Click += new System.EventHandler(this.pnlInfo_Click);
 			this.lbllnfo.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
 			this.lbllnfo.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
 			// 
@@ -177,6 +192,7 @@
 			this.picAccount.Size = new System.Drawing.Size(50, 45);
 			this.picAccount.TabIndex = 0;
 			this.picAccount.TabStop = false;
+			this.picAccount.Click += new System.EventHandler(this.pnlInfo_Click);
 			this.picAccount.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
 			this.picAccount.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
 			// 
@@ -190,20 +206,9 @@
 			this.picMenuBtn.Size = new System.Drawing.Size(50, 45);
 			this.picMenuBtn.TabIndex = 0;
 			this.picMenuBtn.TabStop = false;
+			this.picMenuBtn.Click += new System.EventHandler(this.picMenuBtn_Click);
 			this.picMenuBtn.MouseEnter += new System.EventHandler(this.picMenuBtn_MouseEnter);
 			this.picMenuBtn.MouseLeave += new System.EventHandler(this.picMenuBtn_MouseLeave);
-			// 
-			// txtRename
-			// 
-			this.txtRename.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtRename.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.txtRename.Location = new System.Drawing.Point(25, 110);
-			this.txtRename.Name = "txtRename";
-			this.txtRename.Size = new System.Drawing.Size(94, 23);
-			this.txtRename.TabIndex = 0;
-			this.txtRename.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.txtRename.Visible = false;
-			this.txtRename.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRename_KeyPress);
 			// 
 			// fMain
 			// 

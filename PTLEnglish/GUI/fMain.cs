@@ -136,5 +136,43 @@ namespace PTLEnglish.GUI
 				txtRename.Text = txtRename.Text.Remove(txtRename.Text.Length - 1, 1);
 			else e.Handled = true;
 		}
+
+		private void picMenuBtn_Click(object sender, EventArgs e)
+		{
+			if (pnlSideBar.Width == 50)
+			{
+				Animation.Transition(pnlSideBar, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
+				this.Refresh();
+				lblCourse.Visible = true;
+				lbllnfo.Visible = true;
+				pnlInfoContent.Visible = true;
+				pnlInfo.Width = 250;
+				pnlCourse.Width = 250;
+
+			}
+			else if (pnlSideBar.Width == 250)
+			{
+				lblCourse.Visible = false;
+				lbllnfo.Visible = false;
+				pnlInfoContent.Visible = false;
+
+				pnlInfo.Width = 50;
+				pnlCourse.Width = 50;
+				this.Refresh();
+				Animation.Transition(pnlSideBar, -200, Animation.Duration.Immediately, Animation.Direction.Vertical);
+			}
+
+
+		}
+
+		private void pnlInfo_Click(object sender, EventArgs e)
+		{
+			if (pnlInfoContent.Height == 0)
+			{
+				Animation.Transition(pnlInfoContent, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+			}
+			else
+				Animation.Transition(pnlInfoContent, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+		}
 	}
 }
