@@ -156,7 +156,6 @@
     <None Include="Resources\pencil.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Source\Human\Family\Image\" />
   </ItemGroup>
   <ItemGroup>

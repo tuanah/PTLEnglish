@@ -17,6 +17,10 @@ namespace PTLEnglish.DAL
 
 		public static void Init()
 		{
+			if (!Directory.Exists(Cons.Path))
+			{
+				Directory.CreateDirectory(Cons.Path);
+			}
 			using (FileStream fs = new FileStream(Cons.Path + @"\info.txt", FileMode.OpenOrCreate))
 			{
 				using (StreamReader sReader = new StreamReader(fs, Encoding.UTF8))
