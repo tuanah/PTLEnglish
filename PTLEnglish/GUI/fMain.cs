@@ -168,5 +168,10 @@ namespace PTLEnglish.GUI
 				Animation.Move(pnlCourse, new Point(pnlCourse.Location.X, pnlCourse.Location.Y - 140), Animation.Duration.Fast);
 			}
 		}
+
+		private void pnlCourse_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

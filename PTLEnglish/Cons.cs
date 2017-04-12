@@ -10,9 +10,7 @@ namespace PTLEnglish
 {
 	public static class Cons
 	{
-		//private static DirectoryInfo Dir = new DirectoryInfo("Source");
 		private static DirectoryInfo Dir;
-		//public static DirectoryInfo[] CourseDir = Dir.GetDirectories();
 		public static DirectoryInfo[] CourseDir;
 		private static DirectoryInfo[] topicDir;
 
@@ -33,18 +31,7 @@ namespace PTLEnglish
 
 		public static void LoadDir()
 		{
-			//try
-			//{
-			//	Dir = new DirectoryInfo("Source");
-			//}
-			//catch
-			//{
-			//	Directory.CreateDirectory("Source");
-			//	Directory.CreateDirectory("Source");
-			//}
-			//CourseDir = Dir.GetDirectories();
-			bool exist = Directory.Exists("Source");
-			if(!exist)
+			if(!Directory.Exists("Source"))
 			{
 				Directory.CreateDirectory("Source");
 			}

@@ -28,10 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
 			this.pnlContent = new System.Windows.Forms.Panel();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.pnlSideBar = new System.Windows.Forms.Panel();
 			this.pnlCourse = new System.Windows.Forms.Panel();
 			this.lblCourse = new System.Windows.Forms.Label();
@@ -44,6 +42,7 @@
 			this.lbllnfo = new System.Windows.Forms.Label();
 			this.picAccount = new System.Windows.Forms.PictureBox();
 			this.picMenuBtn = new System.Windows.Forms.PictureBox();
+			this.pnlSideContent = new System.Windows.Forms.Panel();
 			this.pnlSideBar.SuspendLayout();
 			this.pnlCourse.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
@@ -52,6 +51,7 @@
 			this.pnlInfo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picAccount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picMenuBtn)).BeginInit();
+			this.pnlSideContent.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlContent
@@ -67,9 +67,7 @@
 			// pnlSideBar
 			// 
 			this.pnlSideBar.BackgroundImage = global::PTLEnglish.Properties.Resources.bg_sidebar;
-			this.pnlSideBar.Controls.Add(this.pnlCourse);
-			this.pnlSideBar.Controls.Add(this.pnlInfoContent);
-			this.pnlSideBar.Controls.Add(this.pnlInfo);
+			this.pnlSideBar.Controls.Add(this.pnlSideContent);
 			this.pnlSideBar.Controls.Add(this.picMenuBtn);
 			this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
 			this.pnlSideBar.Margin = new System.Windows.Forms.Padding(0);
@@ -83,10 +81,11 @@
 			this.pnlCourse.BackColor = System.Drawing.Color.Transparent;
 			this.pnlCourse.Controls.Add(this.lblCourse);
 			this.pnlCourse.Controls.Add(this.picCourse);
-			this.pnlCourse.Location = new System.Drawing.Point(0, 230);
+			this.pnlCourse.Location = new System.Drawing.Point(0, 185);
 			this.pnlCourse.Name = "pnlCourse";
 			this.pnlCourse.Size = new System.Drawing.Size(250, 45);
 			this.pnlCourse.TabIndex = 2;
+			this.pnlCourse.Click += new System.EventHandler(this.pnlCourse_Click);
 			// 
 			// lblCourse
 			// 
@@ -119,7 +118,7 @@
 			this.pnlInfoContent.Controls.Add(this.txtRename);
 			this.pnlInfoContent.Controls.Add(this.picRenameBtn);
 			this.pnlInfoContent.Controls.Add(this.lblName);
-			this.pnlInfoContent.Location = new System.Drawing.Point(50, 90);
+			this.pnlInfoContent.Location = new System.Drawing.Point(50, 45);
 			this.pnlInfoContent.Name = "pnlInfoContent";
 			this.pnlInfoContent.Size = new System.Drawing.Size(200, 140);
 			this.pnlInfoContent.TabIndex = 2;
@@ -163,7 +162,7 @@
 			this.pnlInfo.BackColor = System.Drawing.Color.Transparent;
 			this.pnlInfo.Controls.Add(this.lbllnfo);
 			this.pnlInfo.Controls.Add(this.picAccount);
-			this.pnlInfo.Location = new System.Drawing.Point(0, 45);
+			this.pnlInfo.Location = new System.Drawing.Point(0, 0);
 			this.pnlInfo.Name = "pnlInfo";
 			this.pnlInfo.Size = new System.Drawing.Size(250, 45);
 			this.pnlInfo.TabIndex = 1;
@@ -210,6 +209,20 @@
 			this.picMenuBtn.MouseEnter += new System.EventHandler(this.picMenuBtn_MouseEnter);
 			this.picMenuBtn.MouseLeave += new System.EventHandler(this.picMenuBtn_MouseLeave);
 			// 
+			// pnlSideContent
+			// 
+			this.pnlSideContent.AutoScroll = true;
+			this.pnlSideContent.BackColor = System.Drawing.Color.Transparent;
+			this.pnlSideContent.Controls.Add(this.pnlCourse);
+			this.pnlSideContent.Controls.Add(this.pnlInfo);
+			this.pnlSideContent.Controls.Add(this.pnlInfoContent);
+			this.pnlSideContent.ForeColor = System.Drawing.SystemColors.MenuText;
+			this.pnlSideContent.Location = new System.Drawing.Point(0, 45);
+			this.pnlSideContent.Margin = new System.Windows.Forms.Padding(0);
+			this.pnlSideContent.Name = "pnlSideContent";
+			this.pnlSideContent.Size = new System.Drawing.Size(250, 516);
+			this.pnlSideContent.TabIndex = 3;
+			// 
 			// fMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 10F);
@@ -236,6 +249,7 @@
 			this.pnlInfo.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picAccount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picMenuBtn)).EndInit();
+			this.pnlSideContent.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -253,8 +267,8 @@
 		private System.Windows.Forms.Panel pnlCourse;
 		private System.Windows.Forms.Label lblCourse;
 		private System.Windows.Forms.PictureBox picCourse;
-		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.PictureBox picRenameBtn;
 		private System.Windows.Forms.TextBox txtRename;
+		private System.Windows.Forms.Panel pnlSideContent;
 	}
 }
