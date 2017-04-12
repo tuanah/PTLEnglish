@@ -171,7 +171,7 @@
 			// 
 			// lbllnfo
 			// 
-			this.lbllnfo.Font = new System.Drawing.Font("Comic Sans MS", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.lbllnfo.Font = new System.Drawing.Font("Comic Sans MS", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbllnfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.lbllnfo.Location = new System.Drawing.Point(50, 0);
 			this.lbllnfo.Name = "lbllnfo";

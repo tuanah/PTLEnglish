@@ -142,23 +142,9 @@ namespace PTLEnglish.GUI
 			if (pnlSideBar.Width == 50)
 			{
 				Animation.Transition(pnlSideBar, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
-				this.Refresh();
-				lblCourse.Visible = true;
-				lbllnfo.Visible = true;
-				pnlInfoContent.Visible = true;
-				pnlInfo.Width = 250;
-				pnlCourse.Width = 250;
-
 			}
 			else if (pnlSideBar.Width == 250)
 			{
-				lblCourse.Visible = false;
-				lbllnfo.Visible = false;
-				pnlInfoContent.Visible = false;
-
-				pnlInfo.Width = 50;
-				pnlCourse.Width = 50;
-				this.Refresh();
 				Animation.Transition(pnlSideBar, -200, Animation.Duration.Immediately, Animation.Direction.Vertical);
 			}
 
