@@ -1,0 +1,25 @@
+cat			/kæt/			con mèo
+dog			/dɒg/			con chó
+chicken		/ˈtʃɪk.ɪn/		con gà
+bee			/biː/			con ong
+butterfly	/ˈbʌt.ə.flaɪ/	con bướm
+spider		/ˈspaɪ.dəʳ/		con nhện
+ant			/ænt/			con kiến 
+mouse		/maʊs/			con chuột
+bat			/bæt/			con dơi
+buffalo		/ˈbʌf.ə.ləʊ/	con trâu 
+panda		/ˈpæn.də/		gấu trúc
+tiger 		/ˈtaɪ.gəʳ/		con hổ 
+bear		/beəʳ/			con gấu
+fox 		/fɒks/			con cáo 
+rabbit		/ˈræb.ɪt/		con thỏ 
+wolf		/wʊlf/			con sói 
+dolphin		/ˈdɒlfɪn/		cá heo 
+shark 		/ʃɑːk/			cá mập 
+jellyfish	/ˈdʒel.i.fɪʃ/	con sứa
+whale		/weɪl/			cá voi 
+crab		/kræb/			cua
+duck		/dʌk/			con vịt
+stork		/stɔːk/			con cò 
+peacock		/ˈpiː.kɒk/		con công trống 
+parrot		/ˈpær.ət/		con vẹt

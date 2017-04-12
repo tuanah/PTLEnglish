@@ -1,0 +1,25 @@
+﻿bone		/bəʊn/			xương
+rib cage	/rɪb keɪdʒ/		khung xương sườn
+spine		/spaɪn/			xương sống
+skeleton	/ˈskel.ɪ.tən/	bộ xương
+skull 		/skʌl/			xương sọ
+liver 		/ˈlɪv.əʳ/		gan
+jaw			/dʒɔː/			quai hàm
+stomach		/ˈstʌm.ək/		dạ dày
+tooth		/tuːθ/			răng
+teeth		/tiːθ/			răng (số nhiều)
+lung		/lʌŋ/			phổi
+artery		/ˈɑːtəri/		động mạch 
+brain		/breɪn/			não
+heart		/hɑːt/			trái tim
+kidney		/ˈkɪd.ni/		quả thận 
+blood		/blʌd/			máu
+vein		/veɪn/			tĩnh mạch
+hair		/heəʳ/			tóc
+forehead 	/ˈfɔː.hed/ 		trán
+eye 		/aɪ/ 			mắt 
+cheek 		/tʃiːk/ 		má
+ear 		/ɪəʳ/	 		tai
+neck 		/nek/ 			cổ
+nose 		/nəʊz/ 			mũi 
+chin 		/tʃɪn/ 			cằm

@@ -1,0 +1,25 @@
+parents		/ˈpeə.rəntz/ 		cha mẹ 
+children 	/ˈtʃɪl.drən/ 		con cái
+sibling 	/'sɪblɪŋ/ 		anh chị em
+grandfather 	/ˈgrænd.fɑː.ðəʳ/		ông
+grandmother 	/ˈgrænd.mʌð.əʳ/ 	bà
+father 		/ˈfɑː.ðəʳ/ 		cha
+mother 		/ˈmʌð.əʳ/ 		mẹ
+uncle 		/ˈʌŋ.kļ/ 		chú, bác trai, cậu, dượng...
+aunt 		/ɑːnt/ 			cô, dì, thím, mợ, bác gái...
+cousin 		/ˈkʌz.ən/  		anh em họ 
+wife 		/waɪf/ 			vợ
+nephew 		/ˈnef.juː/  		cháu trai 
+niece 		/niːs/ 			cháu gái 
+brother 	/ˈbrʌð.əʳ/  		anh, em trai
+sister 		/ˈsɪs.təʳ/  		chị, em gái
+husband 	/ˈhʌz.bənd/ 		chồng
+son 		/sʌn/ 			con trai
+daughter 	/ˈdɔː.təʳ/ 		con gái
+sister-in-law 	/ˈsɪs.tə.rɪn.lɔː/ 	chị dâu, em dâu
+son-in-law 	/ˈsʌn.ɪn.lɔː/ 		con rể
+daughter-in-law /ˈdɔː.tər.ɪnˌlɔː/ 	con dâu
+mother-in-law 	/ˈmʌð.ə.rɪnˌlɔː/ 	mẹ vợ, mẹ chồng
+father-in-law 	/ˈfɑː.ðəʳ.ɪn.lɔː/ 	bố vợ, bố chồng
+granddaughter 	/ˈgrænd.dɔː.təʳ/ 	cháu gái(của ông bà)
+grandson 	/ˈgrænd.sʌn/ 		cháu trai (của ông bà)
