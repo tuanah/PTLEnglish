@@ -28,6 +28,7 @@ namespace PTLEnglish.GUI
 			{
 				cp.Image = global::PTLEnglish.Properties.Resources.avatar_default;
 			}
+
 			cp.Location = new Point(22, 6);
 			cp.Size = new Size(100, 100);
 			cp.SizeMode = PictureBoxSizeMode.Zoom;
