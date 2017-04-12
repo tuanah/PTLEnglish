@@ -18,6 +18,7 @@ namespace PTLEnglish.GUI
 		{
 			InitializeComponent();
 			lblName.Text = User.UserName;
+			
 			CirclePictureBox cp = new CirclePictureBox();
 			try
 			{
@@ -153,12 +154,18 @@ namespace PTLEnglish.GUI
 
 		private void pnlInfo_Click(object sender, EventArgs e)
 		{
+			if (pnlSideBar.Width == 50)
+				return;
 			if (pnlInfoContent.Height == 0)
 			{
 				Animation.Transition(pnlInfoContent, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+				Animation.Move(pnlCourse, new Point(pnlCourse.Location.X, pnlCourse.Location.Y + 140), Animation.Duration.Fast);
 			}
 			else
+			{
 				Animation.Transition(pnlInfoContent, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+				Animation.Move(pnlCourse, new Point(pnlCourse.Location.X, pnlCourse.Location.Y - 140), Animation.Duration.Fast);
+			}
 		}
 	}
 }
