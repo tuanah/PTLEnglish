@@ -144,6 +144,7 @@ namespace PTLEnglish.GUI
 			if (pnlSideBar.Width == 50)
 			{
 				Animation.Transition(pnlSideBar, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
+				//Animation.Transition(pnlInfo, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
 			}
 			else if (pnlSideBar.Width == 250)
 			{
@@ -171,7 +172,26 @@ namespace PTLEnglish.GUI
 
 		private void pnlCourse_Click(object sender, EventArgs e)
 		{
+			Manage.LoadTree();
+			for (int i = 0; i < Manage.Tree.Length; i++)
+			{
+				pnlSideContent.Controls.Add(Manage.Tree[i][0]);
+				Manage.Tree[i][0].Location = new Point(75, pnlCourse.Location.Y + 50 + (Manage.Tree[i][0].Height * i));
+				Manage.Tree[i][0].MouseHover += LblCourse_Hover;
+				Manage.Tree[i][0].MouseLeave += LblCourse_Leave;
+			}
+		}
 
+		private void LblCourse_Leave(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+			lbl.BackColor = Color.Transparent;
+		}
+
+		private void LblCourse_Hover(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+			lbl.BackColor = Cons.Hover;
 		}
 	}
 }

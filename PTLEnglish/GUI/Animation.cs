@@ -48,6 +48,7 @@ namespace PTLEnglish.GUI
 
 		private static void TransitionTick(object sender, EventArgs e, Control control, Direction direction, int change, ref int lengthChange)
 		{
+			
 			if (lengthChange != 0)
 			{
 				switch (direction)

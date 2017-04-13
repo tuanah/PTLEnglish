@@ -9,12 +9,14 @@ using System.Windows.Forms;
 
 namespace PTLEnglish.DAL
 {
-	public class Manage
+	public static class Manage
 	{
-		private Topic topicData;
-		public Topic TopicData { get => topicData; set => topicData = value; }
+		private static Topic topicData;
 
-		private Word stringHandling(string line)
+		public static Topic TopicData { get => topicData; set => topicData = value; }
+		public static Label[][] Tree;
+
+		private static Word stringHandling(string line)
 		{
 			Word word = new Word();
 			string[] wordInfo = new string[3];
@@ -27,17 +29,17 @@ namespace PTLEnglish.DAL
 			return word;
 		}
 
-		public void LoadData(DirectoryInfo Dir)
+		public static void LoadData(DirectoryInfo Dir)
 		{
 			Word word = new Word();
-			this.TopicData = new Topic();
-			this.TopicData.WordList = new List<Word>();
+			TopicData = new Topic();
+			TopicData.WordList = new List<Word>();
 			string line;
 			FileInfo[] file = Dir.GetFiles();
 			FileStream fStream = new FileStream(file[0].FullName, FileMode.Open);
 			StreamReader sRead = new StreamReader(fStream, Encoding.UTF8);
 
-			this.TopicData.TopicName = Dir.Name;
+			TopicData.TopicName = Dir.Name;
 
 			while (!sRead.EndOfStream)
 			{
@@ -46,7 +48,7 @@ namespace PTLEnglish.DAL
 				{
 					word = stringHandling(line);
 					word.ImgPath = Dir.FullName + "\\Image\\" + word.Key.Replace(' ', '_') + ".jpg";
-					this.TopicData.WordList.Add(word);
+					TopicData.WordList.Add(word);
 				}
 			}
 
@@ -55,7 +57,7 @@ namespace PTLEnglish.DAL
 
 		}
 
-		public void SerializeToXML(object data, string filePath)
+		public static void SerializeToXML(object data, string filePath)
 		{
 			FileStream fstream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 			XmlSerializer sr = new XmlSerializer(typeof(Topic));
@@ -63,13 +65,35 @@ namespace PTLEnglish.DAL
 			fstream.Close();
 		}
 
-		public object DeserializeFromXML(string filePath)
+		public static object DeserializeFromXML(string filePath)
 		{
 			FileStream fstream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
 			XmlSerializer sr = new XmlSerializer(typeof(Topic));
 			object obj = sr.Deserialize(fstream);
 			fstream.Close();
 			return obj;
+		}
+
+		public static void LoadTree()
+		{
+			Tree = new Label[Cons.CourseDir.Length][];
+			for (int i = 0; i < Tree.Length; i++)
+			{
+				Tree[i] = new Label[Cons.CourseDir[i].GetDirectories().Length + 1];
+				for (int j = 0; j < Tree[i].Length; j++)
+				{
+					Tree[i][j] = new Label();
+					if (j == 0)
+					{
+						Tree[i][j].Text = Cons.CourseDir[i].Name;
+					}
+					else
+					{
+						Tree[i][j].Text = Cons.CourseDir[i].GetDirectories()[j - 1].Name;
+					}
+					Tree[i][j].Tag = i + "," + j;
+				}
+			}
 		}
 	}
 }

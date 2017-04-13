@@ -31,32 +31,33 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
 			this.pnlContent = new System.Windows.Forms.Panel();
 			this.pnlSideBar = new System.Windows.Forms.Panel();
+			this.pnlSideContent = new System.Windows.Forms.Panel();
 			this.pnlCourse = new System.Windows.Forms.Panel();
 			this.lblCourse = new System.Windows.Forms.Label();
 			this.picCourse = new System.Windows.Forms.PictureBox();
+			this.pnlInfo = new System.Windows.Forms.Panel();
+			this.lbllnfo = new System.Windows.Forms.Label();
+			this.picAccount = new System.Windows.Forms.PictureBox();
 			this.pnlInfoContent = new System.Windows.Forms.Panel();
 			this.txtRename = new System.Windows.Forms.TextBox();
 			this.picRenameBtn = new System.Windows.Forms.PictureBox();
 			this.lblName = new System.Windows.Forms.Label();
-			this.pnlInfo = new System.Windows.Forms.Panel();
-			this.lbllnfo = new System.Windows.Forms.Label();
-			this.picAccount = new System.Windows.Forms.PictureBox();
 			this.picMenuBtn = new System.Windows.Forms.PictureBox();
-			this.pnlSideContent = new System.Windows.Forms.Panel();
 			this.pnlSideBar.SuspendLayout();
+			this.pnlSideContent.SuspendLayout();
 			this.pnlCourse.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
-			this.pnlInfoContent.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.picRenameBtn)).BeginInit();
 			this.pnlInfo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picAccount)).BeginInit();
+			this.pnlInfoContent.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.picRenameBtn)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picMenuBtn)).BeginInit();
-			this.pnlSideContent.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlContent
 			// 
-			this.pnlContent.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.pnlContent.AutoScroll = true;
+			this.pnlContent.BackColor = System.Drawing.Color.Transparent;
 			this.pnlContent.ForeColor = System.Drawing.Color.Black;
 			this.pnlContent.Location = new System.Drawing.Point(250, 0);
 			this.pnlContent.Margin = new System.Windows.Forms.Padding(0);
@@ -75,6 +76,20 @@
 			this.pnlSideBar.Name = "pnlSideBar";
 			this.pnlSideBar.Size = new System.Drawing.Size(250, 561);
 			this.pnlSideBar.TabIndex = 0;
+			// 
+			// pnlSideContent
+			// 
+			this.pnlSideContent.AutoScroll = true;
+			this.pnlSideContent.BackColor = System.Drawing.Color.Transparent;
+			this.pnlSideContent.Controls.Add(this.pnlCourse);
+			this.pnlSideContent.Controls.Add(this.pnlInfo);
+			this.pnlSideContent.Controls.Add(this.pnlInfoContent);
+			this.pnlSideContent.ForeColor = System.Drawing.SystemColors.MenuText;
+			this.pnlSideContent.Location = new System.Drawing.Point(0, 45);
+			this.pnlSideContent.Margin = new System.Windows.Forms.Padding(0);
+			this.pnlSideContent.Name = "pnlSideContent";
+			this.pnlSideContent.Size = new System.Drawing.Size(250, 516);
+			this.pnlSideContent.TabIndex = 3;
 			// 
 			// pnlCourse
 			// 
@@ -97,6 +112,7 @@
 			this.lblCourse.TabIndex = 1;
 			this.lblCourse.Text = "Courses";
 			this.lblCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblCourse.Click += new System.EventHandler(this.pnlCourse_Click);
 			this.lblCourse.MouseEnter += new System.EventHandler(this.picCourse_MouseEnter);
 			this.lblCourse.MouseLeave += new System.EventHandler(this.picCourse_MouseLeave);
 			// 
@@ -109,8 +125,47 @@
 			this.picCourse.Size = new System.Drawing.Size(50, 45);
 			this.picCourse.TabIndex = 0;
 			this.picCourse.TabStop = false;
+			this.picCourse.Click += new System.EventHandler(this.pnlCourse_Click);
 			this.picCourse.MouseEnter += new System.EventHandler(this.picCourse_MouseEnter);
 			this.picCourse.MouseLeave += new System.EventHandler(this.picCourse_MouseLeave);
+			// 
+			// pnlInfo
+			// 
+			this.pnlInfo.BackColor = System.Drawing.Color.Transparent;
+			this.pnlInfo.Controls.Add(this.lbllnfo);
+			this.pnlInfo.Controls.Add(this.picAccount);
+			this.pnlInfo.Location = new System.Drawing.Point(0, 0);
+			this.pnlInfo.Name = "pnlInfo";
+			this.pnlInfo.Size = new System.Drawing.Size(250, 45);
+			this.pnlInfo.TabIndex = 1;
+			this.pnlInfo.Click += new System.EventHandler(this.pnlInfo_Click);
+			// 
+			// lbllnfo
+			// 
+			this.lbllnfo.Font = new System.Drawing.Font("Comic Sans MS", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbllnfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbllnfo.Location = new System.Drawing.Point(50, 0);
+			this.lbllnfo.Name = "lbllnfo";
+			this.lbllnfo.Size = new System.Drawing.Size(200, 45);
+			this.lbllnfo.TabIndex = 1;
+			this.lbllnfo.Text = "Infomation";
+			this.lbllnfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lbllnfo.Click += new System.EventHandler(this.pnlInfo_Click);
+			this.lbllnfo.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
+			this.lbllnfo.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
+			// 
+			// picAccount
+			// 
+			this.picAccount.Image = global::PTLEnglish.Properties.Resources.account_def;
+			this.picAccount.Location = new System.Drawing.Point(0, 0);
+			this.picAccount.Name = "picAccount";
+			this.picAccount.Padding = new System.Windows.Forms.Padding(13, 10, 0, 0);
+			this.picAccount.Size = new System.Drawing.Size(50, 45);
+			this.picAccount.TabIndex = 0;
+			this.picAccount.TabStop = false;
+			this.picAccount.Click += new System.EventHandler(this.pnlInfo_Click);
+			this.picAccount.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
+			this.picAccount.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
 			// 
 			// pnlInfoContent
 			// 
@@ -157,44 +212,6 @@
 			this.lblName.Text = "Name";
 			this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// pnlInfo
-			// 
-			this.pnlInfo.BackColor = System.Drawing.Color.Transparent;
-			this.pnlInfo.Controls.Add(this.lbllnfo);
-			this.pnlInfo.Controls.Add(this.picAccount);
-			this.pnlInfo.Location = new System.Drawing.Point(0, 0);
-			this.pnlInfo.Name = "pnlInfo";
-			this.pnlInfo.Size = new System.Drawing.Size(250, 45);
-			this.pnlInfo.TabIndex = 1;
-			this.pnlInfo.Click += new System.EventHandler(this.pnlInfo_Click);
-			// 
-			// lbllnfo
-			// 
-			this.lbllnfo.Font = new System.Drawing.Font("Comic Sans MS", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbllnfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbllnfo.Location = new System.Drawing.Point(50, 0);
-			this.lbllnfo.Name = "lbllnfo";
-			this.lbllnfo.Size = new System.Drawing.Size(200, 45);
-			this.lbllnfo.TabIndex = 1;
-			this.lbllnfo.Text = "Infomation";
-			this.lbllnfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.lbllnfo.Click += new System.EventHandler(this.pnlInfo_Click);
-			this.lbllnfo.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
-			this.lbllnfo.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
-			// 
-			// picAccount
-			// 
-			this.picAccount.Image = global::PTLEnglish.Properties.Resources.account_def;
-			this.picAccount.Location = new System.Drawing.Point(0, 0);
-			this.picAccount.Name = "picAccount";
-			this.picAccount.Padding = new System.Windows.Forms.Padding(13, 10, 0, 0);
-			this.picAccount.Size = new System.Drawing.Size(50, 45);
-			this.picAccount.TabIndex = 0;
-			this.picAccount.TabStop = false;
-			this.picAccount.Click += new System.EventHandler(this.pnlInfo_Click);
-			this.picAccount.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
-			this.picAccount.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
-			// 
 			// picMenuBtn
 			// 
 			this.picMenuBtn.BackColor = System.Drawing.Color.Transparent;
@@ -209,47 +226,35 @@
 			this.picMenuBtn.MouseEnter += new System.EventHandler(this.picMenuBtn_MouseEnter);
 			this.picMenuBtn.MouseLeave += new System.EventHandler(this.picMenuBtn_MouseLeave);
 			// 
-			// pnlSideContent
-			// 
-			this.pnlSideContent.AutoScroll = true;
-			this.pnlSideContent.BackColor = System.Drawing.Color.Transparent;
-			this.pnlSideContent.Controls.Add(this.pnlCourse);
-			this.pnlSideContent.Controls.Add(this.pnlInfo);
-			this.pnlSideContent.Controls.Add(this.pnlInfoContent);
-			this.pnlSideContent.ForeColor = System.Drawing.SystemColors.MenuText;
-			this.pnlSideContent.Location = new System.Drawing.Point(0, 45);
-			this.pnlSideContent.Margin = new System.Windows.Forms.Padding(0);
-			this.pnlSideContent.Name = "pnlSideContent";
-			this.pnlSideContent.Size = new System.Drawing.Size(250, 516);
-			this.pnlSideContent.TabIndex = 3;
-			// 
 			// fMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 10F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.BackColor = System.Drawing.SystemColors.Highlight;
 			this.ClientSize = new System.Drawing.Size(784, 561);
 			this.Controls.Add(this.pnlContent);
 			this.Controls.Add(this.pnlSideBar);
+			this.DoubleBuffered = true;
 			this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.MaximumSize = new System.Drawing.Size(800, 600);
 			this.Name = "fMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PTLPTLEnglish";
+			this.TransparencyKey = System.Drawing.SystemColors.Highlight;
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fMain_FormClosed);
 			this.pnlSideBar.ResumeLayout(false);
+			this.pnlSideContent.ResumeLayout(false);
 			this.pnlCourse.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
+			this.pnlInfo.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.picAccount)).EndInit();
 			this.pnlInfoContent.ResumeLayout(false);
 			this.pnlInfoContent.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picRenameBtn)).EndInit();
-			this.pnlInfo.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.picAccount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picMenuBtn)).EndInit();
-			this.pnlSideContent.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
