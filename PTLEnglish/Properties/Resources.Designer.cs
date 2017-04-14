@@ -103,16 +103,6 @@ namespace PTLEnglish.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg_sidebar {
-            get {
-                object obj = ResourceManager.GetObject("bg_sidebar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap course {
             get {
                 object obj = ResourceManager.GetObject("course", resourceCulture);
@@ -156,6 +146,26 @@ namespace PTLEnglish.Properties {
         internal static System.Drawing.Bitmap pencil {
             get {
                 object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pic_close {
+            get {
+                object obj = ResourceManager.GetObject("pic-close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pic_minimize {
+            get {
+                object obj = ResourceManager.GetObject("pic-minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

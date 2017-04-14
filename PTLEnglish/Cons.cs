@@ -20,7 +20,7 @@ namespace PTLEnglish
 		public static string Path = "Data";
 
 		public static Color Hover = Color.FromArgb(222, 237, 255);
-		public static Color Text = Color.FromArgb(174, 174, 174);
+		public static Color _Gray = Color.FromArgb(174, 174, 174);
 
 		public static DirectoryInfo[] TopicDir { get => topicDir; set => topicDir = value; }
 

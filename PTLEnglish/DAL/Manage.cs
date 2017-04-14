@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Windows.Forms;
+using System.Drawing;
+using PTLEnglish.GUI;
 
 namespace PTLEnglish.DAL
 {
@@ -14,7 +16,8 @@ namespace PTLEnglish.DAL
 		private static Topic topicData;
 
 		public static Topic TopicData { get => topicData; set => topicData = value; }
-		public static Label[][] Tree;
+
+		public static FlowLayoutPanel[] ListCourses = new FlowLayoutPanel[Cons.CourseDir.Length * 2];
 
 		private static Word stringHandling(string line)
 		{
@@ -74,26 +77,5 @@ namespace PTLEnglish.DAL
 			return obj;
 		}
 
-		public static void LoadTree()
-		{
-			Tree = new Label[Cons.CourseDir.Length][];
-			for (int i = 0; i < Tree.Length; i++)
-			{
-				Tree[i] = new Label[Cons.CourseDir[i].GetDirectories().Length + 1];
-				for (int j = 0; j < Tree[i].Length; j++)
-				{
-					Tree[i][j] = new Label();
-					if (j == 0)
-					{
-						Tree[i][j].Text = Cons.CourseDir[i].Name;
-					}
-					else
-					{
-						Tree[i][j].Text = Cons.CourseDir[i].GetDirectories()[j - 1].Name;
-					}
-					Tree[i][j].Tag = i + "," + j;
-				}
-			}
-		}
 	}
 }

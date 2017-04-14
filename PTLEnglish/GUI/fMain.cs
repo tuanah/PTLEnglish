@@ -17,29 +17,189 @@ namespace PTLEnglish.GUI
 		public fMain()
 		{
 			InitializeComponent();
-			lblName.Text = User.UserName;
-			
-			CirclePictureBox cp = new CirclePictureBox();
+
+			lbl_Name.Text = User.UserName;
+
+			#region Set Rounded Border for pic_Avatar
+			CirclePictureBox pic_Avatar = new CirclePictureBox();
 			try
 			{
-				cp.Image = Image.FromFile(User.UserAvaPath);
+				pic_Avatar.Image = Image.FromFile(User.UserAvaPath);
 			}
 			catch
 			{
-				cp.Image = global::PTLEnglish.Properties.Resources.avatar_default;
+				pic_Avatar.Image = global::PTLEnglish.Properties.Resources.avatar_default;
 			}
 
-			cp.Location = new Point(22, 6);
-			cp.Size = new Size(100, 100);
-			cp.SizeMode = PictureBoxSizeMode.Zoom;
-			pnlInfoContent.Controls.Add(cp);
-			cp.Click += Cp_Click;
-			txtRename.LostFocus += TxtRename_LostFocus;
+			pic_Avatar.Location = new Point(22, 6);
+			pic_Avatar.Size = new Size(100, 100);
+			pic_Avatar.SizeMode = PictureBoxSizeMode.Zoom;
+			pnl_Info_Content.Controls.Add(pic_Avatar);
+			pic_Avatar.Click += Pic_Avatar_Click;
+			#endregion
+
+			#region Hide ScrollBar
+			fpnl_Course_Content.AutoScroll = false;
+			fpnl_Course_Content.HorizontalScroll.Enabled = false;
+			fpnl_Course_Content.HorizontalScroll.Visible = false;
+			fpnl_Course_Content.HorizontalScroll.Maximum = 0;
+
+			fpnl_Course_Content.VerticalScroll.Enabled = false;
+			fpnl_Course_Content.VerticalScroll.Visible = false;
+			fpnl_Course_Content.VerticalScroll.Maximum = 0;
+			fpnl_Course_Content.AutoScroll = true;
+			#endregion
+
+
 		}
 
-		private void TxtRename_LostFocus(object sender, EventArgs e)
+		#region fMain
+		private void fMain_Load(object sender, EventArgs e)
 		{
-			txtRename.Visible = false;
+			//for (int i = 0; i < Manage.ListCourses.Length; i++)
+			//{
+			//	Manage.ListCourses[i] = new FlowLayoutPanel();
+			//	for (int j = 0; j < Cons.CourseDir[i / 2].GetDirectories().Length; j++)
+			//	{
+			//		Label lbl = new Label();
+			//		lbl.ForeColor = SystemColors.ButtonFace;
+			//		lbl.Font = new Font("Microsoft Yahei Light", 14F);
+			//		lbl.AutoSize = false;
+			//		lbl.TextAlign = ContentAlignment.MiddleLeft;
+			//		lbl.Margin = new Padding(20, 0, 0, 0);
+			//		lbl.Size = new Size(fpnl_Course_Content.Width - lbl.Margin.Left, 35);
+			//		lbl.Tag = i + 1;
+
+			//		lbl.MouseEnter += LblCourse_Enter;
+			//		lbl.MouseLeave += LblCourse_Leave;
+
+			//		if (j == 0 && i % 2 == 0)
+			//		{
+			//			lbl.Text = Cons.CourseDir[i / 2].Name;
+			//			Manage.ListCourses[i].Controls.Add(lbl);
+			//			lbl.Click += Course_Clk;
+			//			break;
+			//		}
+			//		else
+			//		{
+			//			lbl.Text = Cons.CourseDir[i / 2].GetDirectories()[j].Name;
+			//			lbl.Margin = new Padding(40, 0, 0, 0);
+			//			lbl.Click += Topic_Clk;
+			//			Manage.ListCourses[i].Controls.Add(lbl);
+			//		}
+			//	}
+
+			//	//if (i % 2 == 0)
+			//	//{
+			//	//	Manage.ListCourses[i].Margin = new Padding(20, 0, 0, 0);
+			//	//}
+			//	//else
+			//	//{
+			//	//	Manage.ListCourses[i].Margin = new Padding(40, 0, 0, 0);
+			//	//	Manage.ListCourses[i].Visible = false;
+			//	//}
+
+			//	if (i %2 != 0)
+			//	{
+			//		Manage.ListCourses[i].Visible = false;
+			//	}
+
+			//	//Set maxsize cho Manage.ListCourses[i] bằng số lượng phần tử * Height của mỗi phần tử
+			//	Manage.ListCourses[i].MaximumSize = new Size(Manage.ListCourses[i].Width, Manage.ListCourses[i].Controls.Count * 35);
+			//	//Set maxsize cho Manage.ListCourses[i] bằng Height của 1 phần tử
+			//	Manage.ListCourses[i].MinimumSize = new Size(Manage.ListCourses[i].Width, 35);
+
+			//	Manage.ListCourses[i].Size = new Size(Manage.ListCourses[i].Width, 35);
+			//	fpnl_Course_Content.Controls.Add(Manage.ListCourses[i]);
+			//}
+		}
+
+		private void fMain_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
+
+		#endregion
+
+		#region Method for pnl_SideBar
+
+		private void picMenuBtn_MouseEnter(object sender, EventArgs e)
+		{
+			pic_MenuBtn.BackColor = Cons.Hover;
+			pic_MenuBtn.Image = global::PTLEnglish.Properties.Resources.menu;
+		}
+
+		private void picMenuBtn_MouseLeave(object sender, EventArgs e)
+		{
+			pic_MenuBtn.BackColor = Color.Transparent;
+			pic_MenuBtn.Image = global::PTLEnglish.Properties.Resources.menu_def;
+		}
+
+		private void picMenuBtn_Click(object sender, EventArgs e)
+		{
+			if (pnl_SideBar.Width == 50)
+			{
+				Animation.Transition(pnl_SideBar, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
+			}
+			else if (pnl_SideBar.Width == 250)
+			{
+				Animation.Transition(pnl_SideBar, -200, Animation.Duration.Immediately, Animation.Direction.Vertical);
+			}
+		}
+
+		#region pnl_Info
+		private void pnlInfo_Click(object sender, EventArgs e)
+		{
+			if (pnl_SideBar.Width == 50)
+				return;
+			if (pnl_Info_Content.Height == 0)
+			{
+				Animation.Transition(pnl_Info_Content, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+				Animation.Move(pnl_Course_Block, new Point(pnl_Course_Block.Location.X, pnl_Course_Block.Location.Y + 140), Animation.Duration.Normal);
+				
+				Animation.Transition(pnl_Course_Block, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+			}
+			else
+			{
+				Animation.Transition(pnl_Info_Content, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+				Animation.Move(pnl_Course_Block, new Point(pnl_Course_Block.Location.X, pnl_Course_Block.Location.Y - 140), Animation.Duration.Normal);
+				Animation.Transition(pnl_Course_Block, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+			}
+		}
+
+		private void picAccount_MouseEnter(object sender, EventArgs e)
+		{
+			pnl_Info.BackColor = Cons.Hover;
+			pic_Account.Image = global::PTLEnglish.Properties.Resources.account_icon;
+			lbl_lnfo.ForeColor = Cons._Gray;
+		}
+
+		private void picAccount_MouseLeave(object sender, EventArgs e)
+		{
+			pnl_Info.BackColor = Color.Transparent;
+			pic_Account.Image = global::PTLEnglish.Properties.Resources.account_def;
+			lbl_lnfo.ForeColor = SystemColors.ButtonFace;
+		}
+		#endregion
+
+		#region pnl_Info_Content
+		private void Pic_Avatar_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog open = new OpenFileDialog();
+			open.Filter = "JPG (*.jpg)|*.jpg| PNG (*.png)|*.png";
+			if (open.ShowDialog() == DialogResult.OK)
+			{
+				CirclePictureBox cp = sender as CirclePictureBox;
+				cp.Image = Image.FromFile(open.FileName);
+				User.UserAvaPath = open.FileName;
+			}
+		}
+
+		private void picRenameBtn_Click(object sender, EventArgs e)
+		{
+			txt_Rename.Text = "";
+			txt_Rename.Visible = true;
+			txt_Rename.Focus();
 		}
 
 		private bool TestKeyValid(char keyPress)
@@ -55,143 +215,138 @@ namespace PTLEnglish.GUI
 			return false;
 		}
 
-		private void Cp_Click(object sender, EventArgs e)
+		private void txtRename_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			OpenFileDialog open = new OpenFileDialog();
-			open.Filter = "JPG (*.jpg)|*.jpg| PNG (*.png)|*.png";
-			if (open.ShowDialog() == DialogResult.OK)
+			if (TestKeyValid(e.KeyChar) && txt_Rename.Text.Length <= 8)
 			{
-				CirclePictureBox cp = sender as CirclePictureBox;
-				cp.Image = Image.FromFile(open.FileName);
-				User.UserAvaPath = open.FileName;
+				if (e.KeyChar == (char)Keys.Enter)
+				{
+					if (txt_Rename.Text != "")
+					{
+						User.UserName = txt_Rename.Text;
+						lbl_Name.Text = txt_Rename.Text;
+					}
+
+					txt_Rename.Visible = false;
+				}
 			}
+			else if (e.KeyChar == (char)Keys.Back && txt_Rename.Text != "")
+				txt_Rename.Text = txt_Rename.Text.Remove(txt_Rename.Text.Length - 1, 1);
+			else e.Handled = true;
 		}
+		#endregion
 
-		private void fMain_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			Application.Exit();
-		}
-
-		private void picMenuBtn_MouseEnter(object sender, EventArgs e)
-		{
-			picMenuBtn.BackColor = Cons.Hover;
-			picMenuBtn.Image = global::PTLEnglish.Properties.Resources.menu;
-		}
-
-		private void picMenuBtn_MouseLeave(object sender, EventArgs e)
-		{
-			picMenuBtn.BackColor = Color.Transparent;
-			picMenuBtn.Image = global::PTLEnglish.Properties.Resources.menu_def;
-		}
-
-		private void picAccount_MouseEnter(object sender, EventArgs e)
-		{
-			pnlInfo.BackColor = Cons.Hover;
-			picAccount.Image = global::PTLEnglish.Properties.Resources.account_icon;
-			lbllnfo.ForeColor = Cons.Text;
-		}
-
-		private void picAccount_MouseLeave(object sender, EventArgs e)
-		{
-			pnlInfo.BackColor = Color.Transparent;
-			picAccount.Image = global::PTLEnglish.Properties.Resources.account_def;
-			lbllnfo.ForeColor = SystemColors.ButtonFace;
-		}
+		#region pnl_Course
 
 		private void picCourse_MouseEnter(object sender, EventArgs e)
 		{
-			pnlCourse.BackColor = Cons.Hover;
-			picCourse.Image = global::PTLEnglish.Properties.Resources.course;
-			lblCourse.ForeColor = Cons.Text;
+			pnl_Course.BackColor = Cons.Hover;
+			pic_Course.Image = global::PTLEnglish.Properties.Resources.course;
+			lbl_Course.ForeColor = Cons._Gray;
 		}
 
 		private void picCourse_MouseLeave(object sender, EventArgs e)
 		{
-			pnlCourse.BackColor = Color.Transparent;
-			picCourse.Image = global::PTLEnglish.Properties.Resources.course_def;
-			lblCourse.ForeColor = SystemColors.ButtonFace;
+			pnl_Course.BackColor = Color.Transparent;
+			pic_Course.Image = global::PTLEnglish.Properties.Resources.course_def;
+			lbl_Course.ForeColor = SystemColors.ButtonFace;
 		}
+		#endregion
 
-		private void picRenameBtn_Click(object sender, EventArgs e)
-		{
-			txtRename.Text = "";
-			txtRename.Visible = true;
-			txtRename.Focus();
-		}
-
-		private void txtRename_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (TestKeyValid(e.KeyChar) && txtRename.Text.Length <= 8)
-			{
-				if (e.KeyChar == (char)Keys.Enter)
-				{
-					if (txtRename.Text != "")
-					{
-						User.UserName = txtRename.Text;
-						lblName.Text = txtRename.Text;
-					}
-
-					txtRename.Visible = false;
-				}
-			}
-			else if (e.KeyChar == (char)Keys.Back && txtRename.Text != "")
-				txtRename.Text = txtRename.Text.Remove(txtRename.Text.Length - 1, 1);
-			else e.Handled = true;
-		}
-
-		private void picMenuBtn_Click(object sender, EventArgs e)
-		{
-			if (pnlSideBar.Width == 50)
-			{
-				Animation.Transition(pnlSideBar, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
-				//Animation.Transition(pnlInfo, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
-			}
-			else if (pnlSideBar.Width == 250)
-			{
-				Animation.Transition(pnlSideBar, -200, Animation.Duration.Immediately, Animation.Direction.Vertical);
-			}
-
-
-		}
-
-		private void pnlInfo_Click(object sender, EventArgs e)
-		{
-			if (pnlSideBar.Width == 50)
-				return;
-			if (pnlInfoContent.Height == 0)
-			{
-				Animation.Transition(pnlInfoContent, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
-				Animation.Move(pnlCourse, new Point(pnlCourse.Location.X, pnlCourse.Location.Y + 140), Animation.Duration.Fast);
-			}
-			else
-			{
-				Animation.Transition(pnlInfoContent, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
-				Animation.Move(pnlCourse, new Point(pnlCourse.Location.X, pnlCourse.Location.Y - 140), Animation.Duration.Fast);
-			}
-		}
-
-		private void pnlCourse_Click(object sender, EventArgs e)
-		{
-			Manage.LoadTree();
-			for (int i = 0; i < Manage.Tree.Length; i++)
-			{
-				pnlSideContent.Controls.Add(Manage.Tree[i][0]);
-				Manage.Tree[i][0].Location = new Point(75, pnlCourse.Location.Y + 50 + (Manage.Tree[i][0].Height * i));
-				Manage.Tree[i][0].MouseHover += LblCourse_Hover;
-				Manage.Tree[i][0].MouseLeave += LblCourse_Leave;
-			}
-		}
-
+		#region fpnl_Course_Content
 		private void LblCourse_Leave(object sender, EventArgs e)
 		{
 			Label lbl = sender as Label;
 			lbl.BackColor = Color.Transparent;
+			lbl.ForeColor = SystemColors.ButtonFace;
 		}
 
-		private void LblCourse_Hover(object sender, EventArgs e)
+		private void LblCourse_Enter(object sender, EventArgs e)
 		{
 			Label lbl = sender as Label;
 			lbl.BackColor = Cons.Hover;
+			lbl.ForeColor = Cons._Gray;
 		}
+
+		private void Course_Clk(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+
+			if(Manage.ListCourses[(int)(lbl.Tag)].Height == 35 )
+			{
+				Manage.ListCourses[(int)(lbl.Tag)].Visible = true;
+				Animation.Transition(Manage.ListCourses[(int)(lbl.Tag)], Manage.ListCourses[(int)(lbl.Tag)].MaximumSize.Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
+			}
+			else
+			{
+				Manage.ListCourses[(int)(lbl.Tag)].Size = new Size(Manage.ListCourses[(int)(lbl.Tag)].Width, 35);
+				Manage.ListCourses[(int)(lbl.Tag)].Visible = false;
+			}
+
+			for (int i = 0; i < Manage.ListCourses.Length; i++)
+			{
+				if (i % 2 != 0 && i != (int)lbl.Tag)
+				{
+					if(Manage.ListCourses[i].Visible)
+					{
+						Animation.Transition(Manage.ListCourses[i], -Manage.ListCourses[i].Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
+						Manage.ListCourses[i].Visible = false;
+						break;
+					}
+					
+				}
+			}
+		}
+
+		private void Topic_Clk(object sender, EventArgs e)
+		{
+			//throw new NotImplementedException();
+		}
+
+
+		#endregion
+		#endregion
+
+		#region Method for pnl_Content
+		#region pnl_Panel
+		private void lbl_Close_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void lbl_Close_MouseEnter(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+			lbl.BackColor = Color.DarkRed;
+			lbl.ForeColor = SystemColors.ButtonFace;
+		}
+
+		private void lbl_Close_MouseLeave(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+			lbl.BackColor = Color.Transparent;
+			lbl.ForeColor = Color.Black;
+
+		}
+
+		private void lbl_Minimize_Click(object sender, EventArgs e)
+		{
+			this.WindowState = FormWindowState.Minimized;
+		}
+
+		private void lbl_Minimize_MouseEnter(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+			lbl.BackColor = Color.LightGray;
+		}
+
+		private void lbl_Minimize_MouseLeave(object sender, EventArgs e)
+		{
+			Label lbl = sender as Label;
+			lbl.BackColor = Color.Transparent;
+		}
+		#endregion
+
+		#endregion
 	}
 }
