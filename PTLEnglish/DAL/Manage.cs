@@ -17,8 +17,6 @@ namespace PTLEnglish.DAL
 
 		public static Topic TopicData { get => topicData; set => topicData = value; }
 
-		public static FlowLayoutPanel[] ListCourses = new FlowLayoutPanel[Cons.CourseDir.Length * 2];
-
 		private static Word stringHandling(string line)
 		{
 			Word word = new Word();
@@ -54,10 +52,8 @@ namespace PTLEnglish.DAL
 					TopicData.WordList.Add(word);
 				}
 			}
-
 			sRead.Close();
 			fStream.Close();
-
 		}
 
 		public static void SerializeToXML(object data, string filePath)

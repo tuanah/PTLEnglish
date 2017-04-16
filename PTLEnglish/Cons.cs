@@ -15,12 +15,19 @@ namespace PTLEnglish
 		private static DirectoryInfo[] topicDir;
 
 		/// <summary>
-		/// Path of directory saved data
+		/// Đường dẫn của thư mục Dữ liệu
 		/// </summary>
 		public static string Path = "Data";
 
-		public static Color Hover = Color.FromArgb(222, 237, 255);
-		public static Color _Gray = Color.FromArgb(174, 174, 174);
+		public static Color ColorHov = Color.FromArgb(222, 237, 255);
+		public static Color ColorGray = Color.FromArgb(174, 174, 174);
+
+		/// <summary>
+		/// Hexagon size
+		/// </summary>
+		public static int Size = 125;
+		public static int numOfCol = 5;
+		public static int numOfRow = 4;
 
 		public static DirectoryInfo[] TopicDir { get => topicDir; set => topicDir = value; }
 

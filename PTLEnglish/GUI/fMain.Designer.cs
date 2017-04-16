@@ -30,11 +30,12 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
 			this.pnl_Content = new System.Windows.Forms.Panel();
+			this.pnl_Grid = new System.Windows.Forms.Panel();
 			this.pnl_Panel = new System.Windows.Forms.Panel();
 			this.lbl_Close = new System.Windows.Forms.Label();
 			this.lbl_Minimize = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pnl_SideBar = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pic_MenuBtn = new System.Windows.Forms.PictureBox();
 			this.pnl_Course_Block = new System.Windows.Forms.Panel();
 			this.fpnl_Course_Content = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,10 +49,11 @@
 			this.pnl_Info = new System.Windows.Forms.Panel();
 			this.lbl_lnfo = new System.Windows.Forms.Label();
 			this.pic_Account = new System.Windows.Forms.PictureBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.pnl_Content.SuspendLayout();
 			this.pnl_Panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.pnl_SideBar.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_MenuBtn)).BeginInit();
 			this.pnl_Course_Block.SuspendLayout();
 			this.pnl_Course.SuspendLayout();
@@ -66,8 +68,8 @@
 			// 
 			this.pnl_Content.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.pnl_Content.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.pnl_Content.Controls.Add(this.pnl_Grid);
 			this.pnl_Content.Controls.Add(this.pnl_Panel);
-			this.pnl_Content.Controls.Add(this.pictureBox1);
 			this.pnl_Content.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnl_Content.ForeColor = System.Drawing.Color.Black;
 			this.pnl_Content.Location = new System.Drawing.Point(250, 0);
@@ -76,13 +78,21 @@
 			this.pnl_Content.Size = new System.Drawing.Size(534, 561);
 			this.pnl_Content.TabIndex = 1;
 			// 
+			// pnl_Grid
+			// 
+			this.pnl_Grid.AutoScroll = true;
+			this.pnl_Grid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnl_Grid.Location = new System.Drawing.Point(0, 25);
+			this.pnl_Grid.Name = "pnl_Grid";
+			this.pnl_Grid.Size = new System.Drawing.Size(534, 536);
+			this.pnl_Grid.TabIndex = 2;
+			// 
 			// pnl_Panel
 			// 
-			this.pnl_Panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_Panel.BackColor = System.Drawing.Color.Transparent;
 			this.pnl_Panel.Controls.Add(this.lbl_Close);
 			this.pnl_Panel.Controls.Add(this.lbl_Minimize);
+			this.pnl_Panel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnl_Panel.Location = new System.Drawing.Point(0, 0);
 			this.pnl_Panel.Name = "pnl_Panel";
 			this.pnl_Panel.Size = new System.Drawing.Size(534, 25);
@@ -121,19 +131,11 @@
 			this.lbl_Minimize.MouseEnter += new System.EventHandler(this.lbl_Minimize_MouseEnter);
 			this.lbl_Minimize.MouseLeave += new System.EventHandler(this.lbl_Minimize_MouseLeave);
 			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pictureBox1.Location = new System.Drawing.Point(39, 45);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(435, 479);
-			this.pictureBox1.TabIndex = 0;
-			this.pictureBox1.TabStop = false;
-			// 
 			// pnl_SideBar
 			// 
 			this.pnl_SideBar.BackColor = System.Drawing.Color.SeaGreen;
+			this.pnl_SideBar.Controls.Add(this.label1);
+			this.pnl_SideBar.Controls.Add(this.pictureBox1);
 			this.pnl_SideBar.Controls.Add(this.pic_MenuBtn);
 			this.pnl_SideBar.Controls.Add(this.pnl_Course_Block);
 			this.pnl_SideBar.Controls.Add(this.pnl_Info_Content);
@@ -146,17 +148,31 @@
 			this.pnl_SideBar.Size = new System.Drawing.Size(250, 561);
 			this.pnl_SideBar.TabIndex = 0;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(9, 9);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Padding = new System.Windows.Forms.Padding(13, 16, 0, 0);
+			this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 4;
+			this.pictureBox1.TabStop = false;
+			// 
 			// pic_MenuBtn
 			// 
 			this.pic_MenuBtn.BackColor = System.Drawing.Color.Transparent;
 			this.pic_MenuBtn.Image = global::PTLEnglish.Properties.Resources.menu_def;
-			this.pic_MenuBtn.Location = new System.Drawing.Point(0, 0);
+			this.pic_MenuBtn.Location = new System.Drawing.Point(200, 0);
 			this.pic_MenuBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.pic_MenuBtn.Name = "pic_MenuBtn";
 			this.pic_MenuBtn.Padding = new System.Windows.Forms.Padding(13, 16, 0, 0);
 			this.pic_MenuBtn.Size = new System.Drawing.Size(50, 45);
 			this.pic_MenuBtn.TabIndex = 0;
 			this.pic_MenuBtn.TabStop = false;
+			this.pic_MenuBtn.Visible = false;
 			this.pic_MenuBtn.Click += new System.EventHandler(this.picMenuBtn_Click);
 			this.pic_MenuBtn.MouseEnter += new System.EventHandler(this.picMenuBtn_MouseEnter);
 			this.pic_MenuBtn.MouseLeave += new System.EventHandler(this.picMenuBtn_MouseLeave);
@@ -175,7 +191,7 @@
 			// 
 			// fpnl_Course_Content
 			// 
-			this.fpnl_Course_Content.BackColor = System.Drawing.Color.White;
+			this.fpnl_Course_Content.BackColor = System.Drawing.Color.Transparent;
 			this.fpnl_Course_Content.Dock = System.Windows.Forms.DockStyle.Right;
 			this.fpnl_Course_Content.Location = new System.Drawing.Point(50, 45);
 			this.fpnl_Course_Content.Margin = new System.Windows.Forms.Padding(0);
@@ -193,6 +209,7 @@
 			this.pnl_Course.Name = "pnl_Course";
 			this.pnl_Course.Size = new System.Drawing.Size(250, 45);
 			this.pnl_Course.TabIndex = 2;
+			this.pnl_Course.Click += new System.EventHandler(this.pnl_Course_Click);
 			// 
 			// lbl_Course
 			// 
@@ -204,6 +221,7 @@
 			this.lbl_Course.TabIndex = 1;
 			this.lbl_Course.Text = "Courses";
 			this.lbl_Course.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lbl_Course.Click += new System.EventHandler(this.pnl_Course_Click);
 			this.lbl_Course.MouseEnter += new System.EventHandler(this.picCourse_MouseEnter);
 			this.lbl_Course.MouseLeave += new System.EventHandler(this.picCourse_MouseLeave);
 			// 
@@ -305,6 +323,17 @@
 			this.pic_Account.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
 			this.pic_Account.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
 			// 
+			// label1
+			// 
+			this.label1.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.label1.Location = new System.Drawing.Point(42, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(200, 45);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "PTLEnglish";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// fMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 10F);
@@ -327,8 +356,8 @@
 			this.Load += new System.EventHandler(this.fMain_Load);
 			this.pnl_Content.ResumeLayout(false);
 			this.pnl_Panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.pnl_SideBar.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_MenuBtn)).EndInit();
 			this.pnl_Course_Block.ResumeLayout(false);
 			this.pnl_Course.ResumeLayout(false);
@@ -358,10 +387,12 @@
 		private System.Windows.Forms.PictureBox pic_RenameBtn;
 		private System.Windows.Forms.TextBox txt_Rename;
 		private System.Windows.Forms.Panel pnl_Course_Block;
-		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.FlowLayoutPanel fpnl_Course_Content;
 		private System.Windows.Forms.Panel pnl_Panel;
 		private System.Windows.Forms.Label lbl_Close;
 		private System.Windows.Forms.Label lbl_Minimize;
+		private System.Windows.Forms.Panel pnl_Grid;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label label1;
 	}
 }

@@ -31,8 +31,7 @@ namespace PTLEnglish.GUI
 				Bitmap Imagem = new Bitmap(this.Width - 1, this.Height - 1, PixelFormat.Format24bppRgb);
 				using (Graphics grp = Graphics.FromImage(Imagem))
 				{
-					grp.FillRectangle(
-						Brushes.White, 0, 0, this.Width - 1, this.Height - 1);
+					grp.FillRectangle(Brushes.White, 0, 0, this.Width - 1, this.Height - 1);
 					Imagem = new Bitmap(this.Width - 1, this.Height - 1, grp);
 				}
 				brushImege = new TextureBrush(Imagem);

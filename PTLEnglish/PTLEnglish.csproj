@@ -66,6 +66,12 @@
     <Compile Include="GUI\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Hexagon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Hexagon.Designer.cs">
+      <DependentUpon>Hexagon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Hexagon.resx">
+      <DependentUpon>Hexagon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

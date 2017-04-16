@@ -14,6 +14,16 @@ namespace PTLEnglish.GUI
 {
 	public partial class fMain : Form
 	{
+		/// <summary>
+		/// Danh sách các Courses trên pnl bên trái màn hình
+		/// </summary>
+		public FlowLayoutPanel[] ListCourses = new FlowLayoutPanel[Cons.CourseDir.Length * 2];
+
+		/// <summary>
+		/// Tập hợp các hình lục giác bên phải màn hình
+		/// </summary>
+		public List<List<Hexagon>> HexagonGrid;
+
 		public fMain()
 		{
 			InitializeComponent();
@@ -56,62 +66,56 @@ namespace PTLEnglish.GUI
 		#region fMain
 		private void fMain_Load(object sender, EventArgs e)
 		{
-			//for (int i = 0; i < Manage.ListCourses.Length; i++)
-			//{
-			//	Manage.ListCourses[i] = new FlowLayoutPanel();
-			//	for (int j = 0; j < Cons.CourseDir[i / 2].GetDirectories().Length; j++)
-			//	{
-			//		Label lbl = new Label();
-			//		lbl.ForeColor = SystemColors.ButtonFace;
-			//		lbl.Font = new Font("Microsoft Yahei Light", 14F);
-			//		lbl.AutoSize = false;
-			//		lbl.TextAlign = ContentAlignment.MiddleLeft;
-			//		lbl.Margin = new Padding(20, 0, 0, 0);
-			//		lbl.Size = new Size(fpnl_Course_Content.Width - lbl.Margin.Left, 35);
-			//		lbl.Tag = i + 1;
+			for (int i = 0; i < ListCourses.Length; i++)
+			{
+				ListCourses[i] = new FlowLayoutPanel();
+				for (int j = 0; j < Cons.CourseDir[i / 2].GetDirectories().Length; j++)
+				{
+					Label lbl = new Label();
+					lbl.Name = (i / 2).ToString();
+					lbl.ForeColor = SystemColors.ButtonFace;
+					lbl.Font = new Font("Microsoft Yahei Light", 14F);
+					lbl.AutoSize = false;
+					lbl.TextAlign = ContentAlignment.MiddleLeft;
+					lbl.Margin = new Padding(20, 0, 0, 0);
+					lbl.Size = new Size(fpnl_Course_Content.Width - lbl.Margin.Left, 35);
+					lbl.Tag = i + 1;
 
-			//		lbl.MouseEnter += LblCourse_Enter;
-			//		lbl.MouseLeave += LblCourse_Leave;
+					lbl.MouseEnter += LblCourse_Enter;
+					lbl.MouseLeave += LblCourse_Leave;
 
-			//		if (j == 0 && i % 2 == 0)
-			//		{
-			//			lbl.Text = Cons.CourseDir[i / 2].Name;
-			//			Manage.ListCourses[i].Controls.Add(lbl);
-			//			lbl.Click += Course_Clk;
-			//			break;
-			//		}
-			//		else
-			//		{
-			//			lbl.Text = Cons.CourseDir[i / 2].GetDirectories()[j].Name;
-			//			lbl.Margin = new Padding(40, 0, 0, 0);
-			//			lbl.Click += Topic_Clk;
-			//			Manage.ListCourses[i].Controls.Add(lbl);
-			//		}
-			//	}
+					if (i % 2 == 0)
+					{
+						lbl.Text = Cons.CourseDir[i / 2].Name;
+						ListCourses[i].Controls.Add(lbl);
+						lbl.Click += Course_Clk;
+						break;
+					}
+					else
+					{
+						lbl.Text = Cons.CourseDir[i / 2].GetDirectories()[j].Name;
+						lbl.Margin = new Padding(40, 0, 0, 0);
+						lbl.Click += Topic_Clk;
+						ListCourses[i].Controls.Add(lbl);
+					}
+				}
 
-			//	//if (i % 2 == 0)
-			//	//{
-			//	//	Manage.ListCourses[i].Margin = new Padding(20, 0, 0, 0);
-			//	//}
-			//	//else
-			//	//{
-			//	//	Manage.ListCourses[i].Margin = new Padding(40, 0, 0, 0);
-			//	//	Manage.ListCourses[i].Visible = false;
-			//	//}
+				if (i % 2 != 0)
+				{
+					ListCourses[i].Visible = false;
+				}
 
-			//	if (i %2 != 0)
-			//	{
-			//		Manage.ListCourses[i].Visible = false;
-			//	}
+				//Set maxsize cho ListCourses[i] bằng số lượng phần tử * Height của mỗi phần tử
+				ListCourses[i].MaximumSize = new Size(ListCourses[i].Width, ListCourses[i].Controls.Count * 35);
+				//Set maxsize cho ListCourses[i] bằng Height của 1 phần tử
+				ListCourses[i].MinimumSize = new Size(ListCourses[i].Width, 35);
 
-			//	//Set maxsize cho Manage.ListCourses[i] bằng số lượng phần tử * Height của mỗi phần tử
-			//	Manage.ListCourses[i].MaximumSize = new Size(Manage.ListCourses[i].Width, Manage.ListCourses[i].Controls.Count * 35);
-			//	//Set maxsize cho Manage.ListCourses[i] bằng Height của 1 phần tử
-			//	Manage.ListCourses[i].MinimumSize = new Size(Manage.ListCourses[i].Width, 35);
-
-			//	Manage.ListCourses[i].Size = new Size(Manage.ListCourses[i].Width, 35);
-			//	fpnl_Course_Content.Controls.Add(Manage.ListCourses[i]);
-			//}
+				ListCourses[i].Margin = new Padding(0);
+				ListCourses[i].Size = new Size(ListCourses[i].Width, 35);
+				fpnl_Course_Content.Controls.Add(ListCourses[i]);
+			}
+			DrawHexagons(pnl_Grid);
+			LoadTextToHexagon(sender, true);
 		}
 
 		private void fMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -125,7 +129,7 @@ namespace PTLEnglish.GUI
 
 		private void picMenuBtn_MouseEnter(object sender, EventArgs e)
 		{
-			pic_MenuBtn.BackColor = Cons.Hover;
+			pic_MenuBtn.BackColor = Cons.ColorHov;
 			pic_MenuBtn.Image = global::PTLEnglish.Properties.Resources.menu;
 		}
 
@@ -169,9 +173,9 @@ namespace PTLEnglish.GUI
 
 		private void picAccount_MouseEnter(object sender, EventArgs e)
 		{
-			pnl_Info.BackColor = Cons.Hover;
+			pnl_Info.BackColor = Cons.ColorHov;
 			pic_Account.Image = global::PTLEnglish.Properties.Resources.account_icon;
-			lbl_lnfo.ForeColor = Cons._Gray;
+			lbl_lnfo.ForeColor = Cons.ColorGray;
 		}
 
 		private void picAccount_MouseLeave(object sender, EventArgs e)
@@ -238,11 +242,17 @@ namespace PTLEnglish.GUI
 
 		#region pnl_Course
 
+		private void pnl_Course_Click(object sender, EventArgs e)
+		{
+			DrawHexagons(pnl_Grid);
+			LoadTextToHexagon(sender);
+		}
+
 		private void picCourse_MouseEnter(object sender, EventArgs e)
 		{
-			pnl_Course.BackColor = Cons.Hover;
+			pnl_Course.BackColor = Cons.ColorHov;
 			pic_Course.Image = global::PTLEnglish.Properties.Resources.course;
-			lbl_Course.ForeColor = Cons._Gray;
+			lbl_Course.ForeColor = Cons.ColorGray;
 		}
 
 		private void picCourse_MouseLeave(object sender, EventArgs e)
@@ -264,43 +274,44 @@ namespace PTLEnglish.GUI
 		private void LblCourse_Enter(object sender, EventArgs e)
 		{
 			Label lbl = sender as Label;
-			lbl.BackColor = Cons.Hover;
-			lbl.ForeColor = Cons._Gray;
+			lbl.BackColor = Cons.ColorHov;
+			lbl.ForeColor = Cons.ColorGray;
 		}
 
 		private void Course_Clk(object sender, EventArgs e)
 		{
 			Label lbl = sender as Label;
 
-			if(Manage.ListCourses[(int)(lbl.Tag)].Height == 35 )
+			if(ListCourses[(int)(lbl.Tag)].Height == 35 )
 			{
-				Manage.ListCourses[(int)(lbl.Tag)].Visible = true;
-				Animation.Transition(Manage.ListCourses[(int)(lbl.Tag)], Manage.ListCourses[(int)(lbl.Tag)].MaximumSize.Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
+				ListCourses[(int)(lbl.Tag)].Visible = true;
+				Animation.Transition(ListCourses[(int)(lbl.Tag)], ListCourses[(int)(lbl.Tag)].MaximumSize.Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
 			}
 			else
 			{
-				Manage.ListCourses[(int)(lbl.Tag)].Size = new Size(Manage.ListCourses[(int)(lbl.Tag)].Width, 35);
-				Manage.ListCourses[(int)(lbl.Tag)].Visible = false;
+				ListCourses[(int)(lbl.Tag)].Size = new Size(ListCourses[(int)(lbl.Tag)].Width, 35);
+				ListCourses[(int)(lbl.Tag)].Visible = false;
 			}
 
-			for (int i = 0; i < Manage.ListCourses.Length; i++)
+			for (int i = 0; i < ListCourses.Length; i++)
 			{
 				if (i % 2 != 0 && i != (int)lbl.Tag)
 				{
-					if(Manage.ListCourses[i].Visible)
+					if(ListCourses[i].Visible)
 					{
-						Animation.Transition(Manage.ListCourses[i], -Manage.ListCourses[i].Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
-						Manage.ListCourses[i].Visible = false;
+						Animation.Transition(ListCourses[i], -ListCourses[i].Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
+						ListCourses[i].Visible = false;
 						break;
 					}
-					
 				}
 			}
+			DrawHexagons(pnl_Grid);
+			LoadTextToHexagon(sender);
 		}
 
 		private void Topic_Clk(object sender, EventArgs e)
 		{
-			//throw new NotImplementedException();
+			MessageBox.Show("New Form");
 		}
 
 
@@ -347,6 +358,112 @@ namespace PTLEnglish.GUI
 		}
 		#endregion
 
+		private void DrawHexagons(Control control)
+		{
+			control.Controls.Clear();
+			int move = 0;
+			Point pointStart;
+			Hexagon hexagon;
+			HexagonGrid = new List<List<Hexagon>>();
+			
+			for (int i = 0; i < Cons.numOfCol; i++)
+			{
+				HexagonGrid.Add(new List<Hexagon>());
+				if (i % 2 == 0)
+				{
+					pointStart = new Point(10 + move, 10);
+				}
+				else
+				{
+					pointStart = new Point(10 + move, Cons.Size / 2 + 1);
+				}
+				move += Cons.Size - 30;
+
+				for (int j = 0; j < Cons.numOfRow; j++)
+				{
+					hexagon = new Hexagon();
+					if (j == 0)
+					{
+						hexagon.Location = pointStart;
+					}
+					else
+					{
+						hexagon.Location = new Point(HexagonGrid[i][j - 1].Location.X, HexagonGrid[i][j - 1].Location.Y + Cons.Size - 15);
+					}
+
+					HexagonGrid[i].Add(hexagon);
+					control.Controls.Add(HexagonGrid[i][j]);
+				}
+			}
+		}
+
+		private void LoadTextToHexagon(object sender, bool Load = false)
+		{
+
+			Label lbl = new Label();
+			if (!Load)
+			{
+				lbl = sender as Label;
+			}
+			Label text;
+			if (lbl.Name == "lbl_Course" || Load)
+			{
+				for (int i = 0; i < Cons.CourseDir.Length; i++)
+				{
+					text = new Label();
+					text.Text = Cons.CourseDir[i].Name;
+					string[] index = RandomLocation().Split(',');
+					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Text = text.Text;
+					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Cursor = Cursors.Hand;
+					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Click += Hexagon_Clk;
+				}
+			}
+			else
+			{
+				int k = int.Parse(lbl.Name);
+				for (int i = 0; i < Cons.CourseDir[k].GetDirectories().Length; i++)
+				{
+					text = new Label();
+					text.Text = Cons.CourseDir[k].GetDirectories()[i].Name;
+					string[] index = RandomLocation().Split(',');
+					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Text = text.Text;
+					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Cursor = Cursors.Hand;
+					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Click += HexClkShowNewForm;
+				}
+			}
+
+		}
+
+		private void HexClkShowNewForm(object sender, EventArgs e)
+		{
+			Topic_Clk(sender, e);
+		}
+
+		private void Hexagon_Clk(object sender, EventArgs e)
+		{
+			MessageBox.Show("Alala");
+		}
+
 		#endregion
+
+
+		/// <summary>
+		/// Hàm cần xử lý tình trạng Loop
+		/// </summary>
+		/// <returns></returns>
+		private string RandomLocation()
+		{
+			int i, j;
+			Random random = new Random();
+			do
+			{
+				i = random.Next(0, Cons.numOfCol);
+				j = random.Next(0, Cons.numOfRow);
+			}
+			while (HexagonGrid[i][j].Text != "");
+
+			return i + "," + j;
+		}
+
 	}
 }
