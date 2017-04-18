@@ -21,6 +21,14 @@ namespace PTLEnglish.GUI
 			Fast,
 			Immediately
 		}
+
+		/// <summary>
+		/// Tăng giảm kích thước theo chiều ngang hoặc dọc
+		/// </summary>
+		/// <param name="control"></param>
+		/// <param name="lengthChange"></param>
+		/// <param name="duration"></param>
+		/// <param name="direction"></param>
 		public static void Transition(Control control, int lengthChange, Duration duration, Direction direction)
 		{
 
@@ -121,6 +129,12 @@ namespace PTLEnglish.GUI
 
 		}
 
+		/// <summary>
+		/// Di chuyển vị trí 
+		/// </summary>
+		/// <param name="control"></param>
+		/// <param name="newLocation"></param>
+		/// <param name="duration"></param>
 		public static void Move(Control control, Point newLocation, Duration duration)
 		{
 			Timer time = new Timer();

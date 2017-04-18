@@ -24,6 +24,7 @@ namespace PTLEnglish.GUI
 		/// </summary>
 		public List<List<Hexagon>> HexagonGrid;
 
+
 		public fMain()
 		{
 			InitializeComponent();
@@ -66,6 +67,8 @@ namespace PTLEnglish.GUI
 		{
 			for (int i = 0; i < ListCourses.Length; i++)
 			{
+				//Tạo dannh sách các course và hiển thị.
+				//Là môt cái list FlowLayoutPanel với i chẳn là tên course và i + 1 là list các Topic
 				ListCourses[i] = new FlowLayoutPanel();
 				for (int j = 0; j < Cons.CourseDir[i / 2].GetDirectories().Length; j++)
 				{
@@ -77,6 +80,7 @@ namespace PTLEnglish.GUI
 					lbl.TextAlign = ContentAlignment.MiddleLeft;
 					lbl.Margin = new Padding(20, 0, 0, 0);
 					lbl.Size = new Size(fpnl_Course_Content.Width - lbl.Margin.Left, 35);
+					//Biến tag dùng để xác định cái flowLayoutPanel chứ các Topic
 					lbl.Tag = i + 1;
 
 					lbl.MouseEnter += LblCourse_Enter;
@@ -112,6 +116,7 @@ namespace PTLEnglish.GUI
 				ListCourses[i].Size = new Size(ListCourses[i].Width, 35);
 				fpnl_Course_Content.Controls.Add(ListCourses[i]);
 			}
+
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender, true);
 		}
@@ -124,30 +129,6 @@ namespace PTLEnglish.GUI
 		#endregion
 
 		#region Method for pnl_SideBar
-
-		private void picMenuBtn_MouseEnter(object sender, EventArgs e)
-		{
-			pic_MenuBtn.BackColor = Cons.ColorHov;
-			pic_MenuBtn.Image = global::PTLEnglish.Properties.Resources.menu;
-		}
-
-		private void picMenuBtn_MouseLeave(object sender, EventArgs e)
-		{
-			pic_MenuBtn.BackColor = Color.Transparent;
-			pic_MenuBtn.Image = global::PTLEnglish.Properties.Resources.menu_def;
-		}
-
-		private void picMenuBtn_Click(object sender, EventArgs e)
-		{
-			if (pnl_SideBar.Width == 50)
-			{
-				Animation.Transition(pnl_SideBar, 200, Animation.Duration.Immediately, Animation.Direction.Vertical);
-			}
-			else if (pnl_SideBar.Width == 250)
-			{
-				Animation.Transition(pnl_SideBar, -200, Animation.Duration.Immediately, Animation.Direction.Vertical);
-			}
-		}
 
 		#region pnl_Info
 		private void pnlInfo_Click(object sender, EventArgs e)
@@ -185,6 +166,11 @@ namespace PTLEnglish.GUI
 		#endregion
 
 		#region pnl_Info_Content
+		/// <summary>
+		/// Chọn hình
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Pic_Avatar_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog open = new OpenFileDialog();
@@ -246,6 +232,7 @@ namespace PTLEnglish.GUI
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
 
+			//Ẩn đi cái Topic List đã hiện
 			for (int i = 0; i < ListCourses.Length; i++)
 			{
 				if (i % 2 != 0)
@@ -254,7 +241,7 @@ namespace PTLEnglish.GUI
 					{
 						Animation.Transition(ListCourses[i], -ListCourses[i].Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
 						ListCourses[i].Visible = false;
-						break;
+						break; //Vì chỉ có duy nhất một cái hiện nên Break cho đỡ tốn thời gian
 					}
 				}
 			}
@@ -318,6 +305,8 @@ namespace PTLEnglish.GUI
 					}
 				}
 			}
+
+
 			Manage.ThisPath ="Source\\" + lbl.Text;
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
@@ -422,6 +411,15 @@ namespace PTLEnglish.GUI
 			{
 				lbl = sender as Label;
 			}
+			List<int> iRandom = new List<int>();
+			for (int i = 0; i < Cons.numOfRow*Cons.numOfCol; i++)
+			{
+				iRandom.Add(i);
+			}
+
+			int ran;
+			Random random = new Random();
+			int row, col;
 			Label text;
 			if (lbl.Name == "lbl_Course" || Load)
 			{
@@ -429,10 +427,15 @@ namespace PTLEnglish.GUI
 				{
 					text = new Label();
 					text.Text = Cons.CourseDir[i].Name;
-					string[] index = RandomLocation().Split(',');
-					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Text = text.Text;
-					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Cursor = Cursors.Hand;
-					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Click += Hexagon_Clk;
+
+					ran = random.Next(iRandom.Count -1);
+					row = iRandom[ran] % Cons.numOfRow;
+					col = iRandom[ran] / Cons.numOfRow;
+
+					iRandom.RemoveAt(ran);
+					HexagonGrid[col][row].Text = text.Text;
+					HexagonGrid[col][row].Cursor = Cursors.Hand;
+					HexagonGrid[col][row].Click += Hexagon_Clk;
 				}
 			}
 			else
@@ -442,10 +445,15 @@ namespace PTLEnglish.GUI
 				{
 					text = new Label();
 					text.Text = Cons.CourseDir[k].GetDirectories()[i].Name;
-					string[] index = RandomLocation().Split(',');
-					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Text = text.Text;
-					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Cursor = Cursors.Hand;
-					HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Click += HexClkShowNewForm;
+
+					ran = random.Next(iRandom.Count-1);
+					row = iRandom[ran] % Cons.numOfRow;
+					col = iRandom[ran] / Cons.numOfRow;
+					iRandom.RemoveAt(ran);
+
+					HexagonGrid[col][row].Text = text.Text;
+					HexagonGrid[col][row].Cursor = Cursors.Hand;
+					HexagonGrid[col][row].Click += HexClkShowNewForm;
 				}
 			}
 
@@ -470,37 +478,34 @@ namespace PTLEnglish.GUI
 
 			Label text;
 			DrawHexagons(pnl_Grid);
+			List<int> iRandom = new List<int>();
+			for (int j = 0; j < Cons.numOfRow * Cons.numOfCol; j++)
+			{
+				iRandom.Add(j);
+			}
+
+			int ran;
+			Random random = new Random();
+			int row, col;
+
 			for (int j = 0; j < Cons.CourseDir[i].GetDirectories().Length; j++)
 			{
 				text = new Label();
 				text.Text = Cons.CourseDir[i].GetDirectories()[j].Name;
-				string[] index = RandomLocation().Split(',');
-				HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Text = text.Text;
-				HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Cursor = Cursors.Hand;
-				HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Click += HexClkShowNewForm;
+
+				ran = random.Next(iRandom.Count-1);
+				row = iRandom[ran] % Cons.numOfRow;
+				col = iRandom[ran] / Cons.numOfRow;
+				iRandom.RemoveAt(ran);
+
+				HexagonGrid[col][row].Text = text.Text;
+				HexagonGrid[col][row].Cursor = Cursors.Hand;
+				HexagonGrid[col][row].Click += HexClkShowNewForm;
+
+				
 			}
 		}
 
 		#endregion
-
-
-		/// <summary>
-		/// Hàm cần xử lý tình trạng Loop
-		/// </summary>
-		/// <returns></returns>
-		private string RandomLocation()
-		{
-			int i, j;
-			Random random = new Random();
-			do
-			{
-				i = random.Next(0, Cons.numOfCol);
-				j = random.Next(0, Cons.numOfRow);
-			}
-			while (HexagonGrid[i][j].Text != "");
-
-			return i + "," + j;
-		}
-
 	}
 }
