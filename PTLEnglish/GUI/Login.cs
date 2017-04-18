@@ -133,6 +133,7 @@ namespace PTLEnglish.GUI
 				fMain PTLE = new fMain();
 				PTLE.Show();
 			}
+			else this.Show();
 		}
 
 		private void Login_Load(object sender, EventArgs e)

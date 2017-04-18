@@ -1,0 +1,25 @@
+office building	/ˈɒf.ɪs ˈbɪl.dɪŋ/ 	tòa nhà văn phòng
+lobby		/ˈlɒb.i/		sảnh
+corner		/ˈkɔː.nəʳ/		góc đường
+bakery		/ˈbeɪ.kər.i/		tiệm bánh
+post office	/pəʊst ˈɒf.ɪs/		bưu điện
+intersection	/ˌɪn.təˈsek.ʃən/		giao lộ
+elevator 	/ˈel.ɪ.veɪ.təʳ/		thang máy
+bookstore	/ˈbʊk.stɔːʳ/		hiệu sách
+drugstore	/ˈdrʌg.stɔːʳ/		hiệu thuốc
+sidewalk	/ˈsaɪd.wɔːk/		vỉa hè
+curb		/kɜːb/			lề đường
+newsstand	/ˈnjuːz.stænd/		sạp báo
+street		/striːt/		đường phố
+manhole		/ˈmæn.həʊl/		miệng cống
+bench		/bentʃ/			ghế đợi
+wastebasket	/ˈweɪstbæskɪt/		thùng rác
+subway station	/ˈsʌb.weɪ ˈsteɪ.ʃən/	trạm xe điện ngầm
+pedestrian	/pəˈdes.tri.ən/		người đi bộ
+traffic cop	/ˈtræf.ɪk kɒp/		cảnh sát giao thông
+apartment	/əˈpɑːt.mənt/		chung cư
+traffic light	/ˈtræf.ɪk laɪt/		đèn giao thông
+parking garage	/ˈpɑː.kɪŋ ˈgær.ɑːʒ/	nhà đỗ xe
+market 		/ˈmɑːkɪt/		chợ
+park 		/paːk/			công viên 
+zoo 		/zuː/			thảo cầm viên 

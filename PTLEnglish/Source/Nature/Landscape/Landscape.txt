@@ -1,0 +1,25 @@
+forest 		/ˈfɒr.ɪst/	rừng
+desert 		/ˈdezət/	sa mạc
+jungle 		/ˈdʒʌŋ.gļ/	rừng nhiệt đới
+cave 		/keɪv/		hang động
+mountain 	/ˈmaʊn.tn/	núi
+peak 		/piːk/ 		đỉnh
+hill 		/hɪl/		đồi
+canyon 		/ˈkæn.jən/	hẻm núi
+cliff 		/klɪf/		vách núi
+volcano 	/vɒlˈkeɪ.nəʊ/	núi lửa
+river 		/ˈrɪv.əʳ/	sông
+stream 		/striːm/	suối
+canal 		/kəˈnæl/	kênh đào
+lake 		/leɪk/		hồ
+pond 		/pɒnd/		ao
+dam 		/dæm/		đập nước
+waterfall 	/ˈwɔː.tə.fɔːl/	thác nước
+oasis 		/əʊˈeɪ.sɪs/	ốc đảo
+dune 		/djuːn/ 	cồn cát
+city 		/ˈsɪt.i/	thành phố
+terraced field 	/'terəst fi:ld/	ruộng bậc thang 
+field 		/fi:ld/		cánh đồng 
+island 		/'ailənd/	hòn đảo 
+coral reef 	/'kɔrəl ri:f/	rạn san hô 
+valley		/'væli/		thung lũng 

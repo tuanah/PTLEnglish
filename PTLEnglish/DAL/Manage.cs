@@ -6,15 +6,21 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Windows.Forms;
+using System.Drawing;
+using PTLEnglish.GUI;
 
 namespace PTLEnglish.DAL
 {
-	public class Manage
+	public static class Manage
 	{
-		private Topic topicData;
-		public Topic TopicData { get => topicData; set => topicData = value; }
+		private static Topic topicData;
 
-		private Word stringHandling(string line)
+		private static string thisPath = "Source";
+
+		public static Topic TopicData { get => topicData; set => topicData = value; }
+		public static string ThisPath { get => thisPath; set => thisPath = value; }
+
+		private static Word stringHandling(string line)
 		{
 			Word word = new Word();
 			string[] wordInfo = new string[3];
@@ -27,17 +33,17 @@ namespace PTLEnglish.DAL
 			return word;
 		}
 
-		public void LoadData(DirectoryInfo Dir)
+		public static void LoadData(DirectoryInfo Dir)
 		{
 			Word word = new Word();
-			this.TopicData = new Topic();
-			this.TopicData.WordList = new List<Word>();
+			TopicData = new Topic();
+			TopicData.WordList = new List<Word>();
 			string line;
 			FileInfo[] file = Dir.GetFiles();
 			FileStream fStream = new FileStream(file[0].FullName, FileMode.Open);
 			StreamReader sRead = new StreamReader(fStream, Encoding.UTF8);
 
-			this.TopicData.TopicName = Dir.Name;
+			TopicData.TopicName = Dir.Name;
 
 			while (!sRead.EndOfStream)
 			{
@@ -46,16 +52,42 @@ namespace PTLEnglish.DAL
 				{
 					word = stringHandling(line);
 					word.ImgPath = Dir.FullName + "\\Image\\" + word.Key.Replace(' ', '_') + ".jpg";
-					this.TopicData.WordList.Add(word);
+					TopicData.WordList.Add(word);
 				}
 			}
-
 			sRead.Close();
 			fStream.Close();
-
 		}
 
-		public void SerializeToXML(object data, string filePath)
+		public static void LoadData(string path)
+		{
+			Word word = new Word();
+			TopicData = new Topic();
+			TopicData.WordList = new List<Word>();
+			string line;
+			DirectoryInfo Dir = new DirectoryInfo(path);
+			FileInfo[] file = Dir.GetFiles();
+			using (FileStream fstream = new FileStream(file[0].FullName, FileMode.Open))
+			{
+				using (StreamReader sRead = new StreamReader(fstream, Encoding.UTF8))
+				{
+					TopicData.TopicName = Dir.Name;
+
+					while (!sRead.EndOfStream)
+					{
+						line = sRead.ReadLine();
+						if (line != "" && line[0] != ' ' && line[0] != '\t')
+						{
+							word = stringHandling(line);
+							word.ImgPath = Dir.FullName + "\\Image\\" + word.Key.Replace(' ', '_') + ".jpg";
+							TopicData.WordList.Add(word);
+						}
+					}
+				}
+			}
+		}
+
+		public static void SerializeToXML(object data, string filePath)
 		{
 			FileStream fstream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 			XmlSerializer sr = new XmlSerializer(typeof(Topic));
@@ -63,7 +95,7 @@ namespace PTLEnglish.DAL
 			fstream.Close();
 		}
 
-		public object DeserializeFromXML(string filePath)
+		public static object DeserializeFromXML(string filePath)
 		{
 			FileStream fstream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
 			XmlSerializer sr = new XmlSerializer(typeof(Topic));
@@ -71,5 +103,6 @@ namespace PTLEnglish.DAL
 			fstream.Close();
 			return obj;
 		}
+
 	}
 }
