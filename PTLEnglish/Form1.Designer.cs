@@ -34,6 +34,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.lvWord = new System.Windows.Forms.ListView();
+			this.lbl_Topic_Name = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// cbCourse
@@ -80,11 +81,21 @@
 			this.lvWord.TabIndex = 4;
 			this.lvWord.UseCompatibleStateImageBehavior = false;
 			// 
+			// lbl_Topic_Name
+			// 
+			this.lbl_Topic_Name.AutoSize = true;
+			this.lbl_Topic_Name.Location = new System.Drawing.Point(262, 92);
+			this.lbl_Topic_Name.Name = "lbl_Topic_Name";
+			this.lbl_Topic_Name.Size = new System.Drawing.Size(35, 13);
+			this.lbl_Topic_Name.TabIndex = 5;
+			this.lbl_Topic_Name.Text = "label3";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(673, 474);
+			this.Controls.Add(this.lbl_Topic_Name);
 			this.Controls.Add(this.lvWord);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -107,6 +118,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ListView lvWord;
+		private System.Windows.Forms.Label lbl_Topic_Name;
 	}
 }
 

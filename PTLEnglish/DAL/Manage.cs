@@ -15,7 +15,10 @@ namespace PTLEnglish.DAL
 	{
 		private static Topic topicData;
 
+		private static string thisPath = "Source";
+
 		public static Topic TopicData { get => topicData; set => topicData = value; }
+		public static string ThisPath { get => thisPath; set => thisPath = value; }
 
 		private static Word stringHandling(string line)
 		{
@@ -54,6 +57,34 @@ namespace PTLEnglish.DAL
 			}
 			sRead.Close();
 			fStream.Close();
+		}
+
+		public static void LoadData(string path)
+		{
+			Word word = new Word();
+			TopicData = new Topic();
+			TopicData.WordList = new List<Word>();
+			string line;
+			DirectoryInfo Dir = new DirectoryInfo(path);
+			FileInfo[] file = Dir.GetFiles();
+			using (FileStream fstream = new FileStream(file[0].FullName, FileMode.Open))
+			{
+				using (StreamReader sRead = new StreamReader(fstream, Encoding.UTF8))
+				{
+					TopicData.TopicName = Dir.Name;
+
+					while (!sRead.EndOfStream)
+					{
+						line = sRead.ReadLine();
+						if (line != "" && line[0] != ' ' && line[0] != '\t')
+						{
+							word = stringHandling(line);
+							word.ImgPath = Dir.FullName + "\\Image\\" + word.Key.Replace(' ', '_') + ".jpg";
+							TopicData.WordList.Add(word);
+						}
+					}
+				}
+			}
 		}
 
 		public static void SerializeToXML(object data, string filePath)

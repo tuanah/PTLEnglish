@@ -59,8 +59,6 @@ namespace PTLEnglish.GUI
 			fpnl_Course_Content.VerticalScroll.Maximum = 0;
 			fpnl_Course_Content.AutoScroll = true;
 			#endregion
-
-
 		}
 
 		#region fMain
@@ -244,8 +242,23 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Course_Click(object sender, EventArgs e)
 		{
+			Manage.ThisPath = "Source";
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
+
+			for (int i = 0; i < ListCourses.Length; i++)
+			{
+				if (i % 2 != 0)
+				{
+					if (ListCourses[i].Visible)
+					{
+						Animation.Transition(ListCourses[i], -ListCourses[i].Height, Animation.Duration.Fast, Animation.Direction.Horizontal);
+						ListCourses[i].Visible = false;
+						break;
+					}
+				}
+			}
+
 		}
 
 		private void picCourse_MouseEnter(object sender, EventArgs e)
@@ -305,13 +318,18 @@ namespace PTLEnglish.GUI
 					}
 				}
 			}
+			Manage.ThisPath ="Source\\" + lbl.Text;
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
 		}
 
 		private void Topic_Clk(object sender, EventArgs e)
 		{
-			MessageBox.Show("New Form");
+			Label lbl = sender as Label;
+			Manage.ThisPath += "\\" + lbl.Text;
+			Form1 f = new Form1();
+			this.Hide();
+			f.Show();
 		}
 
 
@@ -399,7 +417,6 @@ namespace PTLEnglish.GUI
 
 		private void LoadTextToHexagon(object sender, bool Load = false)
 		{
-
 			Label lbl = new Label();
 			if (!Load)
 			{
@@ -441,7 +458,27 @@ namespace PTLEnglish.GUI
 
 		private void Hexagon_Clk(object sender, EventArgs e)
 		{
-			MessageBox.Show("Alala");
+			Hexagon hexa = sender as Hexagon;
+			Manage.ThisPath += "\\"+hexa.Text;
+
+			int i;
+			for (i = 0; i < Cons.CourseDir.Length; i++)
+			{
+				if(Cons.CourseDir[i].Name == hexa.Text)
+					break;
+			}
+
+			Label text;
+			DrawHexagons(pnl_Grid);
+			for (int j = 0; j < Cons.CourseDir[i].GetDirectories().Length; j++)
+			{
+				text = new Label();
+				text.Text = Cons.CourseDir[i].GetDirectories()[j].Name;
+				string[] index = RandomLocation().Split(',');
+				HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Text = text.Text;
+				HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Cursor = Cursors.Hand;
+				HexagonGrid[int.Parse(index[0])][int.Parse(index[1])].Click += HexClkShowNewForm;
+			}
 		}
 
 		#endregion

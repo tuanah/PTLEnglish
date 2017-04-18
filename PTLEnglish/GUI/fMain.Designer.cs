@@ -35,6 +35,7 @@
 			this.lbl_Close = new System.Windows.Forms.Label();
 			this.lbl_Minimize = new System.Windows.Forms.Label();
 			this.pnl_SideBar = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pic_MenuBtn = new System.Windows.Forms.PictureBox();
 			this.pnl_Course_Block = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
 			this.pnl_Info = new System.Windows.Forms.Panel();
 			this.lbl_lnfo = new System.Windows.Forms.Label();
 			this.pic_Account = new System.Windows.Forms.PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.pnl_Content.SuspendLayout();
 			this.pnl_Panel.SuspendLayout();
 			this.pnl_SideBar.SuspendLayout();
@@ -147,6 +147,17 @@
 			this.pnl_SideBar.Name = "pnl_SideBar";
 			this.pnl_SideBar.Size = new System.Drawing.Size(250, 561);
 			this.pnl_SideBar.TabIndex = 0;
+			// 
+			// label1
+			// 
+			this.label1.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.label1.Location = new System.Drawing.Point(42, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(200, 45);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "PTLEnglish";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pictureBox1
 			// 
@@ -322,17 +333,6 @@
 			this.pic_Account.Click += new System.EventHandler(this.pnlInfo_Click);
 			this.pic_Account.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
 			this.pic_Account.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
-			// 
-			// label1
-			// 
-			this.label1.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label1.Location = new System.Drawing.Point(42, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(200, 45);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "PTLEnglish";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// fMain
 			// 
