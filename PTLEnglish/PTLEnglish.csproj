@@ -66,6 +66,12 @@
     <Compile Include="GUI\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fSub.Designer.cs">
+      <DependentUpon>fSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Hexagon.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fSub.resx">
+      <DependentUpon>fSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Hexagon.resx">
       <DependentUpon>Hexagon.cs</DependentUpon>
@@ -122,9 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bg_sidebar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\course.png" />
@@ -169,8 +175,25 @@
     <Folder Include="Source\Human\Family\Image\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pic-close.png" />
-    <None Include="Resources\pic-minimize.png" />
+    <None Include="Resources\falling-star.png" />
+    <None Include="Resources\falling-star-hover.png" />
+    <None Include="Resources\flashcard.png" />
+    <None Include="Resources\flashcard-hover.png" />
+    <None Include="Resources\game.png" />
+    <None Include="Resources\game-hover.png" />
+    <None Include="Resources\hammer.png" />
+    <None Include="Resources\hammer-hover.png" />
+    <None Include="Resources\match.png" />
+    <None Include="Resources\match-hover.png" />
+    <None Include="Resources\spell.png" />
+    <None Include="Resources\spell-hover.png" />
+    <None Include="Resources\test.png" />
+    <None Include="Resources\test-hover.png" />
+    <None Include="Resources\volume-icon.png" />
+    <None Include="Resources\learn.png" />
+    <None Include="Resources\learn-hover.png" />
+    <None Include="Resources\arrow-back.png" />
+    <None Include="Resources\Arrow-hover.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />
