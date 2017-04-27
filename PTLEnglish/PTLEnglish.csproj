@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,6 +86,12 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\myFonts.cs" />
+    <Compile Include="GUI\WordItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\WordItem.Designer.cs">
+      <DependentUpon>WordItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -101,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WordItem.resx">
+      <DependentUpon>WordItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -194,6 +204,9 @@
     <None Include="Resources\learn-hover.png" />
     <None Include="Resources\arrow-back.png" />
     <None Include="Resources\Arrow-hover.png" />
+    <None Include="Resources\flash-clk.png" />
+    <None Include="Resources\error-image.png" />
+    <None Include="Resources\flash.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />

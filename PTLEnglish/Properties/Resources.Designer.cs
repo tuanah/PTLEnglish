@@ -143,6 +143,16 @@ namespace PTLEnglish.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap error_image {
+            get {
+                object obj = ResourceManager.GetObject("error_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap falling_star {
             get {
                 object obj = ResourceManager.GetObject("falling_star", resourceCulture);
@@ -156,6 +166,26 @@ namespace PTLEnglish.Properties {
         internal static System.Drawing.Bitmap falling_star_hover {
             get {
                 object obj = ResourceManager.GetObject("falling_star_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flash {
+            get {
+                object obj = ResourceManager.GetObject("flash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flash_clk {
+            get {
+                object obj = ResourceManager.GetObject("flash_clk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

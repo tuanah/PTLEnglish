@@ -11,13 +11,19 @@ namespace PTLEnglish.DAL
 		private string key;
 		private string pronunciation;
 		private string mean;
-		private bool isLearnt;
+		//private bool isLearnt;
 		private string imgPath;
+		private byte numWrong;
+		private byte numRight;
+		private bool isHard;
 
 		public string Key { get => key; set => key = value; }
 		public string Pronunciation { get => pronunciation; set => pronunciation = value; }
 		public string Mean { get => mean; set => mean = value; }
-		public bool IsLearnt { get => isLearnt; set => isLearnt = value; }
+		//public bool IsLearnt { get => isLearnt; set => isLearnt = value; }
 		public string ImgPath { get => imgPath; set => imgPath = value; }
+		public byte NumWrong { get => numWrong; set => numWrong = value; }
+		public byte NumRight { get => numRight; set => numRight = value; }
+		public bool IsHard { get => isHard; set => isHard = value; }
 	}
 }

@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSub));
 			this.pnl_SideBar = new System.Windows.Forms.Panel();
 			this.pnl_Back = new System.Windows.Forms.Panel();
@@ -49,6 +50,19 @@
 			this.lbl_Learn = new System.Windows.Forms.Label();
 			this.pnl_Fcard = new System.Windows.Forms.Panel();
 			this.lbl_Fcard = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.pnl_Content = new System.Windows.Forms.Panel();
+			this.pnl_Info = new System.Windows.Forms.Panel();
+			this.pnl_Wrong = new System.Windows.Forms.Panel();
+			this.pnl_WrongValue = new System.Windows.Forms.Panel();
+			this.pnl_Right = new System.Windows.Forms.Panel();
+			this.pnl_RightValue = new System.Windows.Forms.Panel();
+			this.pnl_Learnt = new System.Windows.Forms.Panel();
+			this.pnl_LearntValue = new System.Windows.Forms.Panel();
+			this.lbl_Wrong = new System.Windows.Forms.Label();
+			this.lbl_Right = new System.Windows.Forms.Label();
+			this.lbl_Learnt = new System.Windows.Forms.Label();
+			this.pnl_WordItems = new System.Windows.Forms.Panel();
 			this.pic_Back = new System.Windows.Forms.PictureBox();
 			this.pic_Menu = new System.Windows.Forms.PictureBox();
 			this.pic_Shooter = new System.Windows.Forms.PictureBox();
@@ -59,7 +73,6 @@
 			this.pic_Listen = new System.Windows.Forms.PictureBox();
 			this.pic_Learn = new System.Windows.Forms.PictureBox();
 			this.pic_Fcard = new System.Windows.Forms.PictureBox();
-			this.panel_Content = new System.Windows.Forms.Panel();
 			this.pnl_SideBar.SuspendLayout();
 			this.pnl_Back.SuspendLayout();
 			this.pnl_Menu.SuspendLayout();
@@ -72,6 +85,11 @@
 			this.pnl_Listen.SuspendLayout();
 			this.pnl_Learn.SuspendLayout();
 			this.pnl_Fcard.SuspendLayout();
+			this.pnl_Content.SuspendLayout();
+			this.pnl_Info.SuspendLayout();
+			this.pnl_Wrong.SuspendLayout();
+			this.pnl_Right.SuspendLayout();
+			this.pnl_Learnt.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Back)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Menu)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Shooter)).BeginInit();
@@ -99,7 +117,7 @@
 			this.pnl_SideBar.Location = new System.Drawing.Point(0, 0);
 			this.pnl_SideBar.Margin = new System.Windows.Forms.Padding(0);
 			this.pnl_SideBar.Name = "pnl_SideBar";
-			this.pnl_SideBar.Size = new System.Drawing.Size(200, 561);
+			this.pnl_SideBar.Size = new System.Drawing.Size(187, 561);
 			this.pnl_SideBar.TabIndex = 0;
 			// 
 			// pnl_Back
@@ -134,7 +152,7 @@
 			this.pnl_GameBlk.Controls.Add(this.pnl_Match);
 			this.pnl_GameBlk.Location = new System.Drawing.Point(0, 290);
 			this.pnl_GameBlk.Name = "pnl_GameBlk";
-			this.pnl_GameBlk.Size = new System.Drawing.Size(200, 150);
+			this.pnl_GameBlk.Size = new System.Drawing.Size(187, 150);
 			this.pnl_GameBlk.TabIndex = 7;
 			this.pnl_GameBlk.Visible = false;
 			// 
@@ -145,7 +163,7 @@
 			this.pnl_Shooter.Controls.Add(this.pic_Shooter);
 			this.pnl_Shooter.Location = new System.Drawing.Point(0, 100);
 			this.pnl_Shooter.Name = "pnl_Shooter";
-			this.pnl_Shooter.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Shooter.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Shooter.TabIndex = 9;
 			this.pnl_Shooter.Click += new System.EventHandler(this.pnl_Shooter_Click);
 			this.pnl_Shooter.MouseEnter += new System.EventHandler(this.pnl_Shooter_MouseEnter);
@@ -172,7 +190,7 @@
 			this.pnl_Gravity.Controls.Add(this.pic_Gravity);
 			this.pnl_Gravity.Location = new System.Drawing.Point(0, 50);
 			this.pnl_Gravity.Name = "pnl_Gravity";
-			this.pnl_Gravity.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Gravity.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Gravity.TabIndex = 8;
 			this.pnl_Gravity.Click += new System.EventHandler(this.pnl_Gravity_Click);
 			this.pnl_Gravity.MouseEnter += new System.EventHandler(this.pnl_Gravity_MouseEnter);
@@ -199,7 +217,7 @@
 			this.pnl_Match.Controls.Add(this.pic_Match);
 			this.pnl_Match.Location = new System.Drawing.Point(0, 0);
 			this.pnl_Match.Name = "pnl_Match";
-			this.pnl_Match.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Match.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Match.TabIndex = 7;
 			this.pnl_Match.Click += new System.EventHandler(this.pnl_Match_Click);
 			this.pnl_Match.MouseEnter += new System.EventHandler(this.pnl_Match_MouseEnter);
@@ -226,7 +244,7 @@
 			this.pnl_Game.Controls.Add(this.pic_Game);
 			this.pnl_Game.Location = new System.Drawing.Point(0, 240);
 			this.pnl_Game.Name = "pnl_Game";
-			this.pnl_Game.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Game.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Game.TabIndex = 6;
 			this.pnl_Game.Click += new System.EventHandler(this.pnl_Game_Click);
 			this.pnl_Game.MouseEnter += new System.EventHandler(this.pnl_Game_MouseEnter);
@@ -253,7 +271,7 @@
 			this.pnl_Test.Controls.Add(this.pic_Test);
 			this.pnl_Test.Location = new System.Drawing.Point(0, 190);
 			this.pnl_Test.Name = "pnl_Test";
-			this.pnl_Test.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Test.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Test.TabIndex = 4;
 			this.pnl_Test.Click += new System.EventHandler(this.pnl_Test_Click);
 			this.pnl_Test.MouseEnter += new System.EventHandler(this.pnl_Test_MouseEnter);
@@ -280,7 +298,7 @@
 			this.pnl_Listen.Controls.Add(this.pic_Listen);
 			this.pnl_Listen.Location = new System.Drawing.Point(0, 140);
 			this.pnl_Listen.Name = "pnl_Listen";
-			this.pnl_Listen.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Listen.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Listen.TabIndex = 3;
 			this.pnl_Listen.Click += new System.EventHandler(this.pnl_Listen_Click);
 			this.pnl_Listen.MouseEnter += new System.EventHandler(this.pnl_Listen_MouseEnter);
@@ -307,7 +325,7 @@
 			this.pnl_Learn.Controls.Add(this.pic_Learn);
 			this.pnl_Learn.Location = new System.Drawing.Point(0, 90);
 			this.pnl_Learn.Name = "pnl_Learn";
-			this.pnl_Learn.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Learn.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Learn.TabIndex = 2;
 			this.pnl_Learn.Click += new System.EventHandler(this.pnl_Learn_Click);
 			this.pnl_Learn.MouseEnter += new System.EventHandler(this.pnl_Learn_MouseEnter);
@@ -334,7 +352,7 @@
 			this.pnl_Fcard.Controls.Add(this.pic_Fcard);
 			this.pnl_Fcard.Location = new System.Drawing.Point(0, 40);
 			this.pnl_Fcard.Name = "pnl_Fcard";
-			this.pnl_Fcard.Size = new System.Drawing.Size(200, 40);
+			this.pnl_Fcard.Size = new System.Drawing.Size(187, 40);
 			this.pnl_Fcard.TabIndex = 0;
 			this.pnl_Fcard.Click += new System.EventHandler(this.pic_Fcard_Click);
 			this.pnl_Fcard.MouseEnter += new System.EventHandler(this.pnl_Fcard_MouseEnter);
@@ -342,17 +360,152 @@
 			// 
 			// lbl_Fcard
 			// 
+			this.lbl_Fcard.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lbl_Fcard.Font = new System.Drawing.Font("Microsoft YaHei Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_Fcard.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.lbl_Fcard.Location = new System.Drawing.Point(45, 0);
 			this.lbl_Fcard.Name = "lbl_Fcard";
-			this.lbl_Fcard.Size = new System.Drawing.Size(155, 40);
+			this.lbl_Fcard.Size = new System.Drawing.Size(142, 40);
 			this.lbl_Fcard.TabIndex = 1;
 			this.lbl_Fcard.Text = "Flash Card";
 			this.lbl_Fcard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.lbl_Fcard.Click += new System.EventHandler(this.pic_Fcard_Click);
 			this.lbl_Fcard.MouseEnter += new System.EventHandler(this.pnl_Fcard_MouseEnter);
 			this.lbl_Fcard.MouseLeave += new System.EventHandler(this.pnl_Fcard_MouseLeave);
+			// 
+			// pnl_Content
+			// 
+			this.pnl_Content.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.pnl_Content.Controls.Add(this.pnl_WordItems);
+			this.pnl_Content.Controls.Add(this.pnl_Info);
+			this.pnl_Content.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnl_Content.Location = new System.Drawing.Point(187, 0);
+			this.pnl_Content.Name = "pnl_Content";
+			this.pnl_Content.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+			this.pnl_Content.Size = new System.Drawing.Size(697, 561);
+			this.pnl_Content.TabIndex = 1;
+			// 
+			// pnl_Info
+			// 
+			this.pnl_Info.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_Info.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.pnl_Info.Controls.Add(this.pnl_Wrong);
+			this.pnl_Info.Controls.Add(this.pnl_Right);
+			this.pnl_Info.Controls.Add(this.pnl_Learnt);
+			this.pnl_Info.Controls.Add(this.lbl_Wrong);
+			this.pnl_Info.Controls.Add(this.lbl_Right);
+			this.pnl_Info.Controls.Add(this.lbl_Learnt);
+			this.pnl_Info.Location = new System.Drawing.Point(10, 10);
+			this.pnl_Info.Margin = new System.Windows.Forms.Padding(0);
+			this.pnl_Info.Name = "pnl_Info";
+			this.pnl_Info.Size = new System.Drawing.Size(678, 110);
+			this.pnl_Info.TabIndex = 1;
+			// 
+			// pnl_Wrong
+			// 
+			this.pnl_Wrong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_Wrong.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.pnl_Wrong.Controls.Add(this.pnl_WrongValue);
+			this.pnl_Wrong.Location = new System.Drawing.Point(87, 77);
+			this.pnl_Wrong.Name = "pnl_Wrong";
+			this.pnl_Wrong.Size = new System.Drawing.Size(574, 25);
+			this.pnl_Wrong.TabIndex = 5;
+			// 
+			// pnl_WrongValue
+			// 
+			this.pnl_WrongValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_WrongValue.BackColor = System.Drawing.Color.Firebrick;
+			this.pnl_WrongValue.Location = new System.Drawing.Point(0, 0);
+			this.pnl_WrongValue.Name = "pnl_WrongValue";
+			this.pnl_WrongValue.Size = new System.Drawing.Size(237, 25);
+			this.pnl_WrongValue.TabIndex = 0;
+			// 
+			// pnl_Right
+			// 
+			this.pnl_Right.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_Right.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.pnl_Right.Controls.Add(this.pnl_RightValue);
+			this.pnl_Right.Location = new System.Drawing.Point(87, 43);
+			this.pnl_Right.Name = "pnl_Right";
+			this.pnl_Right.Size = new System.Drawing.Size(574, 25);
+			this.pnl_Right.TabIndex = 4;
+			// 
+			// pnl_RightValue
+			// 
+			this.pnl_RightValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_RightValue.BackColor = System.Drawing.Color.YellowGreen;
+			this.pnl_RightValue.Location = new System.Drawing.Point(0, 0);
+			this.pnl_RightValue.Name = "pnl_RightValue";
+			this.pnl_RightValue.Size = new System.Drawing.Size(324, 25);
+			this.pnl_RightValue.TabIndex = 0;
+			// 
+			// pnl_Learnt
+			// 
+			this.pnl_Learnt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_Learnt.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.pnl_Learnt.Controls.Add(this.pnl_LearntValue);
+			this.pnl_Learnt.Location = new System.Drawing.Point(87, 9);
+			this.pnl_Learnt.Name = "pnl_Learnt";
+			this.pnl_Learnt.Size = new System.Drawing.Size(574, 25);
+			this.pnl_Learnt.TabIndex = 3;
+			this.pnl_Learnt.MouseHover += new System.EventHandler(this.pnl_Learnt_MouseHover);
+			// 
+			// pnl_LearntValue
+			// 
+			this.pnl_LearntValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_LearntValue.BackColor = System.Drawing.Color.SandyBrown;
+			this.pnl_LearntValue.Location = new System.Drawing.Point(0, 0);
+			this.pnl_LearntValue.Name = "pnl_LearntValue";
+			this.pnl_LearntValue.Size = new System.Drawing.Size(443, 25);
+			this.pnl_LearntValue.TabIndex = 0;
+			// 
+			// lbl_Wrong
+			// 
+			this.lbl_Wrong.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_Wrong.Location = new System.Drawing.Point(0, 77);
+			this.lbl_Wrong.Name = "lbl_Wrong";
+			this.lbl_Wrong.Size = new System.Drawing.Size(80, 25);
+			this.lbl_Wrong.TabIndex = 2;
+			this.lbl_Wrong.Text = "Wrong";
+			this.lbl_Wrong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// lbl_Right
+			// 
+			this.lbl_Right.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_Right.Location = new System.Drawing.Point(0, 43);
+			this.lbl_Right.Name = "lbl_Right";
+			this.lbl_Right.Size = new System.Drawing.Size(80, 25);
+			this.lbl_Right.TabIndex = 1;
+			this.lbl_Right.Text = "Right";
+			this.lbl_Right.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// lbl_Learnt
+			// 
+			this.lbl_Learnt.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_Learnt.Location = new System.Drawing.Point(0, 9);
+			this.lbl_Learnt.Name = "lbl_Learnt";
+			this.lbl_Learnt.Size = new System.Drawing.Size(80, 25);
+			this.lbl_Learnt.TabIndex = 0;
+			this.lbl_Learnt.Text = "Learnt";
+			this.lbl_Learnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// pnl_WordItems
+			// 
+			this.pnl_WordItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnl_WordItems.AutoScroll = true;
+			this.pnl_WordItems.BackColor = System.Drawing.Color.Transparent;
+			this.pnl_WordItems.Location = new System.Drawing.Point(10, 133);
+			this.pnl_WordItems.Name = "pnl_WordItems";
+			this.pnl_WordItems.Size = new System.Drawing.Size(678, 416);
+			this.pnl_WordItems.TabIndex = 2;
 			// 
 			// pic_Back
 			// 
@@ -473,6 +626,7 @@
 			// 
 			// pic_Fcard
 			// 
+			this.pic_Fcard.Dock = System.Windows.Forms.DockStyle.Left;
 			this.pic_Fcard.Image = global::PTLEnglish.Properties.Resources.flashcard;
 			this.pic_Fcard.Location = new System.Drawing.Point(0, 0);
 			this.pic_Fcard.Name = "pic_Fcard";
@@ -484,25 +638,17 @@
 			this.pic_Fcard.MouseEnter += new System.EventHandler(this.pnl_Fcard_MouseEnter);
 			this.pic_Fcard.MouseLeave += new System.EventHandler(this.pnl_Fcard_MouseLeave);
 			// 
-			// panel_Content
-			// 
-			this.panel_Content.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel_Content.Location = new System.Drawing.Point(200, 0);
-			this.panel_Content.Name = "panel_Content";
-			this.panel_Content.Size = new System.Drawing.Size(584, 561);
-			this.panel_Content.TabIndex = 2;
-			// 
 			// fSub
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.ClientSize = new System.Drawing.Size(784, 561);
-			this.Controls.Add(this.panel_Content);
+			this.ClientSize = new System.Drawing.Size(884, 561);
+			this.Controls.Add(this.pnl_Content);
 			this.Controls.Add(this.pnl_SideBar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximumSize = new System.Drawing.Size(800, 600);
+			this.MaximumSize = new System.Drawing.Size(900, 600);
 			this.Name = "fSub";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PTLEnglish";
@@ -519,6 +665,11 @@
 			this.pnl_Listen.ResumeLayout(false);
 			this.pnl_Learn.ResumeLayout(false);
 			this.pnl_Fcard.ResumeLayout(false);
+			this.pnl_Content.ResumeLayout(false);
+			this.pnl_Info.ResumeLayout(false);
+			this.pnl_Wrong.ResumeLayout(false);
+			this.pnl_Right.ResumeLayout(false);
+			this.pnl_Learnt.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pic_Back)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Menu)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Shooter)).EndInit();
@@ -565,6 +716,18 @@
 		private System.Windows.Forms.Panel pnl_Menu;
 		private System.Windows.Forms.Panel pnl_Back;
 		private System.Windows.Forms.PictureBox pic_Back;
-		private System.Windows.Forms.Panel panel_Content;
+		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.Panel pnl_Content;
+		private System.Windows.Forms.Panel pnl_Info;
+		private System.Windows.Forms.Panel pnl_Wrong;
+		private System.Windows.Forms.Panel pnl_WrongValue;
+		private System.Windows.Forms.Panel pnl_Right;
+		private System.Windows.Forms.Panel pnl_RightValue;
+		private System.Windows.Forms.Panel pnl_Learnt;
+		private System.Windows.Forms.Panel pnl_LearntValue;
+		private System.Windows.Forms.Label lbl_Wrong;
+		private System.Windows.Forms.Label lbl_Right;
+		private System.Windows.Forms.Label lbl_Learnt;
+		private System.Windows.Forms.Panel pnl_WordItems;
 	}
 }

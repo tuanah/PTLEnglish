@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
+using System.Reflection;
 
 namespace PTLEnglish.GUI
 {
@@ -17,6 +18,11 @@ namespace PTLEnglish.GUI
 		{
 			InitializeComponent();
 			Manage.ThisPath = "Source\\Economic\\Job";
+
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
+			| BindingFlags.Instance | BindingFlags.NonPublic, null,
+			pnl_SideBar, new object[] { true });
+			toolTip1.SetToolTip(pnl_WordItems, this.BackColor.R + "," + this.BackColor.G + "," + this.BackColor.B);
 		}
 
 		#region pnl_SideBar
@@ -263,6 +269,20 @@ namespace PTLEnglish.GUI
 				Manage.LoadData(Manage.ThisPath);
 			}
 			Manage.SerializeToXML(Manage.TopicData, Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml");
+
+			for (int i = 0; i < Manage.TopicData.WordList.Count; i++)
+			{
+				WordItem item = new WordItem(i);
+				//ns.Anchor = AnchorStyles.Right | AnchorStyles.Left;
+				item.Location = new Point(0, pnl_WordItems.Controls.Count * (item.Height + item.Margin.Bottom));
+				pnl_WordItems.Controls.Add(item);
+			}
+			pnl_WordItems.AutoScroll = true;
+		}
+
+		private void pnl_Learnt_MouseHover(object sender, EventArgs e)
+		{
+			toolTip1.SetToolTip((Panel)sender, "3/25");
 		}
 	}
 }
