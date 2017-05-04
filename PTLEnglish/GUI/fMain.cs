@@ -228,7 +228,7 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Course_Click(object sender, EventArgs e)
 		{
-			Manage.ThisPath = "Source";
+			//Manage.ThisCourse = "Source";
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
 
@@ -307,7 +307,7 @@ namespace PTLEnglish.GUI
 			}
 
 
-			Manage.ThisPath ="Source\\" + lbl.Text;
+			Manage.ThisCourse ="Source\\" + lbl.Text;
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
 		}
@@ -315,9 +315,9 @@ namespace PTLEnglish.GUI
 		private void Topic_Clk(object sender, EventArgs e)
 		{
 			Label lbl = sender as Label;
-			Manage.ThisPath += "\\" + lbl.Text;
-			Form1 f = new Form1();
-			this.Hide();
+			Manage.ThisTopic= "\\"+ lbl.Text;
+			fSub f = new fSub();
+			//this.Hide();
 			f.Show();
 		}
 
@@ -467,7 +467,7 @@ namespace PTLEnglish.GUI
 		private void Hexagon_Clk(object sender, EventArgs e)
 		{
 			Hexagon hexa = sender as Hexagon;
-			Manage.ThisPath += "\\"+hexa.Text;
+			Manage.ThisCourse = "Source\\"+hexa.Text;
 
 			int i;
 			for (i = 0; i < Cons.CourseDir.Length; i++)
@@ -501,8 +501,6 @@ namespace PTLEnglish.GUI
 				HexagonGrid[col][row].Text = text.Text;
 				HexagonGrid[col][row].Cursor = Cursors.Hand;
 				HexagonGrid[col][row].Click += HexClkShowNewForm;
-
-				
 			}
 		}
 

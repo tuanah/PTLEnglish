@@ -11,14 +11,20 @@ namespace PTLEnglish.DAL
 	{
 		private string topicName;
 		private List<Word> wordList;
-		private List<string> wrongWords;
-		private List<string> rightWords;
-		private List<string> learntWords;
+		private List<int> wrongWords;
+		private List<int> rightWords;
+		private int numLearnt = 0;
 
 		public string TopicName { get => topicName; set => topicName = value; }
 		public List<Word> WordList { get => wordList; set => wordList = value; }
-		public List<string> WrongWords { get => wrongWords; set => wrongWords = value; }
-		public List<string> RightWords { get => rightWords; set => rightWords = value; }
-		public List<string> LearntWords { get => learntWords; set => learntWords = value; }
+		public List<int> WrongWords { get => wrongWords; set => wrongWords = value; }
+		public List<int> RightWords { get => rightWords; set => rightWords = value; }
+		public int NumLearnt { get => numLearnt; set => numLearnt = value; }
+
+		public Topic()
+		{
+			wrongWords = new List<int>();
+			rightWords = new List<int>();
+		}
 	}
 }

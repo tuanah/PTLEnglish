@@ -29,7 +29,7 @@ namespace PTLEnglish
 			}
 			catch
 			{
-				Manage.LoadData(Manage.ThisPath);
+				Manage.LoadData(Manage.ThisCourse + Manage.ThisTopic);
 			}
 			lbl_Topic_Name.Text = Manage.TopicData.TopicName;
 			LoadListView(lvWord, Manage.TopicData);

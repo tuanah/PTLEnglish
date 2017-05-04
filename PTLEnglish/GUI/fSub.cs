@@ -17,13 +17,97 @@ namespace PTLEnglish.GUI
 		public fSub()
 		{
 			InitializeComponent();
-			Manage.ThisPath = "Source\\Economic\\Job";
+			Manage.ThisCourse = "Source\\Economic";
+			Manage.ThisTopic= "\\Job";
 
-			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
-			| BindingFlags.Instance | BindingFlags.NonPublic, null,
-			pnl_SideBar, new object[] { true });
-			toolTip1.SetToolTip(pnl_WordItems, this.BackColor.R + "," + this.BackColor.G + "," + this.BackColor.B);
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance |BindingFlags.NonPublic, null, pnl_SideBar, new object[] { true });
+
+			#region Hide ScrollBar
+			pnl_WordItems.AutoScroll = false;
+			pnl_WordItems.HorizontalScroll.Enabled = false;
+			pnl_WordItems.HorizontalScroll.Visible = false;
+			pnl_WordItems.HorizontalScroll.Maximum = 0;
+
+			pnl_WordItems.VerticalScroll.Enabled = false;
+			pnl_WordItems.VerticalScroll.Visible = false;
+			pnl_WordItems.VerticalScroll.Maximum = 0;
+			pnl_WordItems.AutoScroll = true;
+			#endregion
+
 		}
+
+		#region fSub
+		private void fSub_Load(object sender, EventArgs e)
+		{
+			
+			try
+			{
+				Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
+			}
+			catch
+			{
+				Manage.LoadData(Manage.ThisCourse + Manage.ThisTopic);
+			}
+			this.Text = Manage.TopicData.TopicName;
+			SetToolTipfSub();
+
+			for (int i = 0; i < Manage.TopicData.WordList.Count; i++)
+			{
+				WordItem item = new WordItem(i);
+				if (Manage.TopicData.WordList[i].NumWrong == 0)
+					pnl_Never.Controls.Add(item);
+				else if (Manage.TopicData.WordList[i].NumWrong == 1)
+					pnl_Rarely.Controls.Add(item);
+				else pnl_Sometimes.Controls.Add(item);
+			}
+
+			foreach (Control ctl in pnl_WordItems.Controls)
+			{
+				ctl.Height = (ctl.Controls.Count) * 105 + 65;
+			}
+
+			if (pnl_Sometimes.Controls.Count == 1)
+			{
+				pnl_Sometimes.Visible = false;
+			}
+			else pnl_Sometimes.Visible = true;
+			if (pnl_Rarely.Controls.Count == 1)
+			{
+				pnl_Rarely.Visible = false;
+			}
+			else pnl_Rarely.Visible = true;
+			if (pnl_Never.Controls.Count == 1)
+				pnl_Never.Visible = false;
+			else pnl_Never.Visible = true;
+		}
+
+		private void fSub_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			string filePath = Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml";
+			Manage.SerializeToXML(Manage.TopicData, filePath);
+			Application.Exit();
+		}
+
+		private void SetToolTipfSub()
+		{
+			tlt_Info.SetToolTip(pic_Fcard, "Flash Card");
+			tlt_Info.SetToolTip(pic_Game, "Game");
+			tlt_Info.SetToolTip(pic_Gravity, "Gravity");
+			tlt_Info.SetToolTip(pic_Learn, "Learn");
+			tlt_Info.SetToolTip(pic_Listen, "Listen");
+			tlt_Info.SetToolTip(pic_Match, "Match");
+			tlt_Info.SetToolTip(pic_Shooter, "Shooter");
+			tlt_Info.SetToolTip(pic_Test, "Test");
+			tlt_Info.SetToolTip(pnl_Learnt, Manage.TopicData.NumLearnt + "/" + Manage.TopicData.WordList.Count);
+			tlt_Info.SetToolTip(pnl_LearntValue, Manage.TopicData.NumLearnt + "/" + Manage.TopicData.WordList.Count);
+
+			tlt_Info.SetToolTip(pnl_Right, Manage.TopicData.RightWords.Count + "/" + Manage.TopicData.NumLearnt);
+			tlt_Info.SetToolTip(pnl_RightValue, Manage.TopicData.RightWords.Count + "/" + Manage.TopicData.NumLearnt);
+
+			tlt_Info.SetToolTip(pnl_Wrong, Manage.TopicData.WrongWords.Count + "/" + Manage.TopicData.NumLearnt);
+			tlt_Info.SetToolTip(pnl_WrongValue, Manage.TopicData.WrongWords.Count + "/" + Manage.TopicData.NumLearnt);
+		}
+		#endregion
 
 		#region pnl_SideBar
 		//
@@ -45,10 +129,12 @@ namespace PTLEnglish.GUI
 		{
 			if (pnl_SideBar.Width == 45)
 			{
-				pnl_SideBar.Width = 200;
+				pnl_SideBar.Width = 187;
 			}
 			else
+			{
 				pnl_SideBar.Width = 45;
+			}
 		}
 
 		//
@@ -255,34 +341,38 @@ namespace PTLEnglish.GUI
 		#endregion
 
 		#region pnl_Content
-
-		#endregion
-
-		private void fSub_Load(object sender, EventArgs e)
-		{
-			try
-			{
-				Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml");
-			}
-			catch
-			{
-				Manage.LoadData(Manage.ThisPath);
-			}
-			Manage.SerializeToXML(Manage.TopicData, Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml");
-
-			for (int i = 0; i < Manage.TopicData.WordList.Count; i++)
-			{
-				WordItem item = new WordItem(i);
-				//ns.Anchor = AnchorStyles.Right | AnchorStyles.Left;
-				item.Location = new Point(0, pnl_WordItems.Controls.Count * (item.Height + item.Margin.Bottom));
-				pnl_WordItems.Controls.Add(item);
-			}
-			pnl_WordItems.AutoScroll = true;
-		}
-
 		private void pnl_Learnt_MouseHover(object sender, EventArgs e)
 		{
-			toolTip1.SetToolTip((Panel)sender, "3/25");
+			tlt_Info.SetToolTip((Panel)sender, "3/25");
 		}
+
+		private void pnl_Info_Paint(object sender, PaintEventArgs e)
+		{
+			if (Manage.TopicData.NumLearnt != 0)
+				pnl_LearntValue.Width = (pnl_LearntValue.MaximumSize.Width / Manage.TopicData.WordList.Count) * Manage.TopicData.NumLearnt;
+			else pnl_LearntValue.Width = 2;
+
+			if (Manage.TopicData.RightWords.Count != 0)
+				pnl_RightValue.Width = (pnl_LearntValue.Width / Manage.TopicData.NumLearnt) * Manage.TopicData.RightWords.Count;
+			else pnl_RightValue.Width = 2;
+
+			if (Manage.TopicData.WrongWords.Count != 0)
+				pnl_WrongValue.Width = (pnl_LearntValue.Width / Manage.TopicData.NumLearnt) * Manage.TopicData.WrongWords.Count;
+			else pnl_WrongValue.Width = 2;
+		}
+
+		private void pnl_WordItems_SizeChanged(object sender, EventArgs e)
+		{
+			foreach (Control ctl in pnl_WordItems.Controls)
+			{
+				ctl.Width = pnl_WordItems.Width;
+				foreach (Control ctrl in ctl.Controls)
+				{
+					ctrl.Width = ctl.Width;
+				}
+			}
+		}
+		#endregion
+
 	}
 }

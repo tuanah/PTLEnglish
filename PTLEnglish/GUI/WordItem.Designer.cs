@@ -32,18 +32,18 @@
 			this.tpnl_Content = new System.Windows.Forms.TableLayoutPanel();
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.tpnl_Right = new System.Windows.Forms.TableLayoutPanel();
-			this.lbl_Mean = new System.Windows.Forms.Label();
-			this.tpnl_Left = new System.Windows.Forms.TableLayoutPanel();
-			this.lbl_Key = new System.Windows.Forms.Label();
-			this.lbl_Score = new System.Windows.Forms.Label();
 			this.pic_Spell = new System.Windows.Forms.PictureBox();
 			this.pic_Hard = new System.Windows.Forms.PictureBox();
+			this.lbl_Mean = new System.Windows.Forms.Label();
+			this.tpnl_Left = new System.Windows.Forms.TableLayoutPanel();
 			this.pic_Key = new System.Windows.Forms.PictureBox();
+			this.lbl_Key = new System.Windows.Forms.Label();
+			this.lbl_Score = new System.Windows.Forms.Label();
 			this.tpnl_Content.SuspendLayout();
 			this.tpnl_Right.SuspendLayout();
-			this.tpnl_Left.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Spell)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Hard)).BeginInit();
+			this.tpnl_Left.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Key)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -80,7 +80,7 @@
 			this.tpnl_Right.ColumnCount = 3;
 			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.6473F));
 			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.3527F));
-			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
 			this.tpnl_Right.Controls.Add(this.pic_Spell, 0, 0);
 			this.tpnl_Right.Controls.Add(this.pic_Hard, 0, 0);
 			this.tpnl_Right.Controls.Add(this.lbl_Mean, 0, 0);
@@ -92,13 +92,41 @@
 			this.tpnl_Right.Size = new System.Drawing.Size(278, 94);
 			this.tpnl_Right.TabIndex = 12;
 			// 
+			// pic_Spell
+			// 
+			this.pic_Spell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.pic_Spell.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pic_Spell.Image = global::PTLEnglish.Properties.Resources.volume_icon;
+			this.pic_Spell.Location = new System.Drawing.Point(245, 10);
+			this.pic_Spell.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.pic_Spell.Name = "pic_Spell";
+			this.pic_Spell.Size = new System.Drawing.Size(30, 27);
+			this.pic_Spell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pic_Spell.TabIndex = 9;
+			this.pic_Spell.TabStop = false;
+			this.pic_Spell.Click += new System.EventHandler(this.pic_Spell_Click);
+			// 
+			// pic_Hard
+			// 
+			this.pic_Hard.BackColor = System.Drawing.Color.Transparent;
+			this.pic_Hard.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pic_Hard.Image = ((System.Drawing.Image)(resources.GetObject("pic_Hard.Image")));
+			this.pic_Hard.Location = new System.Drawing.Point(200, 10);
+			this.pic_Hard.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+			this.pic_Hard.Name = "pic_Hard";
+			this.pic_Hard.Size = new System.Drawing.Size(29, 27);
+			this.pic_Hard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pic_Hard.TabIndex = 8;
+			this.pic_Hard.TabStop = false;
+			this.pic_Hard.Click += new System.EventHandler(this.pic_Hard_Click);
+			// 
 			// lbl_Mean
 			// 
 			this.lbl_Mean.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lbl_Mean.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_Mean.Location = new System.Drawing.Point(3, 0);
 			this.lbl_Mean.Name = "lbl_Mean";
-			this.lbl_Mean.Size = new System.Drawing.Size(192, 94);
+			this.lbl_Mean.Size = new System.Drawing.Size(191, 94);
 			this.lbl_Mean.TabIndex = 6;
 			this.lbl_Mean.Text = "Phòng nghiên cứu và phát triển thị trường";
 			this.lbl_Mean.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,6 +148,19 @@
 			this.tpnl_Left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tpnl_Left.Size = new System.Drawing.Size(387, 100);
 			this.tpnl_Left.TabIndex = 13;
+			// 
+			// pic_Key
+			// 
+			this.pic_Key.BackColor = System.Drawing.Color.Transparent;
+			this.pic_Key.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pic_Key.ErrorImage = global::PTLEnglish.Properties.Resources.error_image;
+			this.pic_Key.Image = global::PTLEnglish.Properties.Resources.background;
+			this.pic_Key.Location = new System.Drawing.Point(273, 3);
+			this.pic_Key.Name = "pic_Key";
+			this.pic_Key.Size = new System.Drawing.Size(111, 94);
+			this.pic_Key.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pic_Key.TabIndex = 17;
+			this.pic_Key.TabStop = false;
 			// 
 			// lbl_Key
 			// 
@@ -150,47 +191,6 @@
 			this.lbl_Score.Text = "-225";
 			this.lbl_Score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// pic_Spell
-			// 
-			this.pic_Spell.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.pic_Spell.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pic_Spell.Image = global::PTLEnglish.Properties.Resources.volume_icon;
-			this.pic_Spell.Location = new System.Drawing.Point(245, 10);
-			this.pic_Spell.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-			this.pic_Spell.Name = "pic_Spell";
-			this.pic_Spell.Size = new System.Drawing.Size(30, 27);
-			this.pic_Spell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pic_Spell.TabIndex = 9;
-			this.pic_Spell.TabStop = false;
-			this.pic_Spell.Click += new System.EventHandler(this.pic_Spell_Click);
-			// 
-			// pic_Hard
-			// 
-			this.pic_Hard.BackColor = System.Drawing.Color.Transparent;
-			this.pic_Hard.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pic_Hard.Image = ((System.Drawing.Image)(resources.GetObject("pic_Hard.Image")));
-			this.pic_Hard.Location = new System.Drawing.Point(201, 10);
-			this.pic_Hard.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-			this.pic_Hard.Name = "pic_Hard";
-			this.pic_Hard.Size = new System.Drawing.Size(29, 27);
-			this.pic_Hard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pic_Hard.TabIndex = 8;
-			this.pic_Hard.TabStop = false;
-			this.pic_Hard.Click += new System.EventHandler(this.pic_Hard_Click);
-			// 
-			// pic_Key
-			// 
-			this.pic_Key.BackColor = System.Drawing.Color.Transparent;
-			this.pic_Key.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pic_Key.ErrorImage = global::PTLEnglish.Properties.Resources.error_image;
-			this.pic_Key.Image = global::PTLEnglish.Properties.Resources.background;
-			this.pic_Key.Location = new System.Drawing.Point(273, 3);
-			this.pic_Key.Name = "pic_Key";
-			this.pic_Key.Size = new System.Drawing.Size(111, 94);
-			this.pic_Key.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pic_Key.TabIndex = 17;
-			this.pic_Key.TabStop = false;
-			// 
 			// WordItem
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,9 +202,9 @@
 			this.Size = new System.Drawing.Size(678, 100);
 			this.tpnl_Content.ResumeLayout(false);
 			this.tpnl_Right.ResumeLayout(false);
-			this.tpnl_Left.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pic_Spell)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Hard)).EndInit();
+			this.tpnl_Left.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pic_Key)).EndInit();
 			this.ResumeLayout(false);
 

@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
 using System.Reflection;
-using System.Speech;
 
 namespace PTLEnglish.GUI
 {
 	public partial class WordItem : UserControl
 	{
 		Word word;
+		int index;
+
 		public WordItem()
 		{
 			InitializeComponent();
@@ -24,6 +25,7 @@ namespace PTLEnglish.GUI
 		public WordItem(int i)
 		{
 			InitializeComponent();
+			index = i;
 			word = new Word();
 			word = Manage.TopicData.WordList[i];
 
@@ -32,19 +34,20 @@ namespace PTLEnglish.GUI
 
 		private void WordItem_Load(object sender, EventArgs e)
 		{
-			this.Anchor = AnchorStyles.Left | AnchorStyles.Right;
 			lbl_Score.Text = (word.NumRight - word.NumWrong).ToString();
-			if (word.NumWrong == 0)
+			if (word.NumRight >= word.NumWrong)
 			{
 				lbl_Score.ForeColor = Color.Green;
 			}
-			else if (word.NumWrong == 1)
+			else if (Math.Abs(word.NumRight - word.NumWrong) == 1)
 			{
 				lbl_Score.ForeColor = Color.Goldenrod;
 			}
 			else
 				lbl_Score.ForeColor = Color.OrangeRed;
+
 			lbl_Key.Text = word.Key + '\n' + '/' + word.Pronunciation + '/';
+
 			try
 			{
 				pic_Key.Image = Image.FromFile(word.ImgPath);
@@ -54,6 +57,16 @@ namespace PTLEnglish.GUI
 				pic_Key.Image = pic_Key.ErrorImage;
 			}
 			lbl_Mean.Text = word.Mean;
+
+			if (word.IsHard)
+			{
+				pic_Hard.Image = global::PTLEnglish.Properties.Resources.flash_clk;
+			}
+			else
+			{
+				pic_Hard.Image = global::PTLEnglish.Properties.Resources.flash;
+			}
+			SetTooltipScore();
 		}
 
 		private void AutoFontSize(Control ctrl)
@@ -93,7 +106,7 @@ namespace PTLEnglish.GUI
 		private void pic_Hard_Click(object sender, EventArgs e)
 		{
 			PictureBox pic = sender as PictureBox;
-			word.IsHard = !word.IsHard;
+			Manage.TopicData.WordList[index].IsHard = !Manage.TopicData.WordList[index].IsHard;
 			if (word.IsHard)
 			{
 				pic.Image = global::PTLEnglish.Properties.Resources.flash_clk;
@@ -106,14 +119,14 @@ namespace PTLEnglish.GUI
 
 		private void pic_Spell_Click(object sender, EventArgs e)
 		{
-			
+			Manage.reader.SelectVoiceByHints(System.Speech.Synthesis.VoiceGender.Female);
+			Manage.reader.Speak(word.Key);
 		}
 
-
-		//public WordItem(int i)
-		//{
-		//	WordItem();
-		//}
-
+		private void SetTooltipScore()
+		{
+			ToolTip tlt = new ToolTip();
+			tlt.SetToolTip(lbl_Score, "Correct: " + word.NumRight + " times\nMissed: "+word.NumWrong + " times");
+		}
 	}
 }
