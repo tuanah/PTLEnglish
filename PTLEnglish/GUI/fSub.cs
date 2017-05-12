@@ -11,6 +11,7 @@ using PTLEnglish.DAL;
 using System.Reflection;
 using PTLEnglish.GUI.Listen;
 using PTLEnglish.GUI.Flash_Card;
+using PTLEnglish.GUI.Gravity;
 namespace PTLEnglish.GUI
 {
 	public partial class fSub : Form
@@ -303,7 +304,9 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Gravity_Click(object sender, EventArgs e)
 		{
-
+            uctrlGravity Gravity = new uctrlGravity();
+            pnl_Content.Controls.Clear();
+            pnl_Content.Controls.Add(Gravity);
 		}
 
 		//

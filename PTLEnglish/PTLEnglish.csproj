@@ -117,6 +117,18 @@
     <Compile Include="GUI\fSub.Designer.cs">
       <DependentUpon>fSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Gravity\Introduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\Introduction.Designer.cs">
+      <DependentUpon>Introduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\uctrlGravity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\uctrlGravity.Designer.cs">
+      <DependentUpon>uctrlGravity.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Hexagon.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -191,6 +203,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fSub.resx">
       <DependentUpon>fSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\Introduction.resx">
+      <DependentUpon>Introduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\uctrlGravity.resx">
+      <DependentUpon>uctrlGravity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Hexagon.resx">
       <DependentUpon>Hexagon.cs</DependentUpon>
