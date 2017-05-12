@@ -14,7 +14,7 @@ namespace PTLEnglish
 {
 	public partial class Form1 : Form
 	{
-		Manage Data = new Manage();
+		//Manage Data = new Manage();
 		public Form1()
 		{
 			InitializeComponent();
@@ -22,18 +22,29 @@ namespace PTLEnglish
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			cbCourse.DataSource = Cons.CourseDir;
+			//cbCourse.DataSource = Cons.CourseDir;
+			try
+			{
+				Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml");
+			}
+			catch
+			{
+				Manage.LoadData(Manage.ThisPath);
+			}
+			lbl_Topic_Name.Text = Manage.TopicData.TopicName;
+			LoadListView(lvWord, Manage.TopicData);
+			Manage.SerializeToXML(Manage.TopicData, Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml");
 		}
 
 		private void cbCourse_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			ComboBox cb = sender as ComboBox;
-			if (cb.SelectedItem != null)
-			{
-				DirectoryInfo topic = cb.SelectedItem as DirectoryInfo;
-				Cons.LoadTopicDir(topic);
-				cbTopic.DataSource = Cons.TopicDir;
-			}
+			//ComboBox cb = sender as ComboBox;
+			//if (cb.SelectedItem != null)
+			//{
+			//	DirectoryInfo topic = cb.SelectedItem as DirectoryInfo;
+			//	Cons.LoadTopicDir(topic);
+			//	cbTopic.DataSource = Cons.TopicDir;
+			//}
 		}
 
 		private void LoadListView(ListView listView, Topic topic)
@@ -59,27 +70,28 @@ namespace PTLEnglish
 
 		private void cbTopic_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			ComboBox cb = sender as ComboBox;
-			if (cb.SelectedItem != null)
-			{
-				DirectoryInfo dir = cb.SelectedItem as DirectoryInfo;
-				try
-				{
-					Data.TopicData = (Topic)Data.DeserializeFromXML(Cons.Path + "\\" + dir.Name + ".xml");
-				}
-				catch
-				{
-					Data.LoadData(dir);
-				}
-				LoadListView(lvWord, Data.TopicData);
-				Data.SerializeToXML(Data.TopicData, Cons.Path + "\\" + dir.Name + ".xml");
-			}
+			//ComboBox cb = sender as ComboBox;
+			//if (cb.SelectedItem != null)
+			//{
+			//	DirectoryInfo dir = cb.SelectedItem as DirectoryInfo;
+			//	try
+			//	{
+			//		Manage.TopicData= (Topic)Manage.DeserializeFromXML(Cons.Path + "\\" + dir.Name + ".xml");
+			//	}
+			//	catch
+			//	{
+			//		Manage.LoadData(dir);
+			//	}
+			//	LoadListView(lvWord, Manage.TopicData);
+			//	Manage.SerializeToXML(Manage.TopicData, Cons.Path + "\\" + dir.Name + ".xml");
+			//}
 		}
 
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			string filePath = Cons.Path + "\\" + Data.TopicData.TopicName + ".xml";
-			Data.SerializeToXML(Data.TopicData, filePath);
+			string filePath = Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml";
+			Manage.SerializeToXML(Manage.TopicData, filePath);
+			Application.Exit();
 		}
 
 	}

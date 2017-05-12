@@ -16,6 +16,7 @@ namespace PTLEnglish
 		[STAThread]
 		static void Main()
 		{
+			Cons.LoadDir();
 			User.Init();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

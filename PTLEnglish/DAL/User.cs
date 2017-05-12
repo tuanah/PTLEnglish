@@ -17,7 +17,11 @@ namespace PTLEnglish.DAL
 
 		public static void Init()
 		{
-			using (FileStream fs = new FileStream(Cons.Path + @"\info.txt", FileMode.OpenOrCreate))
+			if (!Directory.Exists(Cons.Path))
+			{
+				Directory.CreateDirectory(Cons.Path);
+			}
+			using (FileStream fs = new FileStream(Cons.Path + @"\config.ini", FileMode.OpenOrCreate))
 			{
 				using (StreamReader sReader = new StreamReader(fs, Encoding.UTF8))
 				{
@@ -41,7 +45,7 @@ namespace PTLEnglish.DAL
 
 		public static void Save()
 		{
-			using (FileStream fs = new FileStream(Cons.Path + @"\info.txt", FileMode.Create))
+			using (FileStream fs = new FileStream(Cons.Path + @"\config.ini", FileMode.Create))
 			{
 				using (StreamWriter sWriter = new StreamWriter(fs, Encoding.UTF8))
 				{
