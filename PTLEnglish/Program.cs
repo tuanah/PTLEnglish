@@ -22,7 +22,8 @@ namespace PTLEnglish
 			Application.SetCompatibleTextRenderingDefault(false);
 			//Application.Run(new Form1());
 			//Application.Run(new Login());
-			Application.Run(new fMain());
+			//Application.Run(new fMain());
+			Application.Run(new fSub());
 			User.Save();
 		}
 	}
