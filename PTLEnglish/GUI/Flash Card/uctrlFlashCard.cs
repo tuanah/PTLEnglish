@@ -164,7 +164,7 @@ namespace PTLEnglish.GUI.Flash_Card
             flipPanel.Show();
             flipPanel.Front = uEnglish;
             flipPanel.Behind = uVietnamese;
-
+            pnEnglish.Click += PnEnglish_Click;
             int dem = 0;
             while (pnProgressRun.Width > 21)
             {
@@ -183,17 +183,23 @@ namespace PTLEnglish.GUI.Flash_Card
             pnQuickPress.Visible = false;
             pbDown.Visible = false;
 
-            countNormal++;
-            int index = countNormal;
+            int index = -1;
             if (lRandom != null)
             {
                 countRandom++;
-                index = lRandom[countRandom];
+                if (countRandom != 25)
+                    index = lRandom[countRandom];
+            }
+            else
+            {
+                countNormal++;
+                index = countNormal;
             }
             if (index <= 24)
             {
-                // Tắt enable của pbLeft
-                pbLeft.Enabled = true;
+                // Tắt enable của pbLeft    
+                if (index > 0)
+                    pbLeft.Enabled = true;
                 //
                 flipPanel.CheckAnimation = false;
 
@@ -201,13 +207,13 @@ namespace PTLEnglish.GUI.Flash_Card
                 {
                     Both = new uctrlBoth(index);
                     flipPanel.Behind = Both;
-                  
+
                 }
                 else
                 {
                     uEnglish = new uctrlEnglish(index);
                     flipPanel.Behind = uEnglish;
-                   
+
                     pnEnglish.Click += PnEnglish_Click;
                 }
                 if (flipPanel.Controls.Count == 3)
@@ -220,9 +226,12 @@ namespace PTLEnglish.GUI.Flash_Card
                     pnProgressRun.Width += 1;
                     Thread.Sleep(10);
                 }
-              
+
                 return;
             }
+
+            if (lRandom != null) countRandom--;
+            else countNormal--;
             pbRight.Enabled = false;
         }
 
@@ -232,31 +241,36 @@ namespace PTLEnglish.GUI.Flash_Card
             pnQuickPress.Visible = false;
             pbDown.Visible = false;
 
-            countNormal--;
-            int index = countNormal;
+            int index = -1;
             if (lRandom != null)
             {
                 countRandom--;
                 if (countRandom != -1)
                     index = lRandom[countRandom];
-                else index = -1;
             }
+            else
+            {
+                countNormal--;
+                index = countNormal;
+            }
+
             if (index >= 0)
             {
                 // Tắt enable của pbLeft
-                pbRight.Enabled = true;
+                if (index != 24)
+                    pbRight.Enabled = true;
                 //
                 flipPanel.CheckAnimation = false;
                 if (checkBoth == 0)
                 {
                     Both = new uctrlBoth(index);
                     flipPanel.Behind = Both;
-                  
+
                 }
                 else
                 {
                     uEnglish = new uctrlEnglish(index);
-                    flipPanel.Behind = uEnglish;                   
+                    flipPanel.Behind = uEnglish;
                     pnEnglish.Click += PnEnglish_Click;
                 }
                 if (flipPanel.Controls.Count == 3)
@@ -269,9 +283,13 @@ namespace PTLEnglish.GUI.Flash_Card
                     pnProgressRun.Width -= 1;
                     Thread.Sleep(10);
                 }
-               
+
                 return;
             }
+            if (lRandom != null)
+                countRandom++;
+            else
+                countNormal++;
             pbLeft.Enabled = false;
 
         }
@@ -369,7 +387,7 @@ namespace PTLEnglish.GUI.Flash_Card
                 {
                     index = lRandom[countRandom];
                 }
-                Both = new uctrlBoth(index) ;
+                Both = new uctrlBoth(index);
                 flipPanel.Front = Both;
                 while (flipPanel.Controls.Count != 1)
                     flipPanel.Controls[0].Dispose();
