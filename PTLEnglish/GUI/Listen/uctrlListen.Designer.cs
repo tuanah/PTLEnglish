@@ -32,12 +32,14 @@
             this.fpnMain = new System.Windows.Forms.FlowLayoutPanel();
             this.pnImageAndMean = new System.Windows.Forms.Panel();
             this.lbMean = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnReadListen = new System.Windows.Forms.Panel();
             this.pnReadListenSub = new System.Windows.Forms.Panel();
             this.lbkey = new System.Windows.Forms.Label();
             this.lbCommand = new System.Windows.Forms.Label();
             this.pnHorizontal = new System.Windows.Forms.Panel();
             this.pnHorizontalRun = new System.Windows.Forms.Panel();
+            this.pbListen = new System.Windows.Forms.PictureBox();
             this.tbText = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,19 +54,17 @@
             this.pnProgressRun = new System.Windows.Forms.Panel();
             this.lbProgress = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.pbListen = new System.Windows.Forms.PictureBox();
             this.fpnMain.SuspendLayout();
             this.pnImageAndMean.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.pnReadListen.SuspendLayout();
             this.pnReadListenSub.SuspendLayout();
             this.pnHorizontal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListen)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnWrong.SuspendLayout();
             this.pnCorrect.SuspendLayout();
             this.pnProgress.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbListen)).BeginInit();
             this.SuspendLayout();
             // 
             // fpnMain
@@ -101,6 +101,15 @@
             this.lbMean.Size = new System.Drawing.Size(82, 32);
             this.lbMean.TabIndex = 13;
             this.lbMean.Text = "Mean";
+            // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(41, 11);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(211, 195);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 12;
+            this.pbImage.TabStop = false;
             // 
             // pnReadListen
             // 
@@ -164,6 +173,18 @@
             this.pnHorizontalRun.Name = "pnHorizontalRun";
             this.pnHorizontalRun.Size = new System.Drawing.Size(0, 3);
             this.pnHorizontalRun.TabIndex = 2;
+            // 
+            // pbListen
+            // 
+            this.pbListen.Image = global::PTLEnglish.Properties.Resources.Room_Sound_Filled_50;
+            this.pbListen.Location = new System.Drawing.Point(20, 6);
+            this.pbListen.Name = "pbListen";
+            this.pbListen.Size = new System.Drawing.Size(51, 51);
+            this.pbListen.TabIndex = 9;
+            this.pbListen.TabStop = false;
+            this.pbListen.Click += new System.EventHandler(this.pbListen_Click);
+            this.pbListen.MouseLeave += new System.EventHandler(this.pbListen_MouseLeave);
+            this.pbListen.MouseHover += new System.EventHandler(this.pbListen_MouseHover);
             // 
             // tbText
             // 
@@ -301,27 +322,6 @@
             this.timer.Interval = 400;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // pbImage
-            // 
-            this.pbImage.Location = new System.Drawing.Point(41, 11);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(211, 195);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 12;
-            this.pbImage.TabStop = false;
-            // 
-            // pbListen
-            // 
-            this.pbListen.Image = global::PTLEnglish.Properties.Resources.Room_Sound_Filled_50;
-            this.pbListen.Location = new System.Drawing.Point(20, 6);
-            this.pbListen.Name = "pbListen";
-            this.pbListen.Size = new System.Drawing.Size(51, 51);
-            this.pbListen.TabIndex = 9;
-            this.pbListen.TabStop = false;
-            this.pbListen.Click += new System.EventHandler(this.pbListen_Click);
-            this.pbListen.MouseLeave += new System.EventHandler(this.pbListen_MouseLeave);
-            this.pbListen.MouseHover += new System.EventHandler(this.pbListen_MouseHover);
-            // 
             // uctrlListen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,17 +336,17 @@
             this.fpnMain.ResumeLayout(false);
             this.pnImageAndMean.ResumeLayout(false);
             this.pnImageAndMean.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.pnReadListen.ResumeLayout(false);
             this.pnReadListenSub.ResumeLayout(false);
             this.pnReadListenSub.PerformLayout();
             this.pnHorizontal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbListen)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnWrong.ResumeLayout(false);
             this.pnCorrect.ResumeLayout(false);
             this.pnProgress.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbListen)).EndInit();
             this.ResumeLayout(false);
 
         }

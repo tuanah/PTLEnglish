@@ -27,6 +27,7 @@ namespace PTLEnglish.GUI.Listen
             set;
             get;
         }
+        // Biến lưu lại khi học xong bài . Kiểm tra xem có được click hay không:
         public static Button btnStartOverr = new Button();
         // 2 cái biến đầu là cái biến mặc định để đọc được âm thanh khi xài thư viện System.Speech
         PromptBuilder proBuilder = new PromptBuilder();
@@ -36,7 +37,7 @@ namespace PTLEnglish.GUI.Listen
         // 
         // Biến check là 1 biến quan trọng trong xử lý giao diện
         int check = 0;
-       string filePath;
+        string filePath;
         public uctrlListen()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace PTLEnglish.GUI.Listen
             lbWrong.Refresh();
             lbProgress.Refresh();
             //Manage.SerializeToXML(Manage.TopicData, filePath);
+            // Đọc dữ liệu từ Xml lên:
             Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
             a.AnimationType = AnimationType.Transparent;
             /*
@@ -65,7 +67,7 @@ namespace PTLEnglish.GUI.Listen
                 lRandom = Manage.TopicData.Listen.ListRandom;
                 count = Manage.TopicData.Listen.Progress - 1;
 
-                // Chạy cho đẹp:
+                // Phần này chạy giao diện:
                 while (pnCorrectRun.Width < Manage.TopicData.Listen.CorrectWords * 21)
                 {
                     pnCorrectRun.Width += 1;
@@ -76,6 +78,7 @@ namespace PTLEnglish.GUI.Listen
                     pnWrongRun.Width += 1;
                     Thread.Sleep(1);
                 }
+                // Tính toán:
                 if (Manage.TopicData.Listen.FirstTimeOfWord)
                     pnProgressRun.Width = (count + 2) * 21;
                 else
@@ -90,15 +93,14 @@ namespace PTLEnglish.GUI.Listen
                 //ErrorXml();
             }
             if (Manage.TopicData.Listen.FirstTimeOfWord == false)
-            {
                 ShowAWord(++count, lRandom);
-            }
             else
                 ShowAWord(++count, lRandom, 5);
         }
 
-        #region Giao diện cho đẹp chút
+        #region Xử lý giao diện:
 
+        // Không dùng tới:
         void HideBar()
         {
             #region Hide ScrollBar
@@ -113,6 +115,7 @@ namespace PTLEnglish.GUI.Listen
             fpnMain.AutoScroll = true;
             #endregion
         }
+
         private void pbListen_MouseHover(object sender, EventArgs e)
         {
             pbListen.Image = Properties.Resources.Blue_Sound;
@@ -122,7 +125,6 @@ namespace PTLEnglish.GUI.Listen
         {
             pbListen.Image = Properties.Resources.Room_Sound_Filled_50;
         }
-
 
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -169,9 +171,7 @@ namespace PTLEnglish.GUI.Listen
                 pnHorizontalRun.BackColor = Color.BlueViolet;
             }
             while (pnHorizontalRun.Width < pnHorizontal.Width)
-            {
                 pnHorizontalRun.Width = pnHorizontalRun.Width + 1;
-            }
             pnHorizontal.BackColor = pnHorizontalRun.BackColor;
             check = 0;
             timer.Stop();
@@ -179,39 +179,14 @@ namespace PTLEnglish.GUI.Listen
             timer.Dispose();
 
         }
-        #endregion
-
         private void tbText_MouseClick(object sender, MouseEventArgs e)
         {
             timer.Start();
             check = 1;
         }
+        #endregion
 
-        private void panel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        #region Các hàm xử lý chính
-
-        /// <param name="textToSpeech">dữ liệu để đọc</param>
-        /// <param name="rate">tốc độ đọc</param>
-        /// <param name="check"></param>
-        void ReadText(string textToSpeech, int rate, bool check = true)
-        {
-            proBuilder.ClearContent();
-            proBuilder.AppendText(textToSpeech);
-            speechSynthes.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
-            speechSynthes.Rate = rate;
-            speechSynthes.Volume = 100;
-            if (check)
-                speechSynthes.SpeakAsync(proBuilder); // Cái này nó đọc âm thanh mà ko bị đứng màn hình. Nó đọc nhanh
-            else
-                speechSynthes.Speak(proBuilder); // cái này dùng để đọc từng từ
-
-        }
-
+        #region Hàm Random giá trị:
         List<int> AddNumberIntoList()
         {
             List<int> lInt = new List<int>();
@@ -237,23 +212,54 @@ namespace PTLEnglish.GUI.Listen
                 lRandom.Add(index);
             }
         }
+        #endregion
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        #region Các hàm xử lý chính: Đọc - Hiện 1 từ lên màn hình - Kiểm tra từ đó đúng hay sai:
+
+        /// <param name="textToSpeech">dữ liệu để đọc</param>
+        /// <param name="rate">tốc độ đọc</param>
+        /// <param name="check"></param>
+        void ReadText(string textToSpeech, int rate, bool check = true)
+        {
+            proBuilder.ClearContent();
+            proBuilder.AppendText(textToSpeech);
+            speechSynthes.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
+            speechSynthes.Rate = rate;
+            speechSynthes.Volume = 100;
+            if (check)
+                speechSynthes.SpeakAsync(proBuilder); // Cái này nó đọc âm thanh mà ko bị đứng màn hình. Nó đọc nhanh
+            else
+                speechSynthes.Speak(proBuilder); // cái này dùng để đọc từng từ - ko dùng
+
+        }
 
         void ShowAWord(int index, List<int> lRandom, int _check = 0)
         {
             if (count >= 25) // Kết thúc Listen -> Hiện lên thực hiện lại từ đầu
-            {              
+            {
+                // Giao diện:
                 fpnMain.Controls.Clear();
                 fpnMain.Refresh();
                 fpnMain.FlowDirection = FlowDirection.LeftToRight;
                 fpnMain.Refresh();
+
+                // Hiện form kết thúc chương trình học listen:
                 uctrlFinish finish = new uctrlFinish();
-                fpnMain.Controls.Add(finish);              
-               
+                fpnMain.Controls.Add(finish);
+                // Hiện các từ sai ra màn hình:
                 foreach (int item in Manage.TopicData.Listen.ListWrongWord)
                 {
                     uctrlMissedWord miss = new uctrlMissedWord(item);
                     fpnMain.Controls.Add(miss);
                 }
+                // Nếu người dùng click vào học lại listen:
                 btnStartOverr.Click += delegate (object sender, EventArgs e)
                 {
                     Manage.TopicData.Listen.CorrectWords = 0;
@@ -263,6 +269,8 @@ namespace PTLEnglish.GUI.Listen
                     Manage.TopicData.Listen.ListWrongWord = null;
                     Manage.TopicData.Listen.FirstTimeOfWord = false;
                     Manage.SerializeToXML(Manage.TopicData, filePath);
+                    // Khúc này xét xem nếu hàm GetFunction đã get dc fSub
+                    // Thì sẽ click vào Listen để chạy lại chương trình:
                     if (GetFunction is fSub)
                     {
                         fSub frm = GetFunction as fSub;
@@ -270,12 +278,13 @@ namespace PTLEnglish.GUI.Listen
                     }
                 };
             }
-            else
+            else // Nếu chưa kết thúc - vẫn còn từ học:
             {
-                // Gán các giá trị:
+                
                 tbText.Focus();
                 // Lưu tại từ tiếng anh đúng tí mang ra kiểm tra với từ mình nhập vào
                 tbText.Tag = Manage.TopicData.WordList[lRandom[index]].Key;
+                // ------------ Gán các giá trị: -----------------
                 pbImage.Image = new Bitmap(Manage.TopicData.WordList[lRandom[index]].ImgPath);
                 pbImage.Refresh();
                 // Hiện từ tiếng việt:
@@ -285,12 +294,13 @@ namespace PTLEnglish.GUI.Listen
                 //  Manage.TopicData.Listen.FirstTimeOfWord có tác dụng :
                 /*
                  * Khi từ đó người dùng nhập đúng thì không sao, tắt ứng dụng cũng được
-                 * Nhưng từ đó người dùng nhập sai thì người ta phải nhập lại.Trong lúc nhập lại người ta tắt ứng dụng luôn
-                 * thì biến này sẽ có tác dụng lưu lại trạng thái của từ này . Lần sau người ta ghi từ này đúng từ này thì progress sẽ không tăng
+                 * Nhưng từ đó người dùng nhập sai thì người ta phải nhập lại.Trong lúc nhập lại người ta có thể tắt ứng dụng luôn
+                 * Thì biến này sẽ có tác dụng lưu lại trạng thái của từ này . Lần sau người ta ghi từ này đúng từ này thì progress sẽ không tăng
                  */
 
                 /* NotWriteAgain là 1 biến có tác dụng . Nếu ghi lại mà người đó còn ghi sai nữa thì không tăng số từ sai lên */
-                // Chia nhiều lần kiểm tra _check để giao diện chạy mượt. Đẹp hơn 1 chút
+
+                // Chia nhiều lần kiểm tra biến _check để làm cho giao diện chạy mượt. Đẹp hơn
                 if (_check == 0)
                 {
                     // Lưu lại vào Topic 
@@ -300,6 +310,7 @@ namespace PTLEnglish.GUI.Listen
                     // sửa lỗi </Topic>> 
                     //ErrorXml();
                     NotWriteAgain = true;
+                    // Tăng giá trị của progressRun - từ học được:
                     int temp = pnProgressRun.Width + 21;
                     while (pnProgressRun.Width < temp)
                     {
@@ -316,6 +327,7 @@ namespace PTLEnglish.GUI.Listen
                     // ErrorXml();
                     NotWriteAgain = false;
                 }
+                // Đọc
                 ReadText(tbText.Tag.ToString(), 1);
 
                 if (_check == 0)
@@ -326,7 +338,7 @@ namespace PTLEnglish.GUI.Listen
                 }
 
                 // Sinh hàm keypress của tbText:
-                // Delegate để sử dụng trực tiếp biến random trong này luôn
+                // Delegate để sử dụng trực tiếp biến random trong này luôn. Nếu không làm thế thì có thể khởi tạo bình thường và ra bên ngoài sử dụng
                 tbText.KeyPress += delegate (object a, KeyPressEventArgs ee)
                 {
                     if (ee.KeyChar == 13)
@@ -340,12 +352,12 @@ namespace PTLEnglish.GUI.Listen
                 };
             }
 
-
         }
 
         bool NotWriteAgain = true;
         void CheckWordTrueOrFalse(List<int> lRandom)
         {
+            // Kiểm tra từ tiếng anh đó đúng hay sai:
             if (tbText.Text == tbText.Tag.ToString())
             {
                 // Chạy timer và hiện kiểu đúng      
@@ -361,7 +373,7 @@ namespace PTLEnglish.GUI.Listen
                     Manage.SerializeToXML(Manage.TopicData, filePath);
                     // sửa lỗi </Topic>> 
                     //ErrorXml();
-                    // Chạy cái CORRECT cho đẹp
+                    // Giao diện: Chạy CORRECT
                     int temp = pnCorrectRun.Width + 21;
                     while (pnCorrectRun.Width < temp)
                     {
@@ -394,7 +406,7 @@ namespace PTLEnglish.GUI.Listen
                     // sửa lỗi </Topic>> 
                     //ErrorXml();
                     //
-                    // Chạy cái WRONG cho đẹp
+                    // Giao diện: Chạy WRONG
                     int temp = pnWrongRun.Width + 21;
                     while (pnWrongRun.Width < temp)
                     {
@@ -416,16 +428,18 @@ namespace PTLEnglish.GUI.Listen
                 ShowAWord(count, lRandom, 5);
             }
         }
-        
+
         #endregion
 
-
+        #region Sửa lỗi XML:Bỏ
         void ErrorXml()
         {
             string text = File.ReadAllText(filePath);
             text = text.Replace("</Topic>>", "</Topic>");
             File.WriteAllText(filePath, text);
         }
+        #endregion
+
 
         private void pbListen_Click(object sender, EventArgs e)
         {

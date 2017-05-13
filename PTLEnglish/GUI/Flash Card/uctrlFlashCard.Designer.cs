@@ -223,7 +223,6 @@
             // 
             // timerPlay
             // 
-            this.timerPlay.Interval = 4000;
             this.timerPlay.Tick += new System.EventHandler(this.timerPlay_Tick);
             // 
             // uctrlFlashCard
