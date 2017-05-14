@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctrlVietnamese));
             this.pnVietnamese = new System.Windows.Forms.Panel();
-            this.lbVietnamese = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pic_Hard = new System.Windows.Forms.PictureBox();
+            this.lbVietnamese = new System.Windows.Forms.Label();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnVietnamese.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,16 +53,6 @@
             this.pnVietnamese.Name = "pnVietnamese";
             this.pnVietnamese.Size = new System.Drawing.Size(643, 339);
             this.pnVietnamese.TabIndex = 0;
-            // 
-            // lbVietnamese
-            // 
-            this.lbVietnamese.Font = new System.Drawing.Font("Cambria", 26.25F, System.Drawing.FontStyle.Bold);
-            this.lbVietnamese.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbVietnamese.Location = new System.Drawing.Point(314, 127);
-            this.lbVietnamese.Name = "lbVietnamese";
-            this.lbVietnamese.Size = new System.Drawing.Size(314, 72);
-            this.lbVietnamese.TabIndex = 24;
-            this.lbVietnamese.Text = "Vietnamese";
             // 
             // label1
             // 
@@ -97,6 +87,16 @@
             this.pic_Hard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Hard.TabIndex = 28;
             this.pic_Hard.TabStop = false;
+            // 
+            // lbVietnamese
+            // 
+            this.lbVietnamese.Font = new System.Drawing.Font("Cambria", 26.25F, System.Drawing.FontStyle.Bold);
+            this.lbVietnamese.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
+            this.lbVietnamese.Location = new System.Drawing.Point(314, 127);
+            this.lbVietnamese.Name = "lbVietnamese";
+            this.lbVietnamese.Size = new System.Drawing.Size(314, 72);
+            this.lbVietnamese.TabIndex = 24;
+            this.lbVietnamese.Text = "Vietnamese";
             // 
             // pbImage
             // 

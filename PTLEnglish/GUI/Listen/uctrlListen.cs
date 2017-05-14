@@ -214,12 +214,6 @@ namespace PTLEnglish.GUI.Listen
         }
         #endregion
 
-        private void panel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         #region Các hàm xử lý chính: Đọc - Hiện 1 từ lên màn hình - Kiểm tra từ đó đúng hay sai:
 

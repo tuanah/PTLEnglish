@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PTLEnglish.GUI.Flash_Card
 {
-    public partial class ShadowPanel : UserControl
+    public partial class ShadowPanel :Panel
     {
         public ShadowPanel()
         {
