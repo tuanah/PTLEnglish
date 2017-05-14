@@ -305,6 +305,7 @@ namespace PTLEnglish.GUI
 		private void pnl_Gravity_Click(object sender, EventArgs e)
 		{
             uctrlGravity Gravity = new uctrlGravity();
+            
             pnl_Content.Controls.Clear();
             pnl_Content.Controls.Add(Gravity);
 		}

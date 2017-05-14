@@ -21,6 +21,7 @@ namespace PTLEnglish.GUI.Gravity
         private void uctrlGravity_Load(object sender, EventArgs e)
         {
             Introduction intro = new Introduction();
+            Introduction.pn = pnMain;
             pnMain.Controls.Add(intro);
         }
     }

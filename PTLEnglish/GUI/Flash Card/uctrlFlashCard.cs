@@ -47,7 +47,7 @@ namespace PTLEnglish.GUI.Flash_Card
         fQuickPress Quick = new fQuickPress();
         private void uctrlFlashCard_Load(object sender, EventArgs e)
         {
-
+            
             Quick.TopLevel = false;
             pnQuickPress.Controls.Add(Quick);
 

@@ -82,7 +82,7 @@
       <DependentUpon>fQuickPress.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Flash Card\ShadowPanel.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\Flash Card\ShadowPanel.Designer.cs">
       <DependentUpon>ShadowPanel.cs</DependentUpon>
@@ -117,11 +117,29 @@
     <Compile Include="GUI\fSub.Designer.cs">
       <DependentUpon>fSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Gravity\Ailien_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\Ailien_1.Designer.cs">
+      <DependentUpon>Ailien_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Gravity\Introduction.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\Gravity\Introduction.Designer.cs">
       <DependentUpon>Introduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\Meteorite_.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\Meteorite_.Designer.cs">
+      <DependentUpon>Meteorite_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\State.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\State.Designer.cs">
+      <DependentUpon>State.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Gravity\uctrlGravity.cs">
       <SubType>UserControl</SubType>
@@ -204,8 +222,17 @@
     <EmbeddedResource Include="GUI\fSub.resx">
       <DependentUpon>fSub.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\Ailien_1.resx">
+      <DependentUpon>Ailien_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\Introduction.resx">
       <DependentUpon>Introduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\Meteorite_.resx">
+      <DependentUpon>Meteorite_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\State.resx">
+      <DependentUpon>State.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\uctrlGravity.resx">
       <DependentUpon>uctrlGravity.cs</DependentUpon>

@@ -42,11 +42,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 42F);
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 50F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(232, 119);
+            this.label2.Location = new System.Drawing.Point(189, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 64);
+            this.label2.Size = new System.Drawing.Size(298, 77);
             this.label2.TabIndex = 3;
             this.label2.Text = "Gravity";
             // 
@@ -56,11 +56,11 @@
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Cambria", 22.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(39, 212);
+            this.label1.Location = new System.Drawing.Point(31, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(633, 36);
+            this.label1.Size = new System.Drawing.Size(632, 36);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Protect the planets from incoming asteroids!";
+            this.label1.Text = "Protect the planets from Alien and Meteorite";
             // 
             // btnGetStart
             // 
@@ -69,12 +69,13 @@
             this.btnGetStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetStart.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnGetStart.ForeColor = System.Drawing.Color.White;
-            this.btnGetStart.Location = new System.Drawing.Point(224, 296);
+            this.btnGetStart.Location = new System.Drawing.Point(214, 300);
             this.btnGetStart.Name = "btnGetStart";
-            this.btnGetStart.Size = new System.Drawing.Size(271, 71);
+            this.btnGetStart.Size = new System.Drawing.Size(250, 71);
             this.btnGetStart.TabIndex = 4;
             this.btnGetStart.Text = "Get Start";
             this.btnGetStart.UseVisualStyleBackColor = false;
+            this.btnGetStart.Click += new System.EventHandler(this.btnGetStart_Click);
             this.btnGetStart.MouseLeave += new System.EventHandler(this.btnGetStart_MouseLeave);
             this.btnGetStart.MouseHover += new System.EventHandler(this.btnGetStart_MouseHover);
             // 

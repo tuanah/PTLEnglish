@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace PTLEnglish.GUI.Flash_Card
 {
-    public partial class ShadowPanel :Panel
+    public partial class ShadowPanel : Panel
     {
         public ShadowPanel()
         {
             InitializeComponent();
+
         }
     }
 }
