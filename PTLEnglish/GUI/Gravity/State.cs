@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
+using System.Threading;
 
 namespace PTLEnglish.GUI.Gravity
 {
@@ -15,12 +16,10 @@ namespace PTLEnglish.GUI.Gravity
     {
         public State()
         {
-            InitializeComponent();           
+            InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             UpdateStyles();
-            CreateGame();
-            timerPictureBox.Enabled = true;
-            timerPictureBox.Interval = 10;
+
         }
 
         #region Hàm Random
@@ -53,38 +52,81 @@ namespace PTLEnglish.GUI.Gravity
         }
         #endregion
         Ailien_1 Ailien;
-         Bitmap bm;
+        int checkFirstAdd = 0;
         void CreateGame()
-        {
+        {           
+            Ailien = new Ailien_1(lRandom[count]);
+            tbAnswer.Tag = Manage.TopicData.WordList[lRandom[count]].Key;
             // Set transparent
-            Ailien = new Ailien_1(2);
             Ailien.Parent = pnState;
             Ailien.BackColor = Color.Transparent;
-            pnState.Controls.Add(Ailien);
+            if (checkFirstAdd == 0)
+                pnState.Controls.Add(Ailien);
             // Random:
             Random rand = new Random();
-            int Location_X = rand.Next(0, 397);
-            Ailien.Tag = -273;
-            Ailien.Location = new Point(Location_X, 0);
-            Ailien.Size = new Size(300, 271);
-            //
-            bm = new Bitmap(pnState.Width, pnState.Height);
-            Ailien.DrawToBitmap(bm, new Rectangle(Ailien.Location, Ailien.Size));
-
+            int Location_X = rand.Next(145, 425);
+            Ailien.Location = new Point(Location_X, -280);
+            timerPictureBox.Enabled = true;
+            timerPictureBox.Interval = 20;
         }
 
-        void PaintImage(PaintEventArgs e)
+        ShowWrongWord wrongWord;
+        bool checkWriteWrongWordAgain = true;
+        void ShowWrongWord()
         {
-            // Bật tính năng vẽ không có răng cưa:
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            Ailien.Location = new Point(Ailien.Location.X, Ailien.Location.Y + 1);
-            e.Graphics.DrawImageUnscaledAndClipped(bm, new Rectangle(Ailien.Location, Ailien.Size));
+            Manage.TopicData.WordList[lRandom[count]].NumWrong++;
+            wrongWord = new Gravity.ShowWrongWord(lRandom[count]);
+            pnState.Controls.Add(wrongWord);
+            pnState.Location = new Point(165, 173);
+            checkWriteWrongWordAgain = false;
         }
 
         private void timerPictureBox_Tick(object sender, EventArgs e)
         {
-            // Ailien.Location = new Point(Ailien.Location.X, Ailien.Location.Y + 1);
-            // Ailien.DrawToBitmap(bm, new Rectangle(Ailien.Location, Ailien.Size));
+            checkFirstAdd = 1;
+            Ailien.Top += 1;
+            if (Ailien.Location.Y > pnState.Height)
+            {
+                timerPictureBox.Enabled = false;
+                ShowWrongWord();
+            }
+        }
+
+        int score = 0;
+        private void tbAnswer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 && tbAnswer.Text.Trim() != "")
+            {
+                e.Handled = true;
+
+                if (tbAnswer.Text.Trim() == tbAnswer.Tag.ToString() && checkWriteWrongWordAgain)
+                {
+                    Manage.TopicData.WordList[lRandom[count]].NumRight++;
+                    score++;
+                    lbScore.Text = score.ToString();
+                    count++;
+                    tbAnswer.Text = "";
+                    pnState.Controls[pnState.Controls.Count - 1].Dispose();
+                    CreateGame();
+                }
+                else if (!checkWriteWrongWordAgain && tbAnswer.Text.Trim() == tbAnswer.Tag.ToString())
+                {
+                    count++;
+                    pnState.Controls[pnState.Controls.Count - 1].Dispose();
+                    tbAnswer.Text = "";
+                    CreateGame();
+                }
+            }
+        }
+
+        int count = 0;
+        List<int> lRandom = null;
+
+        private void State_Load(object sender, EventArgs e)
+        {
+            lRandom = new List<int>();
+            RandomListWord(ref lRandom);
+            CreateGame();
         }
     }
 }

@@ -11,25 +11,20 @@ using PTLEnglish.DAL;
 
 namespace PTLEnglish.GUI.Gravity
 {
-    public partial class Ailien_1 : UserControl
+    public partial class ShowWrongWord : UserControl
     {
-        public Ailien_1(int index)
+        public ShowWrongWord(int index)
         {
             InitializeComponent();
-            load(index,false);
+            Load(index);
         }
-        void load(int index,bool check)
+        void Load(int index,bool check=true)
         {
+            pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
             if (check)
                 lbWord.Text = Manage.TopicData.WordList[index].Key;
             else
                 lbWord.Text = Manage.TopicData.WordList[index].Mean;
-
-        }
-        private void Ailien_1_Load(object sender, EventArgs e)
-        {
-            lbWord.Parent = this;
-            lbWord.BackColor = Color.Transparent;
         }
     }
 }

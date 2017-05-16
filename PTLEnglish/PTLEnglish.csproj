@@ -135,6 +135,12 @@
     <Compile Include="GUI\Gravity\Meteorite_.Designer.cs">
       <DependentUpon>Meteorite_.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Gravity\ShowWrongWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\ShowWrongWord.Designer.cs">
+      <DependentUpon>ShowWrongWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Gravity\State.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\Meteorite_.resx">
       <DependentUpon>Meteorite_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\ShowWrongWord.resx">
+      <DependentUpon>ShowWrongWord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\State.resx">
       <DependentUpon>State.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace PTLEnglish.GUI.Gravity
 {
-    partial class Ailien_1
+    partial class ShowWrongWord
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ailien_1));
             this.lbWord = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lbWord
             // 
-            this.lbWord.Font = new System.Drawing.Font("Cambria", 20F, System.Drawing.FontStyle.Bold);
-            this.lbWord.ForeColor = System.Drawing.Color.Green;
-            this.lbWord.Location = new System.Drawing.Point(39, 211);
+            this.lbWord.Font = new System.Drawing.Font("Cambria", 26.25F);
+            this.lbWord.ForeColor = System.Drawing.Color.White;
+            this.lbWord.Location = new System.Drawing.Point(3, 12);
             this.lbWord.Name = "lbWord";
-            this.lbWord.Size = new System.Drawing.Size(189, 52);
-            this.lbWord.TabIndex = 4;
-            this.lbWord.Text = "Word";
-            this.lbWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbWord.Size = new System.Drawing.Size(395, 71);
+            this.lbWord.TabIndex = 0;
+            this.lbWord.Text = "label1";
+            this.lbWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Ailien_1
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(46, 101);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(312, 172);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 1;
+            this.pbImage.TabStop = false;
+            // 
+            // ShowWrongWord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.pbImage);
             this.Controls.Add(this.lbWord);
-            this.DoubleBuffered = true;
-            this.Name = "Ailien_1";
-            this.Size = new System.Drawing.Size(263, 274);
-            this.Load += new System.EventHandler(this.Ailien_1_Load);
+            this.Name = "ShowWrongWord";
+            this.Size = new System.Drawing.Size(412, 291);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -61,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label lbWord;
+        private System.Windows.Forms.PictureBox pbImage;
     }
 }
