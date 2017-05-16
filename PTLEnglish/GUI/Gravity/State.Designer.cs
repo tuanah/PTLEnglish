@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(State));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnState = new System.Windows.Forms.Panel();
             this.tbAnswer = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.timerPictureBox = new System.Windows.Forms.Timer(this.components);
+            this.pnState.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnState
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.tbAnswer);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(697, 561);
-            this.panel1.TabIndex = 0;
+            this.pnState.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnState.BackgroundImage")));
+            this.pnState.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnState.Controls.Add(this.tbAnswer);
+            this.pnState.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnState.Location = new System.Drawing.Point(0, 0);
+            this.pnState.Name = "pnState";
+            this.pnState.Size = new System.Drawing.Size(697, 561);
+            this.pnState.TabIndex = 0;
             // 
             // tbAnswer
             // 
@@ -54,22 +56,27 @@
             this.tbAnswer.Size = new System.Drawing.Size(419, 42);
             this.tbAnswer.TabIndex = 0;
             // 
+            // timerPictureBox
+            // 
+            this.timerPictureBox.Tick += new System.EventHandler(this.timerPictureBox_Tick);
+            // 
             // State
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnState);
             this.Name = "State";
             this.Size = new System.Drawing.Size(697, 561);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnState.ResumeLayout(false);
+            this.pnState.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnState;
         private System.Windows.Forms.TextBox tbAnswer;
+        private System.Windows.Forms.Timer timerPictureBox;
     }
 }

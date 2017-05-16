@@ -213,6 +213,7 @@ namespace PTLEnglish.GUI.Flash_Card
                 if (x1 < Width / 2)
                 {
                     e.Graphics.DrawImage(bm_A, _Point1);
+                    
                     //  y += 0.5f;
                 }
                 else
