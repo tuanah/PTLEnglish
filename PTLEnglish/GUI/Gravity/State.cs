@@ -53,8 +53,9 @@ namespace PTLEnglish.GUI.Gravity
         #endregion
         Ailien_1 Ailien;
         int checkFirstAdd = 0;
+
         void CreateGame()
-        {           
+        {
             Ailien = new Ailien_1(lRandom[count]);
             tbAnswer.Tag = Manage.TopicData.WordList[lRandom[count]].Key;
             // Set transparent
@@ -66,6 +67,7 @@ namespace PTLEnglish.GUI.Gravity
             Random rand = new Random();
             int Location_X = rand.Next(145, 425);
             Ailien.Location = new Point(Location_X, -280);
+
             timerPictureBox.Enabled = true;
             timerPictureBox.Interval = 20;
         }
@@ -79,6 +81,8 @@ namespace PTLEnglish.GUI.Gravity
             pnState.Controls.Add(wrongWord);
             pnState.Location = new Point(165, 173);
             checkWriteWrongWordAgain = false;
+            checkHorizontal = 5;
+            timerRun.Enabled = true;
         }
 
         private void timerPictureBox_Tick(object sender, EventArgs e)
@@ -107,6 +111,8 @@ namespace PTLEnglish.GUI.Gravity
                     count++;
                     tbAnswer.Text = "";
                     pnState.Controls[pnState.Controls.Count - 1].Dispose();
+                    checkHorizontal = 4;
+                    timerRun.Enabled = true;
                     CreateGame();
                 }
                 else if (!checkWriteWrongWordAgain && tbAnswer.Text.Trim() == tbAnswer.Tag.ToString())
@@ -114,9 +120,18 @@ namespace PTLEnglish.GUI.Gravity
                     count++;
                     pnState.Controls[pnState.Controls.Count - 1].Dispose();
                     tbAnswer.Text = "";
+                    checkHorizontal = 4;
+                    timerRun.Enabled = true;
                     CreateGame();
+
+                }
+                else if (tbAnswer.Text.Trim() != tbAnswer.Tag.ToString())
+                {
+                    checkHorizontal = 3;
+                    timerRun.Enabled = true;
                 }
             }
+
         }
 
         int count = 0;
@@ -126,7 +141,69 @@ namespace PTLEnglish.GUI.Gravity
         {
             lRandom = new List<int>();
             RandomListWord(ref lRandom);
+            checkHorizontal = 1;
+            timerRun.Enabled = true;
             CreateGame();
+        }
+
+        private void tbAnswer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        int checkHorizontal;
+        private void timerRun_Tick(object sender, EventArgs e)
+        {
+            if (checkHorizontal == 1)
+            {
+                lbCommand.Text = "TYPE ANSWER";
+                lbCommand.ForeColor = Color.FromArgb(103, 183, 255);
+                lbCommand.Refresh();//151, 165, 177
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.FromArgb(52, 152, 219);
+                pnHorizontal.Height = pnHorizontalRun.Height = 4;
+            }
+            else if (checkHorizontal == 3) // sai
+            {
+                lbCommand.Text = "NOT CORRECT";
+                lbCommand.ForeColor = Color.FromArgb(255, 114, 91);
+                lbCommand.Refresh();
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.Red;
+            }
+            else if (checkHorizontal == 4) // đúng
+            {
+                lbCommand.Text = "CORRECT";
+                lbCommand.ForeColor = Color.FromArgb(120, 200, 0);
+                lbCommand.Refresh();
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.FromArgb(120, 200, 0);
+            }
+            else if (checkHorizontal == 5) //Ghi lại
+            {
+                lbCommand.Text = "WRITE AGAIN TO REMEMBER";
+                lbCommand.ForeColor = Color.FromArgb(66, 87, 178);
+                lbCommand.Refresh();
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.BlueViolet;
+            }
+            while (pnHorizontalRun.Width < pnHorizontal.Width)
+                pnHorizontalRun.Width = pnHorizontalRun.Width + 1;
+            pnHorizontal.BackColor = pnHorizontalRun.BackColor;
+            checkHorizontal = 0;
+            timerRun.Enabled = false;
+            if (lbCommand.Text == "CORRECT")
+            {
+                Thread.Sleep(1000);
+                tbAnswer_Click(senderr, ee);
+            }
+
+        }
+        object senderr; EventArgs ee;
+        private void tbAnswer_Click(object sender, EventArgs e)
+        {
+            checkHorizontal = 1;
+            timerRun.Enabled = true;
         }
     }
 }
