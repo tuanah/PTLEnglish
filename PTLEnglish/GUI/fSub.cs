@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
 using System.Reflection;
+using PTLEnglish.GUI.Learn;
 
 namespace PTLEnglish.GUI
 {
@@ -178,7 +179,18 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Learn_Click(object sender, EventArgs e)
 		{
+			pnl_Content.Visible = false;
+			Panel pnl = new Panel();
+			pnl.Size = new Size(697, 561);
+			pnl.Location = new Point(187, 0);
+			pnl.Anchor = AnchorStyles.Left;
 
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl, new object[] { true });
+
+
+			this.Controls.Add(pnl);
+			pnl.BackColor = Color.Aqua;
+			pnl.Controls.Add(new UC_Learn_0(2));
 		}
 
 		//
@@ -335,7 +347,14 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Back_Click(object sender, EventArgs e)
 		{
-
+			if (!pnl_Content.Visible)
+			{
+				pnl_Content.Visible = true;
+			}
+			else
+			{
+				this.Close();
+			}
 		}
 
 		#endregion
@@ -359,6 +378,8 @@ namespace PTLEnglish.GUI
 			if (Manage.TopicData.WrongWords.Count != 0)
 				pnl_WrongValue.Width = (pnl_LearntValue.Width / Manage.TopicData.NumLearnt) * Manage.TopicData.WrongWords.Count;
 			else pnl_WrongValue.Width = 2;
+
+			//pnl_Right.Width = pnl_Wrong.Width = pnl_LearntValue.Width;
 		}
 
 		private void pnl_WordItems_SizeChanged(object sender, EventArgs e)

@@ -71,6 +71,10 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.pnl_Never = new System.Windows.Forms.FlowLayoutPanel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
 			this.pnl_Info = new System.Windows.Forms.Panel();
 			this.pnl_Wrong = new System.Windows.Forms.Panel();
 			this.pnl_WrongValue = new System.Windows.Forms.Panel();
@@ -81,10 +85,6 @@
 			this.lbl_Wrong = new System.Windows.Forms.Label();
 			this.lbl_Right = new System.Windows.Forms.Label();
 			this.lbl_Learnt = new System.Windows.Forms.Label();
-			this.pnl_Never = new System.Windows.Forms.FlowLayoutPanel();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
 			this.pnl_SideBar.SuspendLayout();
 			this.pnl_Back.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Back)).BeginInit();
@@ -113,12 +113,12 @@
 			this.panel1.SuspendLayout();
 			this.pnl_Rarely.SuspendLayout();
 			this.panel2.SuspendLayout();
+			this.pnl_Never.SuspendLayout();
+			this.panel3.SuspendLayout();
 			this.pnl_Info.SuspendLayout();
 			this.pnl_Wrong.SuspendLayout();
 			this.pnl_Learnt.SuspendLayout();
 			this.pnl_Right.SuspendLayout();
-			this.pnl_Never.SuspendLayout();
-			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnl_SideBar
@@ -590,7 +590,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(217, 15);
+			this.label2.Location = new System.Drawing.Point(217, 12);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(458, 20);
 			this.label2.TabIndex = 1;
@@ -633,7 +633,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(171, 15);
+			this.label3.Location = new System.Drawing.Point(171, 13);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(305, 20);
 			this.label3.TabIndex = 1;
@@ -649,6 +649,48 @@
 			this.label4.Size = new System.Drawing.Size(146, 26);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Rarely Missed";
+			// 
+			// pnl_Never
+			// 
+			this.pnl_Never.BackColor = System.Drawing.Color.Transparent;
+			this.pnl_Never.Controls.Add(this.panel3);
+			this.pnl_Never.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+			this.pnl_Never.Location = new System.Drawing.Point(0, 271);
+			this.pnl_Never.Margin = new System.Windows.Forms.Padding(0);
+			this.pnl_Never.Name = "pnl_Never";
+			this.pnl_Never.Size = new System.Drawing.Size(678, 156);
+			this.pnl_Never.TabIndex = 2;
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.label5);
+			this.panel3.Controls.Add(this.label6);
+			this.panel3.Location = new System.Drawing.Point(0, 0);
+			this.panel3.Margin = new System.Windows.Forms.Padding(0);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(678, 42);
+			this.panel3.TabIndex = 2;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(168, 12);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(231, 20);
+			this.label5.TabIndex = 1;
+			this.label5.Text = "You’ve gotten all of these right!";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.ForestGreen;
+			this.label6.Location = new System.Drawing.Point(19, 10);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(143, 26);
+			this.label6.TabIndex = 0;
+			this.label6.Text = "Never Missed";
 			// 
 			// pnl_Info
 			// 
@@ -670,6 +712,7 @@
 			// 
 			// pnl_Wrong
 			// 
+			this.pnl_Wrong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
 			this.pnl_Wrong.Controls.Add(this.pnl_WrongValue);
 			this.pnl_Wrong.Location = new System.Drawing.Point(86, 77);
 			this.pnl_Wrong.Name = "pnl_Wrong";
@@ -689,6 +732,7 @@
 			// 
 			// pnl_Learnt
 			// 
+			this.pnl_Learnt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
 			this.pnl_Learnt.Controls.Add(this.pnl_LearntValue);
 			this.pnl_Learnt.Location = new System.Drawing.Point(86, 12);
 			this.pnl_Learnt.Name = "pnl_Learnt";
@@ -708,6 +752,7 @@
 			// 
 			// pnl_Right
 			// 
+			this.pnl_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(248)))), ((int)(((byte)(167)))));
 			this.pnl_Right.Controls.Add(this.pnl_RightValue);
 			this.pnl_Right.Location = new System.Drawing.Point(86, 43);
 			this.pnl_Right.Name = "pnl_Right";
@@ -755,48 +800,6 @@
 			this.lbl_Learnt.Text = "Learnt";
 			this.lbl_Learnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// pnl_Never
-			// 
-			this.pnl_Never.BackColor = System.Drawing.Color.Transparent;
-			this.pnl_Never.Controls.Add(this.panel3);
-			this.pnl_Never.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.pnl_Never.Location = new System.Drawing.Point(0, 271);
-			this.pnl_Never.Margin = new System.Windows.Forms.Padding(0);
-			this.pnl_Never.Name = "pnl_Never";
-			this.pnl_Never.Size = new System.Drawing.Size(678, 156);
-			this.pnl_Never.TabIndex = 2;
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.label5);
-			this.panel3.Controls.Add(this.label6);
-			this.panel3.Location = new System.Drawing.Point(0, 0);
-			this.panel3.Margin = new System.Windows.Forms.Padding(0);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(678, 42);
-			this.panel3.TabIndex = 2;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(168, 15);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(231, 20);
-			this.label5.TabIndex = 1;
-			this.label5.Text = "You’ve gotten all of these right!";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.ForeColor = System.Drawing.Color.ForestGreen;
-			this.label6.Location = new System.Drawing.Point(19, 10);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(143, 26);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "Never Missed";
-			// 
 			// fSub
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -843,13 +846,13 @@
 			this.pnl_Rarely.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			this.pnl_Never.ResumeLayout(false);
+			this.panel3.ResumeLayout(false);
+			this.panel3.PerformLayout();
 			this.pnl_Info.ResumeLayout(false);
 			this.pnl_Wrong.ResumeLayout(false);
 			this.pnl_Learnt.ResumeLayout(false);
 			this.pnl_Right.ResumeLayout(false);
-			this.pnl_Never.ResumeLayout(false);
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

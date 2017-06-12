@@ -7,22 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PTLEnglish.DAL;
 
 namespace PTLEnglish.GUI.Learn
 {
-	public partial class UI_Learn : UserControl
+	public partial class UC_Learn_1 : UserControl
 	{
-		Word word;
-		public UI_Learn()
+		public UC_Learn_1()
 		{
 			InitializeComponent();
-		}
-
-		public UI_Learn(int i)
-		{
-			word = new Word();
-			word = Manage.TopicData.WordList[i];
 		}
 	}
 }
