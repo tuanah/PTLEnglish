@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Animator">
-      <HintPath>..\..\..\Animator\Animator\Tester\bin\Debug\Animator.dll</HintPath>
+      <HintPath>.\Animator.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\Bunifu_UI_v1.52.dll</HintPath>

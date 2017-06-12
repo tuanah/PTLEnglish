@@ -408,6 +408,7 @@ namespace PTLEnglish.GUI.Listen
                         Thread.Sleep(10);
                     }
                 }
+			
 
                 // Tắt event:
                 tbText.KeyPress -= delegate { };
