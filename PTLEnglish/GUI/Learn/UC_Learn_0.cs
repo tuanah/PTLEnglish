@@ -41,12 +41,12 @@ namespace PTLEnglish.GUI.Learn
 			{
 				pic.Image = pic.ErrorImage;
 			}
-			Manage.reader.Speak(lbl_Word.Text);
+			Manage.reader.SpeakAsync(lbl_Word.Text);
 		}
 
 		private void pic_Spell_Click(object sender, EventArgs e)
 		{
-			Manage.reader.Speak(lbl_Word.Text);
+			Manage.reader.SpeakAsync(lbl_Word.Text);
 		}
 	}
 }
