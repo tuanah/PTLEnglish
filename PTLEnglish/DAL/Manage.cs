@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using System.Windows.Forms;
 using System.Drawing;
 using PTLEnglish.GUI;
+using System.Speech.Synthesis;
 
 namespace PTLEnglish.DAL
 {
@@ -15,10 +16,15 @@ namespace PTLEnglish.DAL
 	{
 		private static Topic topicData;
 
-		private static string thisPath = "Source";
+		private static string thisCourse = "Source";
+
+		private static string thisTopic = "\\";
+
+		public static SpeechSynthesizer reader = new SpeechSynthesizer();
 
 		public static Topic TopicData { get => topicData; set => topicData = value; }
-		public static string ThisPath { get => thisPath; set => thisPath = value; }
+		public static string ThisCourse { get => thisCourse; set => thisCourse = value; }
+		public static string ThisTopic { get => thisTopic; set => thisTopic = value; }
 
 		private static Word stringHandling(string line)
 		{
@@ -89,7 +95,7 @@ namespace PTLEnglish.DAL
 
 		public static void SerializeToXML(object data, string filePath)
 		{
-			FileStream fstream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+			FileStream fstream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
 			XmlSerializer sr = new XmlSerializer(typeof(Topic));
 			sr.Serialize(fstream, data);
 			fstream.Close();
@@ -97,7 +103,7 @@ namespace PTLEnglish.DAL
 
 		public static object DeserializeFromXML(string filePath)
 		{
-			FileStream fstream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
+			FileStream fstream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 			XmlSerializer sr = new XmlSerializer(typeof(Topic));
 			object obj = sr.Deserialize(fstream);
 			fstream.Close();

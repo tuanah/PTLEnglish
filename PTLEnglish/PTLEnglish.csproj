@@ -32,8 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Animator">
+      <HintPath>..\..\..\Animator\Animator\Tester\bin\Debug\Animator.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cons.cs" />
+    <Compile Include="DAL\Listen.cs" />
     <Compile Include="DAL\Manage.cs" />
     <Compile Include="DAL\Topic.cs" />
     <Compile Include="DAL\User.cs" />
@@ -60,17 +69,125 @@
     <Compile Include="GUI\CirclePictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\Flash Card\FlipPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\FlipPanel.Designer.cs">
+      <DependentUpon>FlipPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\fQuickPress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\fQuickPress.Designer.cs">
+      <DependentUpon>fQuickPress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\ShadowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\ShadowPanel.Designer.cs">
+      <DependentUpon>ShadowPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlEnglish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlEnglish.Designer.cs">
+      <DependentUpon>uctrlEnglish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlFlashCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlFlashCard.Designer.cs">
+      <DependentUpon>uctrlFlashCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlVietnamese.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlVietnamese.Designer.cs">
+      <DependentUpon>uctrlVietnamese.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\fSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fSub.Designer.cs">
+      <DependentUpon>fSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\Ailien_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\Ailien_1.Designer.cs">
+      <DependentUpon>Ailien_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\Introduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\Introduction.Designer.cs">
+      <DependentUpon>Introduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\Meteorite_.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\Meteorite_.Designer.cs">
+      <DependentUpon>Meteorite_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\ShowWrongWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\ShowWrongWord.Designer.cs">
+      <DependentUpon>ShowWrongWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\State.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\State.Designer.cs">
+      <DependentUpon>State.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Gravity\uctrlGravity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Gravity\uctrlGravity.Designer.cs">
+      <DependentUpon>uctrlGravity.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Hexagon.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\Hexagon.Designer.cs">
       <DependentUpon>Hexagon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Learn\UI_Learn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Learn\UI_Learn.Designer.cs">
+      <DependentUpon>UI_Learn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlBoth.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlBoth.Designer.cs">
+      <DependentUpon>uctrlBoth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlFinish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlFinish.Designer.cs">
+      <DependentUpon>uctrlFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen.Designer.cs">
+      <DependentUpon>uctrlListen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlMissedWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlMissedWord.Designer.cs">
+      <DependentUpon>uctrlMissedWord.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -79,19 +196,79 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\myFonts.cs" />
+    <Compile Include="GUI\WordItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\WordItem.Designer.cs">
+      <DependentUpon>WordItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\FlipPanel.resx">
+      <DependentUpon>FlipPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\fQuickPress.resx">
+      <DependentUpon>fQuickPress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\uctrlEnglish.resx">
+      <DependentUpon>uctrlEnglish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\uctrlFlashCard.resx">
+      <DependentUpon>uctrlFlashCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\uctrlVietnamese.resx">
+      <DependentUpon>uctrlVietnamese.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\fSub.resx">
+      <DependentUpon>fSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\Ailien_1.resx">
+      <DependentUpon>Ailien_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\Introduction.resx">
+      <DependentUpon>Introduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\Meteorite_.resx">
+      <DependentUpon>Meteorite_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\ShowWrongWord.resx">
+      <DependentUpon>ShowWrongWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\State.resx">
+      <DependentUpon>State.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Gravity\uctrlGravity.resx">
+      <DependentUpon>uctrlGravity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Hexagon.resx">
       <DependentUpon>Hexagon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Learn\UI_Learn.resx">
+      <DependentUpon>UI_Learn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\uctrlBoth.resx">
+      <DependentUpon>uctrlBoth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlFinish.resx">
+      <DependentUpon>uctrlFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen.resx">
+      <DependentUpon>uctrlListen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlMissedWord.resx">
+      <DependentUpon>uctrlMissedWord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WordItem.resx">
+      <DependentUpon>WordItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,9 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bg_sidebar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\course.png" />
@@ -169,8 +343,41 @@
     <Folder Include="Source\Human\Family\Image\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pic-close.png" />
-    <None Include="Resources\pic-minimize.png" />
+    <None Include="Resources\falling-star.png" />
+    <None Include="Resources\falling-star-hover.png" />
+    <None Include="Resources\flashcard.png" />
+    <None Include="Resources\flashcard-hover.png" />
+    <None Include="Resources\game.png" />
+    <None Include="Resources\game-hover.png" />
+    <None Include="Resources\hammer.png" />
+    <None Include="Resources\hammer-hover.png" />
+    <None Include="Resources\match.png" />
+    <None Include="Resources\match-hover.png" />
+    <None Include="Resources\spell.png" />
+    <None Include="Resources\spell-hover.png" />
+    <None Include="Resources\test.png" />
+    <None Include="Resources\test-hover.png" />
+    <None Include="Resources\volume-icon.png" />
+    <None Include="Resources\learn.png" />
+    <None Include="Resources\learn-hover.png" />
+    <None Include="Resources\arrow-back.png" />
+    <None Include="Resources\Arrow-hover.png" />
+    <None Include="Resources\flash-clk.png" />
+    <None Include="Resources\error-image.png" />
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\Room Sound Filled-50.png" />
+    <None Include="Resources\Blue Sound.png" />
+    <None Include="Resources\Back-104.png" />
+    <None Include="Resources\Back-104_opt.png" />
+    <None Include="Resources\Back-104 %281%29.png" />
+    <None Include="Resources\Back-100 %281%29.png" />
+    <None Include="Resources\Back-100 %281%29_opt.png" />
+    <None Include="Resources\Back-100.png" />
+    <None Include="Resources\Back-100_opt.png" />
+    <None Include="Resources\Restart-64.png" />
+    <None Include="Resources\Restart-64 %281%29.png" />
+    <None Include="Resources\Keyboard Filled-50 %281%29.png" />
+    <None Include="Resources\Keyboard Filled-50.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />
