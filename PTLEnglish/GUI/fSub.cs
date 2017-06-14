@@ -184,13 +184,17 @@ namespace PTLEnglish.GUI
 			pnl.Size = new Size(697, 561);
 			pnl.Location = new Point(187, 0);
 			pnl.Anchor = AnchorStyles.Left;
-
+			
 			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl, new object[] { true });
 
 
 			this.Controls.Add(pnl);
-			pnl.BackColor = Color.Aqua;
-			pnl.Controls.Add(new UC_Learn_0(2));
+			pnl.BackColor = SystemColors.ControlDarkDark;
+
+			UC_Learn_0 co = new UC_Learn_0(2);
+			co.Location = new Point(100, 300);
+			pnl.Controls.Add(co);
+			pnl.Controls.Add(new UC_Learn_1() {Location = new Point(10, 10) });
 		}
 
 		//

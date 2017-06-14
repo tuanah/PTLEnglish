@@ -121,6 +121,9 @@
     <EmbeddedResource Include="GUI\Learn\UC_Learn_0.resx">
       <DependentUpon>UC_Learn_0.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Learn\UC_Learn_1.resx">
+      <DependentUpon>UC_Learn_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
