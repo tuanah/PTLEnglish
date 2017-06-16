@@ -183,11 +183,35 @@
     <Compile Include="GUI\Listen\uctrlListen.Designer.cs">
       <DependentUpon>uctrlListen.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Listen\uctrlListen1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen1.Designer.cs">
+      <DependentUpon>uctrlListen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen2.Designer.cs">
+      <DependentUpon>uctrlListen2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlMain.Designer.cs">
+      <DependentUpon>uctrlMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Listen\uctrlMissedWord.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\Listen\uctrlMissedWord.Designer.cs">
       <DependentUpon>uctrlMissedWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlProgressBar.Designer.cs">
+      <DependentUpon>uctrlProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -261,8 +285,20 @@
     <EmbeddedResource Include="GUI\Listen\uctrlListen.resx">
       <DependentUpon>uctrlListen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen1.resx">
+      <DependentUpon>uctrlListen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen2.resx">
+      <DependentUpon>uctrlListen2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlMain.resx">
+      <DependentUpon>uctrlMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Listen\uctrlMissedWord.resx">
       <DependentUpon>uctrlMissedWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlProgressBar.resx">
+      <DependentUpon>uctrlProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -378,6 +414,14 @@
     <None Include="Resources\Restart-64 %281%29.png" />
     <None Include="Resources\Keyboard Filled-50 %281%29.png" />
     <None Include="Resources\Keyboard Filled-50.png" />
+    <None Include="Resources\Courses-50.png" />
+    <None Include="Resources\Courses-100.png" />
+    <None Include="Resources\Gallery-100.png" />
+    <None Include="Resources\_Bookmark_Image-256.png" />
+    <None Include="Resources\click.png" />
+    <None Include="Resources\normal.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\wrong.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />

@@ -179,10 +179,59 @@ namespace PTLEnglish.GUI.Listen
             timer.Dispose();
 
         }
+        void CheckPnHorizontal()
+        {
+            // Mấy hàm trong đây xử lý cái chạy mượt cái pnHorizontal - cái cục ngang trên cái "TYPE WHAT YOU HEAR"
+            if (check == 1) // được click
+            {
+                lbCommand.Text = "TYPE WHAT YOU HEAR";
+                lbCommand.ForeColor = Color.FromArgb(103, 183, 255);
+                lbCommand.Refresh();//151, 165, 177
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.FromArgb(52, 152, 219);
+                pnHorizontal.Height = pnHorizontalRun.Height = 4;
+
+            }
+            else if (check == 2) // Không được click
+            {
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.FromArgb(69, 83, 88);
+                pnHorizontal.Height = pnHorizontalRun.Height = 3;
+
+            }
+            else if (check == 3) // sai
+            {
+                lbCommand.Text = "NOT CORRECT";
+                lbCommand.ForeColor = Color.FromArgb(255, 114, 91);
+                lbCommand.Refresh();
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.Red;
+            }
+            else if (check == 4) // đúng
+            {
+                lbCommand.Text = "CORRECT";
+                lbCommand.ForeColor = Color.FromArgb(120, 200, 0);
+                lbCommand.Refresh();
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.FromArgb(120, 200, 0);
+            }
+            else if (check == 5) //Ghi lại
+            {
+                lbCommand.Text = "WRITE AGAIN TO REMEMBER";
+                lbCommand.ForeColor = Color.FromArgb(66, 87, 178);
+                lbCommand.Refresh();
+                pnHorizontalRun.Width = 0;
+                pnHorizontalRun.BackColor = Color.BlueViolet;
+            }
+            while (pnHorizontalRun.Width < pnHorizontal.Width)
+                pnHorizontalRun.Width = pnHorizontalRun.Width + 1;
+            pnHorizontal.BackColor = pnHorizontalRun.BackColor;
+        }
         private void tbText_MouseClick(object sender, MouseEventArgs e)
         {
             timer.Start();
             check = 1;
+            CheckPnHorizontal();
         }
         #endregion
 
@@ -395,6 +444,8 @@ namespace PTLEnglish.GUI.Listen
                     Manage.TopicData.WordList[lRandom[count]].NumWrong++;
                     // Lưu lại vào Topic và serialize xuống
                     Manage.TopicData.Listen.WrongWords++;
+                    if (Manage.TopicData.Listen.ListWrongWord == null)
+                        Manage.TopicData.Listen.ListWrongWord = new List<int>();
                     Manage.TopicData.Listen.ListWrongWord.Add(lRandom[count]);
                     Manage.SerializeToXML(Manage.TopicData, filePath);
                     // sửa lỗi </Topic>> 

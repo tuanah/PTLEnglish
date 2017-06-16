@@ -205,17 +205,21 @@ namespace PTLEnglish.GUI
 
 		public void pnl_Listen_Click(object sender, EventArgs e)
 		{
-           
-            uctrlListen listen = new uctrlListen();
+
+            //uctrlListen listen = new uctrlListen();
+            //pnl_Content.Controls.Clear();
+            //pnl_Content.Controls.Add(listen);
+            //listen.GetFunction = this;
+            uctrlMain uMain = new uctrlMain();
             pnl_Content.Controls.Clear();
-            pnl_Content.Controls.Add(listen);
-            listen.GetFunction=this;
+            pnl_Content.Controls.Add(uMain);
+            uMain.GetControl = this;
         }
 
-		//
-		//	pnl_Test
-		//
-		private void pnl_Test_MouseEnter(object sender, EventArgs e)
+        //
+        //	pnl_Test
+        //
+        private void pnl_Test_MouseEnter(object sender, EventArgs e)
 		{
 			pnl_Test.BackColor = Cons.ColorHov;
 			pic_Test.Image = global::PTLEnglish.Properties.Resources.test_hover;
@@ -282,6 +286,7 @@ namespace PTLEnglish.GUI
 		{
 
 		}
+        
 
 		//
 		//	pnl_Gravity

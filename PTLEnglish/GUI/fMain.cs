@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PTLEnglish.DAL;
 
 
+
 namespace PTLEnglish.GUI
 {
 	public partial class fMain : Form
@@ -39,7 +40,7 @@ namespace PTLEnglish.GUI
 			}
 			catch
 			{
-				pic_Avatar.Image = global::PTLEnglish.Properties.Resources.avatar_default;
+				pic_Avatar.Image = Properties.Resources.avatar_default;
 			}
 
 			pic_Avatar.Location = new Point(22, 6);
@@ -65,61 +66,63 @@ namespace PTLEnglish.GUI
 		#region fMain
 		private void fMain_Load(object sender, EventArgs e)
 		{
-			for (int i = 0; i < ListCourses.Length; i++)
-			{
-				//Tạo dannh sách các course và hiển thị.
-				//Là môt cái list FlowLayoutPanel với i chẳn là tên course và i + 1 là list các Topic
-				ListCourses[i] = new FlowLayoutPanel();
-				for (int j = 0; j < Cons.CourseDir[i / 2].GetDirectories().Length; j++)
-				{
-					Label lbl = new Label();
-					lbl.Name = (i / 2).ToString();
-					lbl.ForeColor = SystemColors.ButtonFace;
-					lbl.Font = new Font("Microsoft Yahei Light", 14F);
-					lbl.AutoSize = false;
-					lbl.TextAlign = ContentAlignment.MiddleLeft;
-					lbl.Margin = new Padding(20, 0, 0, 0);
-					lbl.Size = new Size(fpnl_Course_Content.Width - lbl.Margin.Left, 35);
-					//Biến tag dùng để xác định cái flowLayoutPanel chứ các Topic
-					lbl.Tag = i + 1;
+            for (int i = 0; i < ListCourses.Length; i++)
+            {
+                //Tạo dannh sách các course và hiển thị.
+                //Là môt cái list FlowLayoutPanel với i chẵn là tên course và i + 1 là list các Topic
+                ListCourses[i] = new FlowLayoutPanel();
+                for (int j = 0; j < Cons.CourseDir[i / 2].GetDirectories().Length; j++)
+                {
+                    Label lbl = new Label();
+                    lbl.Name = (i / 2).ToString();
+                    lbl.ForeColor = SystemColors.ButtonFace;
+                    lbl.Font = new Font("Microsoft Yahei Light", 14F);
+                    lbl.AutoSize = false;
+                    lbl.TextAlign = ContentAlignment.MiddleLeft;
+                    lbl.Margin = new Padding(20, 0, 0, 0);
+                    lbl.Size = new Size(fpnl_Course_Content.Width - lbl.Margin.Left, 35);
+                    //Biến tag dùng để xác định cái flowLayoutPanel chứa các Topic
+                    lbl.Tag = i + 1;
 
-					lbl.MouseEnter += LblCourse_Enter;
-					lbl.MouseLeave += LblCourse_Leave;
+                    lbl.MouseEnter += LblCourse_Enter;
+                    lbl.MouseLeave += LblCourse_Leave;
 
-					if (i % 2 == 0)
-					{
-						lbl.Text = Cons.CourseDir[i / 2].Name;
-						ListCourses[i].Controls.Add(lbl);
-						lbl.Click += Course_Clk;
-						break;
-					}
-					else
-					{
-						lbl.Text = Cons.CourseDir[i / 2].GetDirectories()[j].Name;
-						lbl.Margin = new Padding(40, 0, 0, 0);
-						lbl.Click += Topic_Clk;
-						ListCourses[i].Controls.Add(lbl);
-					}
-				}
+                    if (i % 2 == 0)
+                    {
+                        lbl.Text = Cons.CourseDir[i / 2].Name;
+                        ListCourses[i].Controls.Add(lbl);
+                        lbl.Click += Course_Clk;
+                        break;
+                    }
+                    else
+                    {
+                        lbl.Text = Cons.CourseDir[i / 2].GetDirectories()[j].Name;
+                        lbl.Margin = new Padding(40, 0, 0, 0);
+                        lbl.Click += Topic_Clk;
+                        ListCourses[i].Controls.Add(lbl);
+                    }
+                }
 
-				if (i % 2 != 0)
-				{
-					ListCourses[i].Visible = false;
-				}
+                if (i % 2 != 0)
+                {
+                    ListCourses[i].Visible = false;
+                }
 
-				//Set maxsize cho ListCourses[i] bằng số lượng phần tử * Height của mỗi phần tử
-				ListCourses[i].MaximumSize = new Size(ListCourses[i].Width, ListCourses[i].Controls.Count * 35);
-				//Set maxsize cho ListCourses[i] bằng Height của 1 phần tử
-				ListCourses[i].MinimumSize = new Size(ListCourses[i].Width, 35);
+                //Set maxsize cho ListCourses[i] bằng số lượng phần tử * Height của mỗi phần tử
+                ListCourses[i].MaximumSize = new Size(ListCourses[i].Width, ListCourses[i].Controls.Count * 35);
+                //Set maxsize cho ListCourses[i] bằng Height của 1 phần tử
+                ListCourses[i].MinimumSize = new Size(ListCourses[i].Width, 35);
 
-				ListCourses[i].Margin = new Padding(0);
-				ListCourses[i].Size = new Size(ListCourses[i].Width, 35);
-				fpnl_Course_Content.Controls.Add(ListCourses[i]);
-			}
+                ListCourses[i].Margin = new Padding(0);
+                ListCourses[i].Size = new Size(ListCourses[i].Width, 35);
+                fpnl_Course_Content.Controls.Add(ListCourses[i]);
+            }
 
-			DrawHexagons(pnl_Grid);
-			LoadTextToHexagon(sender, true);
-		}
+            DrawHexagons(pnl_Grid);
+            LoadTextToHexagon(sender, true);
+            //Create_A_Course c = new Create_A_Course();
+            //pnl_Grid.Controls.Add(c);
+        }
 
 		private void fMain_FormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -504,6 +507,9 @@ namespace PTLEnglish.GUI
 			}
 		}
 
-		#endregion
-	}
+        #endregion
+
+
+
+    }
 }
