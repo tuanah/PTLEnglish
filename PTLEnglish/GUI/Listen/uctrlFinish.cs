@@ -18,6 +18,7 @@ namespace PTLEnglish.GUI.Listen
             InitializeComponent();
             uctrlListen1.btnStartOverr = btnStartOver;
             uctrlListen2.btnStartOverr = btnStartOver;
+            uctrlListen3.btnStartOverr = btnStartOver;
         }
 
         private void btnStartOver_MouseHover(object sender, EventArgs e)

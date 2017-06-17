@@ -15,8 +15,7 @@ namespace PTLEnglish.GUI.Listen
 {
     public partial class uctrlListen2 : UserControl
     {
-        // Hàm lấy hàm từ form khác
-        // Lưu ý form này trong form khác phải dc khởi tạo r
+        // Hàm lấy 1 hàm nào đó từ form khác
         public object GetControlProgressbar
         {
             set;
@@ -32,89 +31,36 @@ namespace PTLEnglish.GUI.Listen
         // Biến check là 1 biến quan trọng trong xử lý giao diện
         int check = 0;
         // 2 cái biến đầu là cái biến mặc định để đọc được âm thanh khi xài thư viện System.Speech
-        PromptBuilder proBuilder = new PromptBuilder();
         SpeechSynthesizer speechSynthes = new SpeechSynthesizer();
-        // Biến liên quan tới random:
-        List<int> lRandom = new List<int>();
         // Biến dùng đường dẫn và từ đang học:
         string filePath;
-        int learnNumber=-1;
+        int learnNumber = -1;
         // Lấy hàm bên pnMain bên uctrlMain
         public static FlowLayoutPanel fpnMain = new FlowLayoutPanel();
-        public uctrlListen2(string Filepath)
+        public uctrlListen2(string Filepath, int LearnNumber)
         {
             InitializeComponent();
             filePath = Filepath;
+            learnNumber = LearnNumber;
         }
 
         private void uctrlListen2_Load(object sender, EventArgs e)
         {
-            // Đọc dữ liệu từ Xml lên:
-            Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
-            // Kiểm tra nếu chưa học từ nào thì gọi hàm random ra dùng
-            // Ngược lại thì thôi
-            if (Manage.TopicData.Listen.Progress != -1)
-            {
-                lRandom = Manage.TopicData.Listen.ListRandom;
-                learnNumber = Manage.TopicData.Listen.Progress - 1;
-            }
-            else
-            {
-                RandomListWord();
-                Manage.TopicData.Listen.ListRandom = lRandom;
-                Manage.SerializeToXML(Manage.TopicData, filePath);
-            }
-            if (Manage.TopicData.Listen.FirstTimeOfWord == false)
+            if (!Manage.TopicData.Listen.FirstTimeOfWord)
                 ShowAWord(++learnNumber);
             else
                 ShowAWord(++learnNumber, false);
         }
 
-        #region Hàm random
-        List<int> AddNumberIntoList()
-        {
-            List<int> lInt = new List<int>();
-            for (int i = 0; i < Manage.TopicData.WordList.Count; i++)
-            {
-                lInt.Add(i);
-            }
-            return lInt;
-        }
-
-        void RandomListWord()
-        {
-            List<int> lInt = AddNumberIntoList();
-            Random rand = new Random();
-            while (lRandom.Count != Manage.TopicData.WordList.Count)
-            {
-                // Chọn ngẫu nhiên 1 phần tử 
-                int temp = rand.Next(0, lInt.Count);
-                // Lấy giá trị 
-                int index = lInt[temp];
-                // Xóa phần tử đã được random ra khỏi lInt
-                lInt.Remove(index);
-                // Lưu giá trị random vào listRandom
-                lRandom.Add(index);
-            }
-        }
-        #endregion
-
-
         #region Hàm đọc 1 từ
         /// <param name="textToSpeech">dữ liệu để đọc</param>
         /// <param name="rate">tốc độ đọc</param>
-        /// <param name="check"></param>
-        void ReadText(string textToSpeech, int rate, bool check = true)
+        void ReadText(string textToSpeech, int rate)
         {
-            proBuilder.ClearContent();
-            proBuilder.AppendText(textToSpeech);
             speechSynthes.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
             speechSynthes.Rate = rate;
             speechSynthes.Volume = 100;
-            if (check)
-                speechSynthes.SpeakAsync(proBuilder); // Cái này nó đọc âm thanh mà ko bị đứng màn hình. Nó đọc nhanh
-            else
-                speechSynthes.Speak(proBuilder); // cái này dùng để đọc từng từ - ko dùng
+            speechSynthes.SpeakAsync(textToSpeech.ToString()); // Cái này nó đọc âm thanh mà ko bị đứng màn hình. Nó đọc nhanh
         }
         #endregion
 
@@ -122,7 +68,6 @@ namespace PTLEnglish.GUI.Listen
         #region Random Sound
         // Tạo danh sách sound gồm 4 phần tử:
         int[] lSoundWord = { -1, -1, -1, -1 };
-
         void RandomSound(int count)
         {
             Random rand = new Random();
@@ -148,37 +93,32 @@ namespace PTLEnglish.GUI.Listen
         #endregion
 
         #region Hàm hiện 1 từ lên màn hình
-        void ShowAWord(int count, bool _check=true)
+        void ShowAWord(int count, bool _check = true)
         {
             if (learnNumber < Manage.TopicData.WordList.Count) // Nếu chưa học hết các từ
             {
-                pnDown.BackColor = pnLeft.BackColor = pnUp.BackColor = pnRight.BackColor = Color.FromArgb(103, 183, 255);
                 // Lưu tại từ tiếng anh đúng tí mang ra kiểm tra với từ mình nhập vào
-                lbVietnamese.Tag = Manage.TopicData.WordList[lRandom[count]].Key;
+                lbVietnamese.Tag = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Key;
                 // Hiện từ tiếng việt:
-                lbVietnamese.Text = Manage.TopicData.WordList[lRandom[count]].Mean;
-                RandomSound(lRandom[count]);
+                lbVietnamese.Text = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Mean;
+                RandomSound(Manage.TopicData.Listen.ListRandom[count]);
                 if (_check)
                 {
                     // Tăng process + lưu xuống xml
                     Manage.TopicData.Listen.Progress = count;
                     Manage.SerializeToXML(Manage.TopicData, filePath);
-                    if (GetControlProgressbar is uctrlProgressBar)
-                    {
-                        uctrlProgressBar ProgressBar = GetControlProgressbar as uctrlProgressBar;
-                        // Gọi hàm tăng progress sai:
-                        ProgressBar.IncreasingProgress();
-                        
-                    }
+                    uctrlProgressBar ProgressBar = GetControlProgressbar as uctrlProgressBar;
+                    // Gọi hàm tăng progress sai:
+                    ProgressBar.IncreasingProgress();
                 }
-              
+
             }
             else // Nếu đã học xong  tất cả các từ
             {
                 // xóa tất cả các control trong fpnMain
                 fpnMain.Controls.Clear();
                 // Hiện form kết thúc chương trình học listen:
-                fpnMain.FlowDirection = FlowDirection.LeftToRight;
+                fpnMain.FlowDirection = FlowDirection.LeftToRight; fpnMain.BackColor = Color.White;
                 uctrlFinish finish = new uctrlFinish();
                 fpnMain.Controls.Add(finish);
                 // Hiện các từ sai ra màn hình:
@@ -187,7 +127,7 @@ namespace PTLEnglish.GUI.Listen
                     uctrlMissedWord miss = new uctrlMissedWord(item);
                     fpnMain.Controls.Add(miss);
                 }
-                // Reset lại các giá trị như:
+                // Reset lại các giá trị như:            
                 Manage.TopicData.Listen.CorrectWords = 0; // Từ đúng
                 Manage.TopicData.Listen.WrongWords = 0; // Từ sai
                 Manage.TopicData.Listen.Progress = -1; // Tiến trình học
@@ -200,15 +140,8 @@ namespace PTLEnglish.GUI.Listen
                 // Có thể dùng Delegate thay cho lamda expressions
                 btnStartOverr.Click += (sender, e) =>
                 {
-                    if (GetControlClick is uctrlMain)
-                    {
-                        if ((GetControlClick as uctrlMain).GetControl is fSub)
-                        {
-                            fSub Sub = (GetControlClick as uctrlMain).GetControl as fSub;
-                            Sub.pnl_Listen_Click(sender, e);
-                        }
-
-                    }
+                    fSub Sub = (GetControlClick as uctrlMain).GetControl as fSub;
+                    Sub.pnl_Listen_Click(sender, e);
                 };
             }
         }
@@ -219,123 +152,47 @@ namespace PTLEnglish.GUI.Listen
         // Mỗi lần click vào 1 cái pbListen bất kỳ thì lưu lại vị trí được click
         // Biến được chỉnh true là hiện đang được click
         // False là không được click
-        private void pbListen1_Click(object sender, EventArgs e)
+        PictureBox previousPic = null;
+        private void pbListen1_MouseClick(object sender, MouseEventArgs e)
         {
-            ReadText(Manage.TopicData.WordList[lSoundWord[0]].Key, 1);
-            btnKiemTra.Tag = Manage.TopicData.WordList[lSoundWord[0]].Mean;
-            _checkDisplay[0] = true;
-            _checkDisplay[1] = _checkDisplay[2] = _checkDisplay[3] = false;
-            pbListen1.Image = Properties.Resources.click;
-            pbListen2.Image = Properties.Resources.normal;
-            pbListen3.Image = Properties.Resources.normal;
-            pbListen4.Image = Properties.Resources.normal;
+            PictureBox p = sender as PictureBox;
+            ReadText(Manage.TopicData.WordList[lSoundWord[int.Parse(p.Name[p.Name.Length - 1].ToString()) - 1]].Key, 1);
+            btnKiemTra.Tag = Manage.TopicData.WordList[lSoundWord[int.Parse(p.Name[p.Name.Length - 1].ToString()) - 1]].Mean;
+            Array.Clear(_checkDisplay, 0, 3);
+            _checkDisplay[int.Parse(p.Name[p.Name.Length - 1].ToString()) - 1] = true;
+            p.Image = Properties.Resources.click;
             btnKiemTra.Enabled = true;
-        }
-
-        private void pbListen2_Click(object sender, EventArgs e)
-        {
-            ReadText(Manage.TopicData.WordList[lSoundWord[1]].Key, 1);
-            btnKiemTra.Tag = Manage.TopicData.WordList[lSoundWord[1]].Mean;
-            _checkDisplay[1] = true;
-            _checkDisplay[0] = _checkDisplay[2] = _checkDisplay[3] = false;
-            pbListen2.Image = Properties.Resources.click;
-            pbListen1.Image = Properties.Resources.normal;
-            pbListen3.Image = Properties.Resources.normal;
-            pbListen4.Image = Properties.Resources.normal;
-            btnKiemTra.Enabled = true;
-        }
-
-        private void pbListen3_Click(object sender, EventArgs e)
-        {
-            ReadText(Manage.TopicData.WordList[lSoundWord[2]].Key, 1);
-            btnKiemTra.Tag = Manage.TopicData.WordList[lSoundWord[2]].Mean;
-            _checkDisplay[2] = true;
-            _checkDisplay[1] = _checkDisplay[0] = _checkDisplay[3] = false;
-            pbListen3.Image = Properties.Resources.click;
-            pbListen1.Image = Properties.Resources.normal;
-            pbListen2.Image = Properties.Resources.normal;
-            pbListen4.Image = Properties.Resources.normal;
-            btnKiemTra.Enabled = true;
-        }
-
-        private void pbListen4_Click(object sender, EventArgs e)
-        {
-            ReadText(Manage.TopicData.WordList[lSoundWord[3]].Key, 1);
-            btnKiemTra.Tag = Manage.TopicData.WordList[lSoundWord[3]].Mean;
-            _checkDisplay[3] = true;
-            _checkDisplay[1] = _checkDisplay[2] = _checkDisplay[0] = false;
-            pbListen4.Image = Properties.Resources.click;
-            pbListen1.Image = Properties.Resources.normal;
-            pbListen2.Image = Properties.Resources.normal;
-            pbListen3.Image = Properties.Resources.normal;
-            btnKiemTra.Enabled = true;
+            if (previousPic != null)
+                previousPic.Image = Properties.Resources.normal;
+            previousPic = sender as PictureBox;
         }
         // -------------- MOUSE LEAVE --------------------
-        private void pbListen1_MouseLeave(object sender, EventArgs e)
+        private void pbListen1_MouseLeave_1(object sender, EventArgs e)
         {
-            if (!_checkDisplay[0])
-            {
-                pbListen1.Image = Properties.Resources.normal;
-            }
-        }
-        private void pbListen2_MouseLeave(object sender, EventArgs e)
-        {
-            if (!_checkDisplay[1])
-            {
-                pbListen2.Image = Properties.Resources.normal;
-            }
-        }
-        private void pbListen3_MouseLeave(object sender, EventArgs e)
-        {
-            if (!_checkDisplay[2])
-            {
-                pbListen3.Image = Properties.Resources.normal;
-            }
-        }
-        private void pbListen4_MouseLeave(object sender, EventArgs e)
-        {
-            if (!_checkDisplay[3])
-            {
-                pbListen4.Image = Properties.Resources.normal;
-            }
+            PictureBox p = sender as PictureBox;
+            if (!_checkDisplay[int.Parse(p.Name[p.Name.Length - 1].ToString()) - 1])
+                p.Image = Properties.Resources.normal;
         }
         // -------------- MOUSE HOVER --------------------
-        private void pbListen1_MouseHover(object sender, EventArgs e)
+        private void pbListen1_MouseHover_1(object sender, EventArgs e)
         {
-            pbListen1.Image = Properties.Resources.click;
+            PictureBox p = sender as PictureBox;
+            p.Image = Properties.Resources.click;
         }
-        private void pbListen2_MouseHover(object sender, EventArgs e)
-        {
-            pbListen2.Image = Properties.Resources.click;
-        }
-
-        private void pbListen3_MouseHover(object sender, EventArgs e)
-        {
-            pbListen3.Image = Properties.Resources.click;
-        }
-        private void pbListen4_MouseHover(object sender, EventArgs e)
-        {
-
-            pbListen4.Image = Properties.Resources.click;
-        }
-
-
         #endregion
 
         #region Button Check Answers
         private void btnKiemTra_Click(object sender, EventArgs e)
         {
-            btnKiemTra.Enabled = false;
-            btnKiemTra.Refresh();
-            // Tìm vị trí true trong _checkDisplay
+            btnKiemTra.Enabled = false; btnKiemTra.Refresh();
+            // Tìm vị trí được click trong _checkDisplay
             int result = Array.IndexOf(_checkDisplay, true);
             if (btnKiemTra.Tag.ToString() == lbVietnamese.Text)// Nếu đúng
             {
                 // Giao diện khi đúng
                 CheckWhenTrue(result);
-
                 // Tăng số lần đúng
-                Manage.TopicData.WordList[lRandom[learnNumber]].NumRight++;
+                Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[learnNumber]].NumRight++;
                 // Tăng số lần đúng trong listen
                 Manage.TopicData.Listen.CorrectWords++;
             }
@@ -343,16 +200,14 @@ namespace PTLEnglish.GUI.Listen
             {
                 // Giao diện khi sai:
                 CheckWhenWrong(result);
-                // Đọc lại từ đúng
-              //  ReadText(lbVietnamese.Tag.ToString(), 1);
                 // Tăng số từ sai bên ngoài:
-                Manage.TopicData.WordList[lRandom[learnNumber]].NumWrong++;
+                Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[learnNumber]].NumWrong++;
                 // Tăng số từ sai trong listen:
                 Manage.TopicData.Listen.WrongWords++;
                 if (Manage.TopicData.Listen.ListWrongWord == null)
                     Manage.TopicData.Listen.ListWrongWord = new List<int>();
                 // Thêm từ này vào danh sách từ sai
-                Manage.TopicData.Listen.ListWrongWord.Add(lRandom[learnNumber]);
+                Manage.TopicData.Listen.ListWrongWord.Add(Manage.TopicData.Listen.ListRandom[learnNumber]);
             }
             //Lưu lại vào Topic và serialize xuống
             Manage.SerializeToXML(Manage.TopicData, filePath);
@@ -377,14 +232,9 @@ namespace PTLEnglish.GUI.Listen
 
         #region Tạo lại giao diện mặc định
         void SetDefaultDisplay()
-        {
-            // Chỉnh lại giao diện mặc định
-            Hide();
-            pnLeft.BackColor = pnRight.BackColor = pnUp.BackColor = pnDown.BackColor = Color.FromArgb(103, 183, 255);
-            _checkDisplay[0] = _checkDisplay[1] = _checkDisplay[2] = _checkDisplay[3] = false;
+        {    
+            Array.Clear(_checkDisplay, 0, 3);
             pbListen1.Image = pbListen2.Image = pbListen3.Image = pbListen4.Image = Properties.Resources.normal;
-            Refresh();
-            Show();
         }
         #endregion
 
@@ -396,74 +246,29 @@ namespace PTLEnglish.GUI.Listen
         void CheckWhenTrue(int result)
         {
             // Giao diện: Chạy CORRECT        
-            if (GetControlProgressbar is uctrlProgressBar)
-            {
-                uctrlProgressBar ProgressBar = GetControlProgressbar as uctrlProgressBar;
-                // Gọi hàm tăng progress đúng:
-                ProgressBar.IncreasingCorrect();
-            }
-            // Đổi màu giao diện 
-            pnLeft.BackColor = pnRight.BackColor = pnUp.BackColor = pnDown.BackColor = Color.FromArgb(120, 200, 0);
-            pnLeft.Refresh();
-            pnRight.Refresh();
-            pnUp.Refresh();
-            pnDown.Refresh();
+            uctrlProgressBar ProgressBar = GetControlProgressbar as uctrlProgressBar;
+            // Gọi hàm tăng progress đúng:
+            ProgressBar.IncreasingCorrect();
             // Kiểm tra vị trí đúng và show giao diện đúng 
+            PictureBox p = new PictureBox();
             switch (result)
             {
-                case 0:
-                    for (int i = 0; i <5; i++)
-                    {
-                        pbListen1.Image = Properties.Resources.right;
-                        pbListen1.Refresh();
-                        Thread.Sleep(150);
-                        pbListen1.Image = Properties.Resources.click;
-                        pbListen1.Refresh();
-                        Thread.Sleep(150);
-                    }
-                    pbListen1.Image = Properties.Resources.right;
-                    pbListen1.Refresh();
-                    break;
-                case 1:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        pbListen2.Image = Properties.Resources.right;
-                        pbListen2.Refresh();
-                        Thread.Sleep(150);
-                        pbListen2.Image = Properties.Resources.click;
-                        pbListen2.Refresh();
-                        Thread.Sleep(150);
-                    }
-                    pbListen2.Image = Properties.Resources.right;
-                    pbListen2.Refresh();
-                    break;
-                case 2:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        pbListen3.Image = Properties.Resources.right;
-                        pbListen3.Refresh();
-                        Thread.Sleep(150);
-                        pbListen3.Image = Properties.Resources.click;
-                        pbListen3.Refresh();
-                        Thread.Sleep(150);
-                    }
-                    pbListen3.Image = Properties.Resources.right;
-                    pbListen3.Refresh();
-                    break;
-                case 3:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        pbListen4.Image = Properties.Resources.right;
-                        pbListen4.Refresh();
-                        Thread.Sleep(150);
-                        pbListen4.Image = Properties.Resources.click;
-                        pbListen4.Refresh();
-                        Thread.Sleep(150);
-                    }
-                    pbListen4.Image = Properties.Resources.right;
-                    pbListen4.Refresh();
-                    break;
+                case 0: p = pbListen1 as PictureBox; break;
+                case 1: p = pbListen2 as PictureBox; break;
+                case 2: p = pbListen3 as PictureBox; break;
+                case 3: p = pbListen4 as PictureBox; break;
             }
+            for (int i = 0; i < 5; i++)
+            {
+                p.Image = Properties.Resources.right;
+                p.Refresh();
+                Thread.Sleep(150);
+                p.Image = Properties.Resources.click;
+                p.Refresh();
+                Thread.Sleep(150);
+            }
+            p.Image = Properties.Resources.right;
+            p.Refresh();
         }
 
         /// <summary>
@@ -472,65 +277,33 @@ namespace PTLEnglish.GUI.Listen
         /// <param name="result"></param>
         void CheckWhenWrong(int result)
         {
-            // Đổi màu giao diện 
-            pnLeft.BackColor = pnRight.BackColor = pnUp.BackColor = pnDown.BackColor = Color.Red;
-            pnLeft.Refresh();
-            pnRight.Refresh();
-            pnUp.Refresh();
-            pnDown.Refresh();
             // Giao diện: Chạy WRONG
-            if (GetControlProgressbar is uctrlProgressBar)
-            {
-                uctrlProgressBar ProgressBar = GetControlProgressbar as uctrlProgressBar;
-                // Gọi hàm tăng progress sai:
-                ProgressBar.IncreasingWrong();
-            }
-
+            uctrlProgressBar ProgressBar = GetControlProgressbar as uctrlProgressBar;
+            // Gọi hàm tăng progress sai:
+            ProgressBar.IncreasingWrong();
+            PictureBox p = new PictureBox();
             // Tìm vị trí đúng:
-            int indexTrue = Array.IndexOf(lSoundWord, lRandom[learnNumber]);
+            int indexTrue = Array.IndexOf(lSoundWord, Manage.TopicData.Listen.ListRandom[learnNumber]);
             switch (indexTrue)
             {
-                case 0:
-                    pbListen1.Image = Properties.Resources.right;
-                    pbListen1.Refresh();
-                    break;
-                case 1:
-                    pbListen2.Image = Properties.Resources.right;
-                    pbListen2.Refresh();
-                    break;
-                case 2:
-                    pbListen3.Image = Properties.Resources.right;
-                    pbListen3.Refresh();
-                    break;
-                case 3:
-                    pbListen4.Image = Properties.Resources.right;
-                    pbListen4.Refresh();
-                    break;
+                case 0: p = pbListen1 as PictureBox; break;
+                case 1: p = pbListen2 as PictureBox; break;
+                case 2: p = pbListen3 as PictureBox; break;
+                case 3: p = pbListen4 as PictureBox; break;
             }
+            p.Image = Properties.Resources.right; p.Refresh();
             Thread.Sleep(10);
             // Tìm vị trí sai
             switch (result)
             {
-                case 0:
-                    pbListen1.Image = Properties.Resources.wrong;
-                    pbListen1.Refresh();
-                    break;
-                case 1:
-                    pbListen2.Image = Properties.Resources.wrong;
-                    pbListen2.Refresh();
-                    break;
-                case 2:
-                    pbListen3.Image = Properties.Resources.wrong;
-                    pbListen3.Refresh();
-                    break;
-                case 3:
-                    pbListen4.Image = Properties.Resources.wrong;
-                    pbListen4.Refresh();
-                    break;
+                case 0: p = pbListen1 as PictureBox; break;
+                case 1: p = pbListen2 as PictureBox; break;
+                case 2: p = pbListen3 as PictureBox; break;
+                case 3: p = pbListen4 as PictureBox; break;
             }
+            p.Image = Properties.Resources.wrong; p.Refresh();
             Thread.Sleep(2000);
-           
         }
-        #endregion
+        #endregion  
     }
 }

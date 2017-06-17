@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbOptions = new System.Windows.Forms.PictureBox();
             this.fpnMain = new System.Windows.Forms.FlowLayoutPanel();
             this.pnMainListen = new System.Windows.Forms.Panel();
             this.pnProgress = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).BeginInit();
             this.fpnMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pbOptions
-            // 
-            this.pbOptions.BackColor = System.Drawing.Color.Blue;
-            this.pbOptions.Location = new System.Drawing.Point(4, 5);
-            this.pbOptions.Name = "pbOptions";
-            this.pbOptions.Size = new System.Drawing.Size(16, 16);
-            this.pbOptions.TabIndex = 0;
-            this.pbOptions.TabStop = false;
             // 
             // fpnMain
             // 
             this.fpnMain.AutoScroll = true;
+            this.fpnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
             this.fpnMain.Controls.Add(this.pnMainListen);
             this.fpnMain.Controls.Add(this.pnProgress);
             this.fpnMain.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -58,7 +48,7 @@
             // 
             // pnMainListen
             // 
-            this.pnMainListen.BackColor = System.Drawing.Color.White;
+            this.pnMainListen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
             this.pnMainListen.Location = new System.Drawing.Point(3, 3);
             this.pnMainListen.Name = "pnMainListen";
             this.pnMainListen.Size = new System.Drawing.Size(651, 397);
@@ -66,7 +56,7 @@
             // 
             // pnProgress
             // 
-            this.pnProgress.BackColor = System.Drawing.Color.White;
+            this.pnProgress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
             this.pnProgress.Location = new System.Drawing.Point(3, 406);
             this.pnProgress.Name = "pnProgress";
             this.pnProgress.Size = new System.Drawing.Size(651, 134);
@@ -77,19 +67,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.fpnMain);
-            this.Controls.Add(this.pbOptions);
             this.Name = "uctrlMain";
             this.Size = new System.Drawing.Size(697, 561);
-            ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).EndInit();
             this.fpnMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pbOptions;
         private System.Windows.Forms.FlowLayoutPanel fpnMain;
-        private System.Windows.Forms.Panel pnMainListen;
         private System.Windows.Forms.Panel pnProgress;
+        private System.Windows.Forms.Panel pnMainListen;
     }
 }

@@ -48,17 +48,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbListen)).BeginInit();
             this.SuspendLayout();
             // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // pnImageAndMean
             // 
             this.pnImageAndMean.Controls.Add(this.lbMean);
             this.pnImageAndMean.Controls.Add(this.pbImage);
             this.pnImageAndMean.Location = new System.Drawing.Point(5, 10);
             this.pnImageAndMean.Name = "pnImageAndMean";
-            this.pnImageAndMean.Size = new System.Drawing.Size(642, 251);
+            this.pnImageAndMean.Size = new System.Drawing.Size(571, 144);
             this.pnImageAndMean.TabIndex = 20;
             // 
             // lbMean
@@ -66,7 +62,7 @@
             this.lbMean.AutoSize = true;
             this.lbMean.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold);
             this.lbMean.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbMean.Location = new System.Drawing.Point(32, 210);
+            this.lbMean.Location = new System.Drawing.Point(213, 52);
             this.lbMean.Name = "lbMean";
             this.lbMean.Size = new System.Drawing.Size(82, 32);
             this.lbMean.TabIndex = 13;
@@ -76,7 +72,7 @@
             // 
             this.pbImage.Location = new System.Drawing.Point(37, 10);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(223, 197);
+            this.pbImage.Size = new System.Drawing.Size(161, 117);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 12;
             this.pbImage.TabStop = false;
@@ -88,19 +84,19 @@
             this.pnReadListenSub.Controls.Add(this.pnHorizontal);
             this.pnReadListenSub.Controls.Add(this.pbListen);
             this.pnReadListenSub.Controls.Add(this.tbText);
-            this.pnReadListenSub.Location = new System.Drawing.Point(6, 275);
+            this.pnReadListenSub.Location = new System.Drawing.Point(6, 168);
             this.pnReadListenSub.Name = "pnReadListenSub";
-            this.pnReadListenSub.Size = new System.Drawing.Size(641, 116);
+            this.pnReadListenSub.Size = new System.Drawing.Size(570, 106);
             this.pnReadListenSub.TabIndex = 21;
             // 
             // lbkey
             // 
             this.lbkey.AutoSize = true;
-            this.lbkey.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lbkey.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold);
             this.lbkey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
             this.lbkey.Location = new System.Drawing.Point(83, 80);
             this.lbkey.Name = "lbkey";
-            this.lbkey.Size = new System.Drawing.Size(82, 32);
+            this.lbkey.Size = new System.Drawing.Size(57, 22);
             this.lbkey.TabIndex = 14;
             this.lbkey.Text = "Mean";
             this.lbkey.Visible = false;
@@ -122,7 +118,7 @@
             this.pnHorizontal.Controls.Add(this.pnHorizontalRun);
             this.pnHorizontal.Location = new System.Drawing.Point(80, 52);
             this.pnHorizontal.Name = "pnHorizontal";
-            this.pnHorizontal.Size = new System.Drawing.Size(490, 3);
+            this.pnHorizontal.Size = new System.Drawing.Size(449, 3);
             this.pnHorizontal.TabIndex = 6;
             // 
             // pnHorizontalRun
@@ -152,7 +148,7 @@
             this.tbText.Font = new System.Drawing.Font("Cambria", 19.75F);
             this.tbText.Location = new System.Drawing.Point(78, 15);
             this.tbText.Name = "tbText";
-            this.tbText.Size = new System.Drawing.Size(492, 31);
+            this.tbText.Size = new System.Drawing.Size(451, 31);
             this.tbText.TabIndex = 8;
             this.tbText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbText_MouseClick);
             this.tbText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbText_KeyPress);
@@ -161,9 +157,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(165)))), ((int)(((byte)(177)))));
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(165)))), ((int)(((byte)(177)))));
-            this.panel2.Location = new System.Drawing.Point(21, 267);
+            this.panel2.Location = new System.Drawing.Point(21, 160);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 2);
+            this.panel2.Size = new System.Drawing.Size(540, 2);
             this.panel2.TabIndex = 22;
             // 
             // uctrlListen1
@@ -175,7 +171,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnImageAndMean);
             this.Name = "uctrlListen1";
-            this.Size = new System.Drawing.Size(651, 397);
+            this.Size = new System.Drawing.Size(584, 281);
             this.Load += new System.EventHandler(this.uctrlListen1_Load);
             this.pnImageAndMean.ResumeLayout(false);
             this.pnImageAndMean.PerformLayout();
