@@ -195,6 +195,12 @@
     <Compile Include="GUI\Listen\uctrlListen2.Designer.cs">
       <DependentUpon>uctrlListen2.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Listen\uctrlListen3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen3.Designer.cs">
+      <DependentUpon>uctrlListen3.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Listen\uctrlMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Listen\uctrlListen2.resx">
       <DependentUpon>uctrlListen2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen3.resx">
+      <DependentUpon>uctrlListen3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Listen\uctrlMain.resx">
       <DependentUpon>uctrlMain.cs</DependentUpon>

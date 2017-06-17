@@ -178,6 +178,7 @@ namespace PTLEnglish.GUI.Listen
                 // xóa tất cả các control trong fpnMain
                 fpnMain.Controls.Clear();
                 // Hiện form kết thúc chương trình học listen:
+                fpnMain.FlowDirection = FlowDirection.LeftToRight;
                 uctrlFinish finish = new uctrlFinish();
                 fpnMain.Controls.Add(finish);
                 // Hiện các từ sai ra màn hình:
@@ -215,6 +216,9 @@ namespace PTLEnglish.GUI.Listen
 
         #region Hàm xử lý pbSound - Giao diện
         bool[] _checkDisplay = { false, false, false, false };
+        // Mỗi lần click vào 1 cái pbListen bất kỳ thì lưu lại vị trí được click
+        // Biến được chỉnh true là hiện đang được click
+        // False là không được click
         private void pbListen1_Click(object sender, EventArgs e)
         {
             ReadText(Manage.TopicData.WordList[lSoundWord[0]].Key, 1);
@@ -412,10 +416,10 @@ namespace PTLEnglish.GUI.Listen
                     {
                         pbListen1.Image = Properties.Resources.right;
                         pbListen1.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                         pbListen1.Image = Properties.Resources.click;
                         pbListen1.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                     }
                     pbListen1.Image = Properties.Resources.right;
                     pbListen1.Refresh();
@@ -425,10 +429,10 @@ namespace PTLEnglish.GUI.Listen
                     {
                         pbListen2.Image = Properties.Resources.right;
                         pbListen2.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                         pbListen2.Image = Properties.Resources.click;
                         pbListen2.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                     }
                     pbListen2.Image = Properties.Resources.right;
                     pbListen2.Refresh();
@@ -438,10 +442,10 @@ namespace PTLEnglish.GUI.Listen
                     {
                         pbListen3.Image = Properties.Resources.right;
                         pbListen3.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                         pbListen3.Image = Properties.Resources.click;
                         pbListen3.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                     }
                     pbListen3.Image = Properties.Resources.right;
                     pbListen3.Refresh();
@@ -451,10 +455,10 @@ namespace PTLEnglish.GUI.Listen
                     {
                         pbListen4.Image = Properties.Resources.right;
                         pbListen4.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                         pbListen4.Image = Properties.Resources.click;
                         pbListen4.Refresh();
-                        Thread.Sleep(100);
+                        Thread.Sleep(150);
                     }
                     pbListen4.Image = Properties.Resources.right;
                     pbListen4.Refresh();
