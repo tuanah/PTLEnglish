@@ -41,7 +41,7 @@ namespace PTLEnglish.GUI.Listen
         {
             Random rand = new Random();
             uctrlProgressBar _Progress = new uctrlProgressBar(filePath);
-            int index = 0;//rand.Next(0, 3);
+            int index = rand.Next(0, 3);
             switch (index)
             {
                 case 0:

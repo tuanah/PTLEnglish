@@ -81,12 +81,6 @@
     <Compile Include="GUI\Flash Card\fQuickPress.Designer.cs">
       <DependentUpon>fQuickPress.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Flash Card\ShadowPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Flash Card\ShadowPanel.Designer.cs">
-      <DependentUpon>ShadowPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Flash Card\uctrlEnglish.cs">
       <SubType>UserControl</SubType>
     </Compile>

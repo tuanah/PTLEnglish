@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pnWrong = new System.Windows.Forms.Panel();
             this.pnWrongRun = new System.Windows.Forms.Panel();
             this.lbWrong = new System.Windows.Forms.Label();
@@ -48,7 +47,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.pnWrong);
             this.panel1.Controls.Add(this.lbWrong);
             this.panel1.Controls.Add(this.pnCorrect);
@@ -60,17 +58,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(651, 134);
             this.panel1.TabIndex = 5;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 42);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // pnWrong
             // 
@@ -188,6 +175,5 @@
         private System.Windows.Forms.Panel pnProgress;
         private System.Windows.Forms.Panel pnProgressRun;
         private System.Windows.Forms.Label lbProgress;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

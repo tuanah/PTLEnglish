@@ -117,7 +117,7 @@
             // 
             // flipPanel
             // 
-            this.flipPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.flipPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
             this.flipPanel.Behind = null;
             this.flipPanel.CheckAnimation = true;
             this.flipPanel.Front = null;
@@ -193,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
             this.Controls.Add(this.btnBoth);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSuffle);

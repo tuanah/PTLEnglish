@@ -59,12 +59,11 @@
             // 
             // lbMean
             // 
-            this.lbMean.AutoSize = true;
             this.lbMean.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold);
             this.lbMean.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
             this.lbMean.Location = new System.Drawing.Point(213, 52);
             this.lbMean.Name = "lbMean";
-            this.lbMean.Size = new System.Drawing.Size(82, 32);
+            this.lbMean.Size = new System.Drawing.Size(355, 75);
             this.lbMean.TabIndex = 13;
             this.lbMean.Text = "Mean";
             // 
@@ -174,7 +173,6 @@
             this.Size = new System.Drawing.Size(584, 281);
             this.Load += new System.EventHandler(this.uctrlListen1_Load);
             this.pnImageAndMean.ResumeLayout(false);
-            this.pnImageAndMean.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.pnReadListenSub.ResumeLayout(false);
             this.pnReadListenSub.PerformLayout();

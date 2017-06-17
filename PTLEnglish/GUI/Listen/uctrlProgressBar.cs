@@ -67,17 +67,6 @@ namespace PTLEnglish.GUI.Listen
             }
         }
 
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                IncreasingProgress();
-                IncreasingCorrect();
-                IncreasingWrong();
-            }
-
-        }
-
         private void uctrlProgressBar_Load(object sender, EventArgs e)
         {
             
