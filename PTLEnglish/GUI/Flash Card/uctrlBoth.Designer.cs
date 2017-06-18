@@ -42,10 +42,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(222)))), ((int)(((byte)(224)))));
-            this.panel1.Location = new System.Drawing.Point(17, 138);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
+            this.panel1.Location = new System.Drawing.Point(-2, 138);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(590, 2);
+            this.panel1.Size = new System.Drawing.Size(629, 2);
             this.panel1.TabIndex = 0;
             // 
             // pbImage
@@ -61,9 +61,9 @@
             // 
             this.lbVietnamese.Font = new System.Drawing.Font("Cambria", 25F, System.Drawing.FontStyle.Bold);
             this.lbVietnamese.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbVietnamese.Location = new System.Drawing.Point(14, 60);
+            this.lbVietnamese.Location = new System.Drawing.Point(8, 35);
             this.lbVietnamese.Name = "lbVietnamese";
-            this.lbVietnamese.Size = new System.Drawing.Size(594, 58);
+            this.lbVietnamese.Size = new System.Drawing.Size(603, 58);
             this.lbVietnamese.TabIndex = 23;
             this.lbVietnamese.Text = "Vietnamese";
             this.lbVietnamese.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,7 +77,7 @@
             this.lbEnglish.Size = new System.Drawing.Size(367, 55);
             this.lbEnglish.TabIndex = 24;
             this.lbEnglish.Text = "English";
-            this.lbEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pic_Hard
             // 

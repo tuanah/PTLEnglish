@@ -159,15 +159,19 @@ namespace PTLEnglish.GUI
 
 		private void pic_Fcard_Click(object sender, EventArgs e)
 		{
-            uctrlFlashCard flashCard = new uctrlFlashCard();
+            //uctrlFlashCard flashCard = new uctrlFlashCard();
+            //pnl_Content.Controls.Clear();
+            //pnl_Content.Controls.Add(flashCard);
+
+            uctrlMainFlashCard flashCard = new uctrlMainFlashCard();
             pnl_Content.Controls.Clear();
             pnl_Content.Controls.Add(flashCard);
         }
 
-		//
-		//	pnl_Learn
-		//
-		private void pnl_Learn_MouseEnter(object sender, EventArgs e)
+        //
+        //	pnl_Learn
+        //
+        private void pnl_Learn_MouseEnter(object sender, EventArgs e)
 		{
 			pnl_Learn.BackColor = Cons.ColorHov;
 			pic_Learn.Image = global::PTLEnglish.Properties.Resources.learn_hover;

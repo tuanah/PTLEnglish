@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctrlEnglish));
             this.pnEnglish = new System.Windows.Forms.Panel();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pic_Hard = new System.Windows.Forms.PictureBox();
             this.pbSound = new System.Windows.Forms.PictureBox();
             this.lbEnglish = new System.Windows.Forms.Label();
             this.pnEnglish.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSound)).BeginInit();
@@ -43,6 +45,7 @@
             // 
             // pnEnglish
             // 
+            this.pnEnglish.Controls.Add(this.pbImage);
             this.pnEnglish.Controls.Add(this.label1);
             this.pnEnglish.Controls.Add(this.pictureBox1);
             this.pnEnglish.Controls.Add(this.pic_Hard);
@@ -54,21 +57,30 @@
             this.pnEnglish.Size = new System.Drawing.Size(623, 303);
             this.pnEnglish.TabIndex = 0;
             // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(18, 50);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(239, 185);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 30;
+            this.pbImage.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(169)))), ((int)(((byte)(174)))));
-            this.label1.Location = new System.Drawing.Point(471, 279);
+            this.label1.Location = new System.Drawing.Point(513, 280);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 17);
+            this.label1.Size = new System.Drawing.Size(105, 17);
             this.label1.TabIndex = 29;
-            this.label1.Text = "CLICK HERE TO FLIP";
+            this.label1.Text = "CLICK TO FLIP";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PTLEnglish.Properties.Resources.Restart_64__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(439, 270);
+            this.pictureBox1.Location = new System.Drawing.Point(481, 271);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,14 +115,14 @@
             // 
             // lbEnglish
             // 
-            this.lbEnglish.Font = new System.Drawing.Font("Cambria", 32F, System.Drawing.FontStyle.Bold);
+            this.lbEnglish.Font = new System.Drawing.Font("Cambria", 28F, System.Drawing.FontStyle.Bold);
             this.lbEnglish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbEnglish.Location = new System.Drawing.Point(3, 114);
+            this.lbEnglish.Location = new System.Drawing.Point(263, 107);
             this.lbEnglish.Name = "lbEnglish";
-            this.lbEnglish.Size = new System.Drawing.Size(600, 54);
+            this.lbEnglish.Size = new System.Drawing.Size(352, 63);
             this.lbEnglish.TabIndex = 25;
             this.lbEnglish.Text = "English";
-            this.lbEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uctrlEnglish
             // 
@@ -122,6 +134,7 @@
             this.Size = new System.Drawing.Size(623, 303);
             this.pnEnglish.ResumeLayout(false);
             this.pnEnglish.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSound)).EndInit();
@@ -137,5 +150,6 @@
         private System.Windows.Forms.Label lbEnglish;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbImage;
     }
 }

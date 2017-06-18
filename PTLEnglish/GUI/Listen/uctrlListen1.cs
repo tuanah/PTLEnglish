@@ -112,7 +112,7 @@ namespace PTLEnglish.GUI.Listen
         void ShowAWord(int count, int _check = 0)
         {
             if (learnNumber < Manage.TopicData.WordList.Count) // Nếu chưa học hết các từ
-            {           
+            {
                 // Lưu tại từ tiếng anh đúng tí mang ra kiểm tra với từ mình nhập vào
                 tbText.Tag = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Key;
                 // Gán hình ảnh cho từ hiện tại:

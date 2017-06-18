@@ -28,56 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctrlMainFlashCard));
-            this.pbAutoPlay = new System.Windows.Forms.PictureBox();
-            this.pbShuffle = new System.Windows.Forms.PictureBox();
-            this.pbBoth = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnProgress = new System.Windows.Forms.Panel();
             this.pnProgressRun = new System.Windows.Forms.Panel();
             this.lbProgress = new System.Windows.Forms.Label();
-            this.pbRight = new System.Windows.Forms.PictureBox();
             this.flipPanel = new PTLEnglish.GUI.Flash_Card.FlipPanel();
+            this.timerPlay = new System.Windows.Forms.Timer(this.components);
             this.pbLeft = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAutoPlay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbShuffle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoth)).BeginInit();
+            this.pbRight = new System.Windows.Forms.PictureBox();
+            this.pbBoth = new System.Windows.Forms.PictureBox();
+            this.pbShuffle = new System.Windows.Forms.PictureBox();
+            this.pbAutoPlay = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.pnProgress.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBoth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShuffle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAutoPlay)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbAutoPlay
-            // 
-            this.pbAutoPlay.Location = new System.Drawing.Point(37, 438);
-            this.pbAutoPlay.Name = "pbAutoPlay";
-            this.pbAutoPlay.Size = new System.Drawing.Size(171, 46);
-            this.pbAutoPlay.TabIndex = 0;
-            this.pbAutoPlay.TabStop = false;
-            // 
-            // pbShuffle
-            // 
-            this.pbShuffle.Location = new System.Drawing.Point(269, 438);
-            this.pbShuffle.Name = "pbShuffle";
-            this.pbShuffle.Size = new System.Drawing.Size(171, 46);
-            this.pbShuffle.TabIndex = 1;
-            this.pbShuffle.TabStop = false;
-            // 
-            // pbBoth
-            // 
-            this.pbBoth.Location = new System.Drawing.Point(492, 438);
-            this.pbBoth.Name = "pbBoth";
-            this.pbBoth.Size = new System.Drawing.Size(171, 46);
-            this.pbBoth.TabIndex = 2;
-            this.pbBoth.TabStop = false;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
             this.panel3.Controls.Add(this.pnProgress);
             this.panel3.Controls.Add(this.lbProgress);
-            this.panel3.Location = new System.Drawing.Point(27, 502);
+            this.panel3.Location = new System.Drawing.Point(29, 502);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(643, 45);
             this.panel3.TabIndex = 12;
@@ -111,40 +88,89 @@
             this.lbProgress.TabIndex = 19;
             this.lbProgress.Text = "PROGRESS:";
             // 
-            // pbRight
-            // 
-            this.pbRight.Image = ((System.Drawing.Image)(resources.GetObject("pbRight.Image")));
-            this.pbRight.Location = new System.Drawing.Point(413, 357);
-            this.pbRight.Name = "pbRight";
-            this.pbRight.Size = new System.Drawing.Size(36, 56);
-            this.pbRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbRight.TabIndex = 13;
-            this.pbRight.TabStop = false;
-            // 
             // flipPanel
             // 
-            this.flipPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.flipPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
             this.flipPanel.Behind = null;
             this.flipPanel.CheckAnimation = true;
             this.flipPanel.Front = null;
             this.flipPanel.H_Behind = null;
             this.flipPanel.H_Front = null;
-            this.flipPanel.Location = new System.Drawing.Point(33, 47);
+            this.flipPanel.Location = new System.Drawing.Point(39, 47);
             this.flipPanel.Name = "flipPanel";
             this.flipPanel.Size = new System.Drawing.Size(623, 303);
             this.flipPanel.TabIndex = 14;
             this.flipPanel.TimerInterval = 100;
             // 
+            // timerPlay
+            // 
+            this.timerPlay.Tick += new System.EventHandler(this.timerPlay_Tick);
+            // 
             // pbLeft
             // 
             this.pbLeft.Enabled = false;
-            this.pbLeft.Image = ((System.Drawing.Image)(resources.GetObject("pbLeft.Image")));
-            this.pbLeft.Location = new System.Drawing.Point(230, 357);
+            this.pbLeft.Image = global::PTLEnglish.Properties.Resources.Left_5121;
+            this.pbLeft.Location = new System.Drawing.Point(230, 353);
             this.pbLeft.Name = "pbLeft";
-            this.pbLeft.Size = new System.Drawing.Size(36, 56);
+            this.pbLeft.Size = new System.Drawing.Size(51, 66);
             this.pbLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLeft.TabIndex = 15;
             this.pbLeft.TabStop = false;
+            this.pbLeft.Click += new System.EventHandler(this.pbLeft_Click);
+            this.pbLeft.MouseLeave += new System.EventHandler(this.pbLeft_MouseLeave);
+            this.pbLeft.MouseHover += new System.EventHandler(this.pbLeft_MouseHover);
+            // 
+            // pbRight
+            // 
+            this.pbRight.Image = global::PTLEnglish.Properties.Resources.Right_3_5121;
+            this.pbRight.Location = new System.Drawing.Point(436, 352);
+            this.pbRight.Name = "pbRight";
+            this.pbRight.Size = new System.Drawing.Size(51, 66);
+            this.pbRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRight.TabIndex = 13;
+            this.pbRight.TabStop = false;
+            this.pbRight.Click += new System.EventHandler(this.pbRight_Click);
+            this.pbRight.MouseLeave += new System.EventHandler(this.pbRight_MouseLeave);
+            this.pbRight.MouseHover += new System.EventHandler(this.pbRight_MouseHover);
+            // 
+            // pbBoth
+            // 
+            this.pbBoth.Image = global::PTLEnglish.Properties.Resources.both_1;
+            this.pbBoth.Location = new System.Drawing.Point(492, 438);
+            this.pbBoth.Name = "pbBoth";
+            this.pbBoth.Size = new System.Drawing.Size(171, 46);
+            this.pbBoth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBoth.TabIndex = 2;
+            this.pbBoth.TabStop = false;
+            this.pbBoth.Click += new System.EventHandler(this.pbBoth_Click);
+            this.pbBoth.MouseLeave += new System.EventHandler(this.pbBoth_MouseLeave);
+            this.pbBoth.MouseHover += new System.EventHandler(this.pbBoth_MouseHover);
+            // 
+            // pbShuffle
+            // 
+            this.pbShuffle.Image = global::PTLEnglish.Properties.Resources.shuffle_1;
+            this.pbShuffle.Location = new System.Drawing.Point(269, 438);
+            this.pbShuffle.Name = "pbShuffle";
+            this.pbShuffle.Size = new System.Drawing.Size(171, 46);
+            this.pbShuffle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbShuffle.TabIndex = 1;
+            this.pbShuffle.TabStop = false;
+            this.pbShuffle.Click += new System.EventHandler(this.pbShuffle_Click);
+            this.pbShuffle.MouseLeave += new System.EventHandler(this.pbShuffle_MouseLeave);
+            this.pbShuffle.MouseHover += new System.EventHandler(this.pbShuffle_MouseHover);
+            // 
+            // pbAutoPlay
+            // 
+            this.pbAutoPlay.Image = global::PTLEnglish.Properties.Resources.auto_2;
+            this.pbAutoPlay.Location = new System.Drawing.Point(39, 438);
+            this.pbAutoPlay.Name = "pbAutoPlay";
+            this.pbAutoPlay.Size = new System.Drawing.Size(171, 46);
+            this.pbAutoPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAutoPlay.TabIndex = 0;
+            this.pbAutoPlay.TabStop = false;
+            this.pbAutoPlay.Click += new System.EventHandler(this.pbAutoPlay_Click);
+            this.pbAutoPlay.MouseLeave += new System.EventHandler(this.pbAutoPlay_MouseLeave);
+            this.pbAutoPlay.MouseHover += new System.EventHandler(this.pbAutoPlay_MouseHover);
             // 
             // uctrlMainFlashCard
             // 
@@ -160,14 +186,14 @@
             this.Name = "uctrlMainFlashCard";
             this.Size = new System.Drawing.Size(697, 561);
             this.Load += new System.EventHandler(this.uctrlMainFlashCard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbAutoPlay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbShuffle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoth)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pnProgress.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBoth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShuffle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAutoPlay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,5 +210,6 @@
         private System.Windows.Forms.PictureBox pbRight;
         private FlipPanel flipPanel;
         private System.Windows.Forms.PictureBox pbLeft;
+        private System.Windows.Forms.Timer timerPlay;
     }
 }
