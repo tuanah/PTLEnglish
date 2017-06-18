@@ -43,46 +43,48 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(222)))), ((int)(((byte)(224)))));
-            this.panel1.Location = new System.Drawing.Point(0, 152);
+            this.panel1.Location = new System.Drawing.Point(17, 138);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(634, 2);
+            this.panel1.Size = new System.Drawing.Size(590, 2);
             this.panel1.TabIndex = 0;
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(19, 176);
+            this.pbImage.Location = new System.Drawing.Point(15, 151);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(226, 136);
+            this.pbImage.Size = new System.Drawing.Size(221, 144);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 1;
             this.pbImage.TabStop = false;
             // 
             // lbVietnamese
             // 
-            this.lbVietnamese.Font = new System.Drawing.Font("Cambria", 28.25F, System.Drawing.FontStyle.Bold);
+            this.lbVietnamese.Font = new System.Drawing.Font("Cambria", 25F, System.Drawing.FontStyle.Bold);
             this.lbVietnamese.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbVietnamese.Location = new System.Drawing.Point(195, 57);
+            this.lbVietnamese.Location = new System.Drawing.Point(14, 60);
             this.lbVietnamese.Name = "lbVietnamese";
-            this.lbVietnamese.Size = new System.Drawing.Size(413, 58);
+            this.lbVietnamese.Size = new System.Drawing.Size(594, 58);
             this.lbVietnamese.TabIndex = 23;
             this.lbVietnamese.Text = "Vietnamese";
+            this.lbVietnamese.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbEnglish
             // 
-            this.lbEnglish.Font = new System.Drawing.Font("Cambria", 28.25F, System.Drawing.FontStyle.Bold);
+            this.lbEnglish.Font = new System.Drawing.Font("Cambria", 25F, System.Drawing.FontStyle.Bold);
             this.lbEnglish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbEnglish.Location = new System.Drawing.Point(268, 223);
+            this.lbEnglish.Location = new System.Drawing.Point(244, 196);
             this.lbEnglish.Name = "lbEnglish";
-            this.lbEnglish.Size = new System.Drawing.Size(317, 55);
+            this.lbEnglish.Size = new System.Drawing.Size(367, 55);
             this.lbEnglish.TabIndex = 24;
             this.lbEnglish.Text = "English";
+            this.lbEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pic_Hard
             // 
             this.pic_Hard.BackColor = System.Drawing.Color.White;
             this.pic_Hard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Hard.Image = ((System.Drawing.Image)(resources.GetObject("pic_Hard.Image")));
-            this.pic_Hard.Location = new System.Drawing.Point(588, 3);
+            this.pic_Hard.Location = new System.Drawing.Point(570, 10);
             this.pic_Hard.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pic_Hard.Name = "pic_Hard";
             this.pic_Hard.Size = new System.Drawing.Size(34, 34);
@@ -93,7 +95,7 @@
             // pbSound
             // 
             this.pbSound.Image = global::PTLEnglish.Properties.Resources.Room_Sound_Filled_50;
-            this.pbSound.Location = new System.Drawing.Point(537, 3);
+            this.pbSound.Location = new System.Drawing.Point(519, 10);
             this.pbSound.Name = "pbSound";
             this.pbSound.Size = new System.Drawing.Size(34, 34);
             this.pbSound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -115,7 +117,7 @@
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.panel1);
             this.Name = "uctrlBoth";
-            this.Size = new System.Drawing.Size(643, 339);
+            this.Size = new System.Drawing.Size(623, 303);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSound)).EndInit();

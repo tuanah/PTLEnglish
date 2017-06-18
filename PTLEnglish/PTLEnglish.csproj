@@ -75,12 +75,6 @@
     <Compile Include="GUI\Flash Card\FlipPanel.Designer.cs">
       <DependentUpon>FlipPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Flash Card\fQuickPress.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Flash Card\fQuickPress.Designer.cs">
-      <DependentUpon>fQuickPress.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Flash Card\uctrlEnglish.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +86,12 @@
     </Compile>
     <Compile Include="GUI\Flash Card\uctrlFlashCard.Designer.cs">
       <DependentUpon>uctrlFlashCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlMainFlashCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlMainFlashCard.Designer.cs">
+      <DependentUpon>uctrlMainFlashCard.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Flash Card\uctrlVietnamese.cs">
       <SubType>UserControl</SubType>
@@ -234,14 +234,14 @@
     <EmbeddedResource Include="GUI\Flash Card\FlipPanel.resx">
       <DependentUpon>FlipPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Flash Card\fQuickPress.resx">
-      <DependentUpon>fQuickPress.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Flash Card\uctrlEnglish.resx">
       <DependentUpon>uctrlEnglish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Flash Card\uctrlFlashCard.resx">
       <DependentUpon>uctrlFlashCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\uctrlMainFlashCard.resx">
+      <DependentUpon>uctrlMainFlashCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Flash Card\uctrlVietnamese.resx">
       <DependentUpon>uctrlVietnamese.cs</DependentUpon>

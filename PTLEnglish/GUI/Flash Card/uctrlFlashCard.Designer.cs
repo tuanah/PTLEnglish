@@ -53,7 +53,7 @@
             // 
             this.panel1.Controls.Add(this.pbLeft);
             this.panel1.Controls.Add(this.pbRight);
-            this.panel1.Location = new System.Drawing.Point(48, 361);
+            this.panel1.Location = new System.Drawing.Point(48, 344);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 62);
             this.panel1.TabIndex = 6;
@@ -117,15 +117,15 @@
             // 
             // flipPanel
             // 
-            this.flipPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
+            this.flipPanel.BackColor = System.Drawing.SystemColors.Control;
             this.flipPanel.Behind = null;
             this.flipPanel.CheckAnimation = true;
             this.flipPanel.Front = null;
             this.flipPanel.H_Behind = null;
             this.flipPanel.H_Front = null;
-            this.flipPanel.Location = new System.Drawing.Point(25, 18);
+            this.flipPanel.Location = new System.Drawing.Point(38, 39);
             this.flipPanel.Name = "flipPanel";
-            this.flipPanel.Size = new System.Drawing.Size(643, 339);
+            this.flipPanel.Size = new System.Drawing.Size(623, 303);
             this.flipPanel.TabIndex = 10;
             this.flipPanel.TimerInterval = 100;
             // 
@@ -134,7 +134,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.pnProgress);
             this.panel3.Controls.Add(this.lbProgress);
-            this.panel3.Location = new System.Drawing.Point(25, 416);
+            this.panel3.Location = new System.Drawing.Point(25, 420);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(643, 45);
             this.panel3.TabIndex = 11;
@@ -146,7 +146,7 @@
             this.btnSuffle.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.btnSuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnSuffle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuffle.Location = new System.Drawing.Point(235, 492);
+            this.btnSuffle.Location = new System.Drawing.Point(235, 490);
             this.btnSuffle.Name = "btnSuffle";
             this.btnSuffle.Size = new System.Drawing.Size(176, 43);
             this.btnSuffle.TabIndex = 17;
@@ -163,7 +163,7 @@
             this.btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
             this.btnPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlay.Location = new System.Drawing.Point(25, 492);
+            this.btnPlay.Location = new System.Drawing.Point(25, 490);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(176, 43);
             this.btnPlay.TabIndex = 18;
@@ -177,7 +177,7 @@
             this.btnBoth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(222)))), ((int)(((byte)(224)))));
             this.btnBoth.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.btnBoth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnBoth.Location = new System.Drawing.Point(461, 492);
+            this.btnBoth.Location = new System.Drawing.Point(461, 490);
             this.btnBoth.Name = "btnBoth";
             this.btnBoth.Size = new System.Drawing.Size(176, 43);
             this.btnBoth.TabIndex = 19;
@@ -193,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(110)))), ((int)(((byte)(109)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.btnBoth);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSuffle);

@@ -51,7 +51,7 @@
             this.pnEnglish.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnEnglish.Location = new System.Drawing.Point(0, 0);
             this.pnEnglish.Name = "pnEnglish";
-            this.pnEnglish.Size = new System.Drawing.Size(643, 339);
+            this.pnEnglish.Size = new System.Drawing.Size(623, 303);
             this.pnEnglish.TabIndex = 0;
             // 
             // label1
@@ -59,7 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(169)))), ((int)(((byte)(174)))));
-            this.label1.Location = new System.Drawing.Point(491, 314);
+            this.label1.Location = new System.Drawing.Point(471, 279);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 17);
             this.label1.TabIndex = 29;
@@ -68,7 +68,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PTLEnglish.Properties.Resources.Restart_64__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(459, 305);
+            this.pictureBox1.Location = new System.Drawing.Point(439, 270);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -80,7 +80,7 @@
             this.pic_Hard.BackColor = System.Drawing.Color.White;
             this.pic_Hard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Hard.Image = ((System.Drawing.Image)(resources.GetObject("pic_Hard.Image")));
-            this.pic_Hard.Location = new System.Drawing.Point(594, 10);
+            this.pic_Hard.Location = new System.Drawing.Point(582, 6);
             this.pic_Hard.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pic_Hard.Name = "pic_Hard";
             this.pic_Hard.Size = new System.Drawing.Size(34, 34);
@@ -91,7 +91,7 @@
             // pbSound
             // 
             this.pbSound.Image = global::PTLEnglish.Properties.Resources.Room_Sound_Filled_50;
-            this.pbSound.Location = new System.Drawing.Point(543, 10);
+            this.pbSound.Location = new System.Drawing.Point(531, 6);
             this.pbSound.Name = "pbSound";
             this.pbSound.Size = new System.Drawing.Size(34, 34);
             this.pbSound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,14 +103,14 @@
             // 
             // lbEnglish
             // 
-            this.lbEnglish.AutoSize = true;
-            this.lbEnglish.Font = new System.Drawing.Font("Cambria", 34.25F, System.Drawing.FontStyle.Bold);
+            this.lbEnglish.Font = new System.Drawing.Font("Cambria", 32F, System.Drawing.FontStyle.Bold);
             this.lbEnglish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(83)))), ((int)(((byte)(88)))));
-            this.lbEnglish.Location = new System.Drawing.Point(197, 138);
+            this.lbEnglish.Location = new System.Drawing.Point(3, 114);
             this.lbEnglish.Name = "lbEnglish";
-            this.lbEnglish.Size = new System.Drawing.Size(178, 54);
+            this.lbEnglish.Size = new System.Drawing.Size(600, 54);
             this.lbEnglish.TabIndex = 25;
             this.lbEnglish.Text = "English";
+            this.lbEnglish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uctrlEnglish
             // 
@@ -119,7 +119,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pnEnglish);
             this.Name = "uctrlEnglish";
-            this.Size = new System.Drawing.Size(643, 339);
+            this.Size = new System.Drawing.Size(623, 303);
             this.pnEnglish.ResumeLayout(false);
             this.pnEnglish.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

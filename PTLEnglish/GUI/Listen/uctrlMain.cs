@@ -21,7 +21,7 @@ namespace PTLEnglish.GUI.Listen
             get;
         }
         // Hàm liên quan tới random
-        List<int> lRandom = new List<int>();
+       // List<int> lRandom = new List<int>();
         string filePath;
         int learnNumber = -1;
         public uctrlMain()
@@ -75,18 +75,18 @@ namespace PTLEnglish.GUI.Listen
         private void LoadDataToListen()
         {
             // Đọc dữ liệu từ Xml lên:
-            Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
+            // Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
             // Kiểm tra nếu chưa học từ nào thì gọi hàm random ra dùng
             // Ngược lại thì thôi
             if (Manage.TopicData.Listen.Progress != -1)
             {
-                lRandom = Manage.TopicData.Listen.ListRandom;
+                //lRandom = Manage.TopicData.Listen.ListRandom;
                 learnNumber = Manage.TopicData.Listen.Progress - 1;
             }
             else
             {
                 RandomListWord();
-                Manage.TopicData.Listen.ListRandom = lRandom;
+                //Manage.TopicData.Listen.ListRandom = lRandom;
                 Manage.SerializeToXML(Manage.TopicData, filePath);
             }
         }
@@ -103,8 +103,9 @@ namespace PTLEnglish.GUI.Listen
         void RandomListWord()
         {
             List<int> lInt = AddNumberIntoList();
+            Manage.TopicData.Listen.ListRandom = new List<int>();
             Random rand = new Random();
-            while (lRandom.Count != Manage.TopicData.WordList.Count)
+            while (Manage.TopicData.Listen.ListRandom.Count != Manage.TopicData.WordList.Count)
             {
                 // Chọn ngẫu nhiên 1 phần tử 
                 int temp = rand.Next(0, lInt.Count);
@@ -113,7 +114,7 @@ namespace PTLEnglish.GUI.Listen
                 // Xóa phần tử đã được random ra khỏi lInt
                 lInt.Remove(index);
                 // Lưu giá trị random vào listRandom
-                lRandom.Add(index);
+                Manage.TopicData.Listen.ListRandom.Add(index);
             }
         }
         #endregion
