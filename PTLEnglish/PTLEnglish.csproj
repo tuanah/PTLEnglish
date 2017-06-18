@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cons.cs" />
+    <Compile Include="DAL\Learn.cs" />
     <Compile Include="DAL\Manage.cs" />
     <Compile Include="DAL\Topic.cs" />
     <Compile Include="DAL\User.cs" />
@@ -79,17 +80,23 @@
     <Compile Include="GUI\Hexagon.Designer.cs">
       <DependentUpon>Hexagon.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Learn\UC_Learn_0.cs">
+    <Compile Include="GUI\Learn\UC_Learn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\Learn\UC_Learn_0.Designer.cs">
-      <DependentUpon>UC_Learn_0.cs</DependentUpon>
+    <Compile Include="GUI\Learn\UC_Learn.Designer.cs">
+      <DependentUpon>UC_Learn.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Learn\UC_Learn_1.cs">
+    <Compile Include="GUI\Learn\UC_Learn_Choose.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\Learn\UC_Learn_1.Designer.cs">
-      <DependentUpon>UC_Learn_1.cs</DependentUpon>
+    <Compile Include="GUI\Learn\UC_Learn_Choose.Designer.cs">
+      <DependentUpon>UC_Learn_Choose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Learn\UC_Learn_Type.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Learn\UC_Learn_Type.Designer.cs">
+      <DependentUpon>UC_Learn_Type.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,12 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\myFonts.cs" />
+    <Compile Include="GUI\RoundBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\RoundBtn.Designer.cs">
+      <DependentUpon>RoundBtn.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\WordItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,33 +131,39 @@
     <EmbeddedResource Include="GUI\Hexagon.resx">
       <DependentUpon>Hexagon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Learn\UC_Learn_0.resx">
-      <DependentUpon>UC_Learn_0.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Learn\UC_Learn.resx">
+      <DependentUpon>UC_Learn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Learn\UC_Learn_1.resx">
-      <DependentUpon>UC_Learn_1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Learn\UC_Learn_Choose.resx">
+      <DependentUpon>UC_Learn_Choose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Learn\UC_Learn_Type.resx">
+      <DependentUpon>UC_Learn_Type.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RoundBtn.resx">
+      <DependentUpon>RoundBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\WordItem.resx">
       <DependentUpon>WordItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Daisy%27s_Delights.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -225,6 +244,10 @@
     <None Include="Resources\flash-clk.png" />
     <None Include="Resources\error-image.png" />
     <None Include="Resources\flash.png" />
+    <None Include="Resources\1497710515_Tick.png" />
+    <None Include="Resources\1497710814_Tick.png" />
+    <None Include="Resources\frame.png" />
+    <None Include="Resources\next.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />

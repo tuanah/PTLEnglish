@@ -15,9 +15,23 @@ namespace PTLEnglish.GUI
 {
 	public partial class fSub : Form
 	{
+		Panel pnl = new Panel();
 		public fSub()
 		{
 			InitializeComponent();
+
+			pnl.Size = new Size(697, 561);
+			pnl.Location = new Point(187, 0);
+			pnl.Anchor = AnchorStyles.Left;
+
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl, new object[] { true });
+
+
+			this.Controls.Add(pnl);
+			pnl.BackColor = SystemColors.ControlDarkDark;
+
+
+			UC_Learn_Type.pnl = UC_Learn.pnl = UC_Learn_Choose.pnl = pnl;
 			Manage.ThisCourse = "Source\\Economic";
 			Manage.ThisTopic= "\\Job";
 
@@ -40,7 +54,6 @@ namespace PTLEnglish.GUI
 		#region fSub
 		private void fSub_Load(object sender, EventArgs e)
 		{
-			
 			try
 			{
 				Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
@@ -49,6 +62,20 @@ namespace PTLEnglish.GUI
 			{
 				Manage.LoadData(Manage.ThisCourse + Manage.ThisTopic);
 			}
+
+			try
+			{
+				if (Manage.TopicData.Learnt.Progress == 0)
+				{
+					Manage.TopicData.Learnt.RandomListWord();
+				}
+			}
+			catch (Exception)
+			{
+				Manage.TopicData.Learnt = new DAL.Learn();
+				Manage.TopicData.Learnt.RandomListWord();
+			}
+
 			this.Text = Manage.TopicData.TopicName;
 			SetToolTipfSub();
 
@@ -64,7 +91,7 @@ namespace PTLEnglish.GUI
 
 			foreach (Control ctl in pnl_WordItems.Controls)
 			{
-				ctl.Height = (ctl.Controls.Count) * 105 + 65;
+				ctl.Height = (ctl.Controls.Count - 1) * 105 + 42;
 			}
 
 			if (pnl_Sometimes.Controls.Count == 1)
@@ -99,14 +126,15 @@ namespace PTLEnglish.GUI
 			tlt_Info.SetToolTip(pic_Match, "Match");
 			tlt_Info.SetToolTip(pic_Shooter, "Shooter");
 			tlt_Info.SetToolTip(pic_Test, "Test");
-			tlt_Info.SetToolTip(pnl_Learnt, Manage.TopicData.NumLearnt + "/" + Manage.TopicData.WordList.Count);
-			tlt_Info.SetToolTip(pnl_LearntValue, Manage.TopicData.NumLearnt + "/" + Manage.TopicData.WordList.Count);
 
-			tlt_Info.SetToolTip(pnl_Right, Manage.TopicData.RightWords.Count + "/" + Manage.TopicData.NumLearnt);
-			tlt_Info.SetToolTip(pnl_RightValue, Manage.TopicData.RightWords.Count + "/" + Manage.TopicData.NumLearnt);
+			tlt_Info.SetToolTip(pnl_Learnt, Manage.TopicData.Learnt.Progress + "/" + Manage.TopicData.WordList.Count);
+			tlt_Info.SetToolTip(pnl_LearntValue, Manage.TopicData.Learnt.Progress + "/" + Manage.TopicData.WordList.Count);
 
-			tlt_Info.SetToolTip(pnl_Wrong, Manage.TopicData.WrongWords.Count + "/" + Manage.TopicData.NumLearnt);
-			tlt_Info.SetToolTip(pnl_WrongValue, Manage.TopicData.WrongWords.Count + "/" + Manage.TopicData.NumLearnt);
+			tlt_Info.SetToolTip(pnl_Right, Manage.TopicData.Learnt.CorrectWords + "/" + Manage.TopicData.Learnt.Progress);
+			tlt_Info.SetToolTip(pnl_RightValue, Manage.TopicData.Learnt.CorrectWords + "/" + Manage.TopicData.Learnt.Progress);
+
+			tlt_Info.SetToolTip(pnl_Wrong, Manage.TopicData.Learnt.WrongWords+ "/" + Manage.TopicData.Learnt.Progress);
+			tlt_Info.SetToolTip(pnl_WrongValue, Manage.TopicData.Learnt.WrongWords + "/" + Manage.TopicData.Learnt.Progress);
 		}
 		#endregion
 
@@ -180,23 +208,16 @@ namespace PTLEnglish.GUI
 		private void pnl_Learn_Click(object sender, EventArgs e)
 		{
 			pnl_Content.Visible = false;
-			Panel pnl = new Panel();
-			pnl.Size = new Size(697, 561);
-			pnl.Location = new Point(187, 0);
-			pnl.Anchor = AnchorStyles.Left;
-			
-			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl, new object[] { true });
-
-
-			this.Controls.Add(pnl);
-			pnl.BackColor = SystemColors.ControlDarkDark;
-
-			UC_Learn_0 co = new UC_Learn_0(2);
-			co.Location = new Point(100, 300);
-			pnl.Controls.Add(co);
-			pnl.Controls.Add(new UC_Learn_1() {Location = new Point(10, 10) });
+			Manage.CheckUseTest = false;
+			if (Manage.TopicData.Learnt.Progress == 25)
+			{
+				MessageBox.Show("Done");
+			}
+			else
+			{
+				Manage.ShowUC(pnl, Manage.UC.UC_Learn, Manage.TopicData.Learnt.Progress, 70, 190);
+			}
 		}
-
 		//
 		//	pnl_Listen
 		//
@@ -239,7 +260,7 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Test_Click(object sender, EventArgs e)
 		{
-
+			Manage.CheckUseTest = true;
 		}
 
 		//
@@ -354,6 +375,7 @@ namespace PTLEnglish.GUI
 			if (!pnl_Content.Visible)
 			{
 				pnl_Content.Visible = true;
+				pnl_Content.Refresh();
 			}
 			else
 			{
@@ -364,26 +386,19 @@ namespace PTLEnglish.GUI
 		#endregion
 
 		#region pnl_Content
-		private void pnl_Learnt_MouseHover(object sender, EventArgs e)
-		{
-			tlt_Info.SetToolTip((Panel)sender, "3/25");
-		}
-
 		private void pnl_Info_Paint(object sender, PaintEventArgs e)
 		{
-			if (Manage.TopicData.NumLearnt != 0)
-				pnl_LearntValue.Width = (pnl_LearntValue.MaximumSize.Width / Manage.TopicData.WordList.Count) * Manage.TopicData.NumLearnt;
+			if (Manage.TopicData.Learnt.Progress != 0)
+				pnl_LearntValue.Width = (pnl_LearntValue.MaximumSize.Width / Manage.TopicData.WordList.Count) * (Manage.TopicData.Learnt.Progress + 1);
 			else pnl_LearntValue.Width = 2;
 
-			if (Manage.TopicData.RightWords.Count != 0)
-				pnl_RightValue.Width = (pnl_LearntValue.Width / Manage.TopicData.NumLearnt) * Manage.TopicData.RightWords.Count;
+			if (Manage.TopicData.Learnt.CorrectWords != 0)
+				pnl_RightValue.Width = (pnl_LearntValue.Width / Manage.TopicData.Learnt.Progress) * Manage.TopicData.Learnt.CorrectWords;
 			else pnl_RightValue.Width = 2;
 
-			if (Manage.TopicData.WrongWords.Count != 0)
-				pnl_WrongValue.Width = (pnl_LearntValue.Width / Manage.TopicData.NumLearnt) * Manage.TopicData.WrongWords.Count;
+			if (Manage.TopicData.Learnt.WrongWords != 0)
+				pnl_WrongValue.Width = (pnl_LearntValue.Width / Manage.TopicData.Learnt.Progress) * Manage.TopicData.Learnt.WrongWords;
 			else pnl_WrongValue.Width = 2;
-
-			//pnl_Right.Width = pnl_Wrong.Width = pnl_LearntValue.Width;
 		}
 
 		private void pnl_WordItems_SizeChanged(object sender, EventArgs e)
@@ -398,6 +413,7 @@ namespace PTLEnglish.GUI
 			}
 		}
 		#endregion
+
 
 	}
 }

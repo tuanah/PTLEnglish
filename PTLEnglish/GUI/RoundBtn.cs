@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PTLEnglish.GUI.Learn
+namespace PTLEnglish.GUI
 {
-	public partial class UC_Learn_1 : UserControl
+	public partial class RoundBtn : UserControl
 	{
-		public UC_Learn_1()
+		public RoundBtn()
 		{
 			InitializeComponent();
 		}
+
+		public override string Text { get => lbl.Text; set => lbl.Text = value; }
 	}
 }

@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using PTLEnglish.GUI;
 using System.Speech.Synthesis;
+using PTLEnglish.GUI.Learn;
+using System.Threading;
 
 namespace PTLEnglish.DAL
 {
@@ -20,11 +22,22 @@ namespace PTLEnglish.DAL
 
 		private static string thisTopic = "\\";
 
+		private static bool checkUseTest;
+		private static int times;
+		public enum UC
+		{
+			UC_Learn,
+			UC_Learn_Type,
+			UC_Learn_Choose
+		}
+
 		public static SpeechSynthesizer reader = new SpeechSynthesizer();
 
 		public static Topic TopicData { get => topicData; set => topicData = value; }
 		public static string ThisCourse { get => thisCourse; set => thisCourse = value; }
 		public static string ThisTopic { get => thisTopic; set => thisTopic = value; }
+		public static bool CheckUseTest { get => checkUseTest; set => checkUseTest = value; }
+		public static int Times { get => times; set => times = value; }
 
 		private static Word stringHandling(string line)
 		{
@@ -70,6 +83,7 @@ namespace PTLEnglish.DAL
 			Word word = new Word();
 			TopicData = new Topic();
 			TopicData.WordList = new List<Word>();
+			TopicData.Learnt = new Learn();
 			string line;
 			DirectoryInfo Dir = new DirectoryInfo(path);
 			FileInfo[] file = Dir.GetFiles();
@@ -108,6 +122,29 @@ namespace PTLEnglish.DAL
 			object obj = sr.Deserialize(fstream);
 			fstream.Close();
 			return obj;
+		}
+
+		public static void ShowUC(Control Ctrl, UC uc, int index, int X, int Y)
+		{
+			Ctrl.Controls.Clear();
+			switch (uc)
+			{
+				case UC.UC_Learn:
+					UC_Learn LearnCtrl = new UC_Learn(index);
+					LearnCtrl.Location = new Point(X, Y);
+					Ctrl.Controls.Add(LearnCtrl);
+					break;
+				case UC.UC_Learn_Type:
+					UC_Learn_Type TypeCtrl = new UC_Learn_Type(index);
+					TypeCtrl.Location = new Point(X, Y);
+					Ctrl.Controls.Add(TypeCtrl);
+					break;
+				case UC.UC_Learn_Choose:
+					UC_Learn_Choose ChooseCtrl = new UC_Learn_Choose(index);
+					ChooseCtrl.Location = new Point(X, Y);
+					Ctrl.Controls.Add(ChooseCtrl);
+					break;
+			}
 		}
 
 	}

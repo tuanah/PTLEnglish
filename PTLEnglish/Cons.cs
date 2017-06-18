@@ -29,6 +29,8 @@ namespace PTLEnglish
 		public static int numOfCol = 5;
 		public static int numOfRow = 4;
 
+		public static Random rand = new Random();
+
 		public static DirectoryInfo[] TopicDir { get => topicDir; set => topicDir = value; }
 
 		public static void LoadTopicDir(DirectoryInfo courseDir)

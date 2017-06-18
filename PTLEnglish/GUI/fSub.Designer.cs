@@ -716,7 +716,7 @@
 			this.pnl_Wrong.Controls.Add(this.pnl_WrongValue);
 			this.pnl_Wrong.Location = new System.Drawing.Point(86, 77);
 			this.pnl_Wrong.Name = "pnl_Wrong";
-			this.pnl_Wrong.Size = new System.Drawing.Size(574, 25);
+			this.pnl_Wrong.Size = new System.Drawing.Size(575, 25);
 			this.pnl_Wrong.TabIndex = 2;
 			// 
 			// pnl_WrongValue
@@ -725,9 +725,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_WrongValue.BackColor = System.Drawing.Color.Firebrick;
 			this.pnl_WrongValue.Location = new System.Drawing.Point(0, 0);
-			this.pnl_WrongValue.MaximumSize = new System.Drawing.Size(574, 25);
+			this.pnl_WrongValue.MaximumSize = new System.Drawing.Size(575, 25);
 			this.pnl_WrongValue.Name = "pnl_WrongValue";
-			this.pnl_WrongValue.Size = new System.Drawing.Size(237, 25);
+			this.pnl_WrongValue.Size = new System.Drawing.Size(238, 25);
 			this.pnl_WrongValue.TabIndex = 3;
 			// 
 			// pnl_Learnt
@@ -736,7 +736,7 @@
 			this.pnl_Learnt.Controls.Add(this.pnl_LearntValue);
 			this.pnl_Learnt.Location = new System.Drawing.Point(86, 12);
 			this.pnl_Learnt.Name = "pnl_Learnt";
-			this.pnl_Learnt.Size = new System.Drawing.Size(574, 25);
+			this.pnl_Learnt.Size = new System.Drawing.Size(575, 25);
 			this.pnl_Learnt.TabIndex = 0;
 			// 
 			// pnl_LearntValue
@@ -745,9 +745,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_LearntValue.BackColor = System.Drawing.Color.SandyBrown;
 			this.pnl_LearntValue.Location = new System.Drawing.Point(0, 0);
-			this.pnl_LearntValue.MaximumSize = new System.Drawing.Size(574, 25);
+			this.pnl_LearntValue.MaximumSize = new System.Drawing.Size(575, 25);
 			this.pnl_LearntValue.Name = "pnl_LearntValue";
-			this.pnl_LearntValue.Size = new System.Drawing.Size(443, 25);
+			this.pnl_LearntValue.Size = new System.Drawing.Size(444, 25);
 			this.pnl_LearntValue.TabIndex = 0;
 			// 
 			// pnl_Right
@@ -756,7 +756,7 @@
 			this.pnl_Right.Controls.Add(this.pnl_RightValue);
 			this.pnl_Right.Location = new System.Drawing.Point(86, 43);
 			this.pnl_Right.Name = "pnl_Right";
-			this.pnl_Right.Size = new System.Drawing.Size(574, 25);
+			this.pnl_Right.Size = new System.Drawing.Size(575, 25);
 			this.pnl_Right.TabIndex = 1;
 			// 
 			// pnl_RightValue
@@ -765,9 +765,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_RightValue.BackColor = System.Drawing.Color.YellowGreen;
 			this.pnl_RightValue.Location = new System.Drawing.Point(0, 0);
-			this.pnl_RightValue.MaximumSize = new System.Drawing.Size(574, 25);
+			this.pnl_RightValue.MaximumSize = new System.Drawing.Size(575, 25);
 			this.pnl_RightValue.Name = "pnl_RightValue";
-			this.pnl_RightValue.Size = new System.Drawing.Size(324, 25);
+			this.pnl_RightValue.Size = new System.Drawing.Size(325, 25);
 			this.pnl_RightValue.TabIndex = 3;
 			// 
 			// lbl_Wrong

@@ -35,11 +35,11 @@ namespace PTLEnglish.GUI
 		private void WordItem_Load(object sender, EventArgs e)
 		{
 			lbl_Score.Text = (word.NumRight - word.NumWrong).ToString();
-			if (word.NumRight >= word.NumWrong)
+			if (word.NumWrong == 0)
 			{
 				lbl_Score.ForeColor = Color.Green;
 			}
-			else if (Math.Abs(word.NumRight - word.NumWrong) == 1)
+			else if ( word.NumWrong == 1)
 			{
 				lbl_Score.ForeColor = Color.Goldenrod;
 			}
@@ -120,7 +120,7 @@ namespace PTLEnglish.GUI
 		private void pic_Spell_Click(object sender, EventArgs e)
 		{
 			Manage.reader.SelectVoiceByHints(System.Speech.Synthesis.VoiceGender.Female);
-			Manage.reader.Speak(word.Key);
+			Manage.reader.SpeakAsync(word.Key);
 		}
 
 		private void SetTooltipScore()

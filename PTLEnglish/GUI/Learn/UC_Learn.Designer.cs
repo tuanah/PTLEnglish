@@ -1,6 +1,6 @@
 ﻿namespace PTLEnglish.GUI.Learn
 {
-	partial class UC_Learn_0
+	partial class UC_Learn
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Learn));
 			this.lbl_Mean = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.lbl_Pronun = new System.Windows.Forms.Label();
@@ -35,13 +36,15 @@
 			this.pic_Spell = new System.Windows.Forms.PictureBox();
 			this.lbl_Word = new System.Windows.Forms.Label();
 			this.pic = new System.Windows.Forms.PictureBox();
+			this.pic_Next = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pic_Spell)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pic_Next)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lbl_Mean
 			// 
-			this.lbl_Mean.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_Mean.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_Mean.Location = new System.Drawing.Point(153, 117);
 			this.lbl_Mean.Name = "lbl_Mean";
 			this.lbl_Mean.Size = new System.Drawing.Size(204, 60);
@@ -50,7 +53,7 @@
 			// 
 			// label3
 			// 
-			this.label3.Font = new System.Drawing.Font("Microsoft YaHei Light", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(29, 112);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(118, 30);
@@ -60,7 +63,7 @@
 			// 
 			// lbl_Pronun
 			// 
-			this.lbl_Pronun.Font = new System.Drawing.Font("Microsoft JhengHei", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_Pronun.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_Pronun.Location = new System.Drawing.Point(153, 47);
 			this.lbl_Pronun.Name = "lbl_Pronun";
 			this.lbl_Pronun.Size = new System.Drawing.Size(204, 63);
@@ -69,7 +72,7 @@
 			// 
 			// label1
 			// 
-			this.label1.Font = new System.Drawing.Font("Microsoft YaHei Light", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(7, 40);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(140, 40);
@@ -109,11 +112,25 @@
 			this.pic.TabIndex = 12;
 			this.pic.TabStop = false;
 			// 
-			// UC_Learn_0
+			// pic_Next
+			// 
+			this.pic_Next.BackColor = System.Drawing.Color.Transparent;
+			this.pic_Next.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pic_Next.Image = ((System.Drawing.Image)(resources.GetObject("pic_Next.Image")));
+			this.pic_Next.Location = new System.Drawing.Point(534, 65);
+			this.pic_Next.Name = "pic_Next";
+			this.pic_Next.Size = new System.Drawing.Size(43, 61);
+			this.pic_Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pic_Next.TabIndex = 23;
+			this.pic_Next.TabStop = false;
+			this.pic_Next.Click += new System.EventHandler(this.pic_Next_Click);
+			// 
+			// UC_Learn
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.Control;
+			this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.Controls.Add(this.pic_Next);
 			this.Controls.Add(this.pic);
 			this.Controls.Add(this.lbl_Mean);
 			this.Controls.Add(this.label3);
@@ -121,11 +138,12 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pic_Spell);
 			this.Controls.Add(this.lbl_Word);
-			this.Name = "UC_Learn_0";
-			this.Size = new System.Drawing.Size(544, 184);
+			this.Name = "UC_Learn";
+			this.Size = new System.Drawing.Size(571, 184);
 			this.Load += new System.EventHandler(this.UC_Learn_0_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pic_Spell)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pic_Next)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -139,5 +157,6 @@
 		private System.Windows.Forms.PictureBox pic_Spell;
 		private System.Windows.Forms.Label lbl_Word;
 		private System.Windows.Forms.PictureBox pic;
+		private System.Windows.Forms.PictureBox pic_Next;
 	}
 }
