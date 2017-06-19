@@ -17,13 +17,15 @@ namespace PTLEnglish.GUI.Flash_Card
         {
             InitializeComponent();
             uctrlFlashCard.pnVietnamese = pnVietnamese;
+            uctrlMainFlashCard.pnVietnamese = pnVietnamese;
             Load(index);
         }
 
         void Load(int index)
         {
             lbVietnamese.Text = Manage.TopicData.WordList[index].Mean;
-            pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
+            
+
         }
     }
 }

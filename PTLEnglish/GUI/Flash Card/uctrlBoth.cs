@@ -24,7 +24,16 @@ namespace PTLEnglish.GUI.Listen
         {
             lbEnglish.Text = Manage.TopicData.WordList[index].Key;
             lbVietnamese.Text = Manage.TopicData.WordList[index].Mean;
-            pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
+            try
+            {
+                pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
+            }
+            catch
+            {
+
+                pbImage.Image = Properties.Resources.error_image;
+            }
+            pbImage.Refresh();
             readText();
         }
 

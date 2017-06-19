@@ -25,7 +25,7 @@ namespace PTLEnglish.DAL
 		public List<int> RightWords { get => rightWords; set => rightWords = value; }
 		public int NumLearnt { get => numLearnt; set => numLearnt = value; }
         
-
+     
         public Topic()
         {
             wrongWords = new List<int>();

@@ -20,5 +20,16 @@ namespace PTLEnglish.DAL
         public List<int> ListRandom { get => listRandom; set => listRandom = value; }
         public List<int> ListWrongWord { get => listWrongWord; set => listWrongWord = value; }
         public bool FirstTimeOfWord { get => firstTimeOfWord; set => firstTimeOfWord = value; }
+
+
+        private static void ResetData()
+        {
+            Manage.TopicData.Listen.CorrectWords = 0; // Từ đúng
+            Manage.TopicData.Listen.WrongWords = 0; // Từ sai
+            Manage.TopicData.Listen.Progress = -1; // Tiến trình học
+            Manage.TopicData.Listen.ListRandom = null; // Danh sách Random
+            Manage.TopicData.Listen.ListWrongWord = null; // Danh sách từ sai
+            Manage.TopicData.Listen.FirstTimeOfWord = false; // Từ có phải lần đầu không
+        }
     }
 }

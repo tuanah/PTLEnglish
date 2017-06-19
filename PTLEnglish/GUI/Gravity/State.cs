@@ -51,14 +51,21 @@ namespace PTLEnglish.GUI.Gravity
             }
         }
         #endregion
+
         Ailien_1 Ailien;
         int checkFirstAdd = 0;
 
         void CreateGame()
         {
+            // Nếu chạy hết tất cả các từ -> random -> chạy lại từ đầu
+            if (count==25)
+            {
+                RandomListWord(ref lRandom);
+                count = 0;                
+            }
             Ailien = new Ailien_1(lRandom[count]);
             tbAnswer.Tag = Manage.TopicData.WordList[lRandom[count]].Key;
-            // Set transparent
+            // Set trong suốt:
             Ailien.Parent = pnState;
             Ailien.BackColor = Color.Transparent;
             if (checkFirstAdd == 0)
@@ -75,11 +82,11 @@ namespace PTLEnglish.GUI.Gravity
         ShowWrongWord wrongWord;
         bool checkWriteWrongWordAgain = true;
         void ShowWrongWord()
-        {
+        {            
             Manage.TopicData.WordList[lRandom[count]].NumWrong++;
             wrongWord = new Gravity.ShowWrongWord(lRandom[count]);
             pnState.Controls.Add(wrongWord);
-            pnState.Location = new Point(165, 173);
+            wrongWord.Location = new Point(182, 130);
             checkWriteWrongWordAgain = false;
             checkHorizontal = 5;
             timerRun.Enabled = true;
@@ -94,6 +101,7 @@ namespace PTLEnglish.GUI.Gravity
                 timerPictureBox.Enabled = false;
                 ShowWrongWord();
             }
+            
         }
 
         int score = 0;
