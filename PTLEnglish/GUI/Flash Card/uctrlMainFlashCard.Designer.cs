@@ -94,8 +94,7 @@
             this.flipPanel.Behind = null;
             this.flipPanel.CheckAnimation = true;
             this.flipPanel.Front = null;
-            this.flipPanel.H_Behind = null;
-            this.flipPanel.H_Front = null;
+           
             this.flipPanel.Location = new System.Drawing.Point(39, 47);
             this.flipPanel.Name = "flipPanel";
             this.flipPanel.Size = new System.Drawing.Size(623, 303);

@@ -14,11 +14,7 @@ using PTLEnglish.GUI.Listen;
 
 namespace PTLEnglish.GUI.Flash_Card
 {
-    /*  các hàm quan trong:
-     *  
-     * 
-     
-         */
+    
     public partial class uctrlFlashCard : UserControl
     {
         // Tạo panel lưu lại lần click vào 2 cái English hoặc Vietnamese:
