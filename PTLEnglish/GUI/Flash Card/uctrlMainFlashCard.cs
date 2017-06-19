@@ -12,6 +12,12 @@ using System.Threading;
 using PTLEnglish.GUI.Listen;
 namespace PTLEnglish.GUI.Flash_Card
 {
+
+    /* Các hàm quan trọng:
+     * Hàm xử lý ProgressBar
+     * Lấy từ hiện tại - tiếp theo - đằng trước
+     * Auto Play - shuffle - Both
+     */
     public partial class uctrlMainFlashCard : UserControl
     {
         // Tạo panel lưu lại lần click vào 2 cái English hoặc Vietnamese:       
