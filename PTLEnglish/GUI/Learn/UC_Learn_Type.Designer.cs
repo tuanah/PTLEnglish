@@ -137,6 +137,7 @@
 			// pic_Next
 			// 
 			this.pic_Next.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pic_Next.Enabled = false;
 			this.pic_Next.Image = ((System.Drawing.Image)(resources.GetObject("pic_Next.Image")));
 			this.pic_Next.Location = new System.Drawing.Point(538, 63);
 			this.pic_Next.Name = "pic_Next";

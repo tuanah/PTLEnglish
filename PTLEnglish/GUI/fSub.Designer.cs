@@ -712,6 +712,8 @@
 			// 
 			// pnl_Wrong
 			// 
+			this.pnl_Wrong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_Wrong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
 			this.pnl_Wrong.Controls.Add(this.pnl_WrongValue);
 			this.pnl_Wrong.Location = new System.Drawing.Point(86, 77);
@@ -725,13 +727,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_WrongValue.BackColor = System.Drawing.Color.Firebrick;
 			this.pnl_WrongValue.Location = new System.Drawing.Point(0, 0);
-			this.pnl_WrongValue.MaximumSize = new System.Drawing.Size(575, 25);
 			this.pnl_WrongValue.Name = "pnl_WrongValue";
 			this.pnl_WrongValue.Size = new System.Drawing.Size(238, 25);
 			this.pnl_WrongValue.TabIndex = 3;
 			// 
 			// pnl_Learnt
 			// 
+			this.pnl_Learnt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_Learnt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
 			this.pnl_Learnt.Controls.Add(this.pnl_LearntValue);
 			this.pnl_Learnt.Location = new System.Drawing.Point(86, 12);
@@ -745,13 +748,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_LearntValue.BackColor = System.Drawing.Color.SandyBrown;
 			this.pnl_LearntValue.Location = new System.Drawing.Point(0, 0);
-			this.pnl_LearntValue.MaximumSize = new System.Drawing.Size(575, 25);
 			this.pnl_LearntValue.Name = "pnl_LearntValue";
 			this.pnl_LearntValue.Size = new System.Drawing.Size(444, 25);
 			this.pnl_LearntValue.TabIndex = 0;
 			// 
 			// pnl_Right
 			// 
+			this.pnl_Right.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(248)))), ((int)(((byte)(167)))));
 			this.pnl_Right.Controls.Add(this.pnl_RightValue);
 			this.pnl_Right.Location = new System.Drawing.Point(86, 43);
@@ -765,7 +769,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnl_RightValue.BackColor = System.Drawing.Color.YellowGreen;
 			this.pnl_RightValue.Location = new System.Drawing.Point(0, 0);
-			this.pnl_RightValue.MaximumSize = new System.Drawing.Size(575, 25);
 			this.pnl_RightValue.Name = "pnl_RightValue";
 			this.pnl_RightValue.Size = new System.Drawing.Size(325, 25);
 			this.pnl_RightValue.TabIndex = 3;
@@ -814,7 +817,7 @@
 			this.Name = "fSub";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PTLEnglish";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fSub_FormClosed);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fSub_FormClosing);
 			this.Load += new System.EventHandler(this.fSub_Load);
 			this.pnl_SideBar.ResumeLayout(false);
 			this.pnl_Back.ResumeLayout(false);

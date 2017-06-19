@@ -11,18 +11,34 @@ namespace PTLEnglish.DAL
 		private string key;
 		private string pronunciation;
 		private string mean;
-		//private bool isLearnt;
 		private string imgPath;
 		private byte numWrong;
 		private byte numRight;
 		private bool isHard;
 
+		/// <summary>
+		/// String Tiếng Anh
+		/// </summary>
 		public string Key { get => key; set => key = value; }
+		/// <summary>
+		/// String Phiên âm
+		/// </summary>
 		public string Pronunciation { get => pronunciation; set => pronunciation = value; }
+		/// <summary>
+		/// String nghĩa Tiếng Việt
+		/// </summary>
 		public string Mean { get => mean; set => mean = value; }
-		//public bool IsLearnt { get => isLearnt; set => isLearnt = value; }
+		/// <summary>
+		/// Địa chỉ hình ảnh
+		/// </summary>
 		public string ImgPath { get => imgPath; set => imgPath = value; }
+		/// <summary>
+		/// Số lần sai của từ
+		/// </summary>
 		public byte NumWrong { get => numWrong; set => numWrong = value; }
+		/// <summary>
+		/// Số lần đúng của từ
+		/// </summary>
 		public byte NumRight { get => numRight; set => numRight = value; }
 		public bool IsHard { get => isHard; set => isHard = value; }
 	}

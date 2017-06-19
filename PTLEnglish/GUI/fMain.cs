@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PTLEnglish.DAL;
-
+using System.Reflection;
 
 namespace PTLEnglish.GUI
 {
@@ -24,13 +24,21 @@ namespace PTLEnglish.GUI
 		/// </summary>
 		public List<List<Hexagon>> HexagonGrid;
 
+		public static fMain Current;
 
 		public fMain()
 		{
+			Current = this;
 			InitializeComponent();
+			
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl_Grid, new object[] { true });
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl_SideBar, new object[] { true });
+		}
 
+		#region fMain
+		private void fMain_Load(object sender, EventArgs e)
+		{
 			lbl_Name.Text = User.UserName;
-
 			#region Set Rounded Border for pic_Avatar
 			CirclePictureBox pic_Avatar = new CirclePictureBox();
 			try
@@ -60,11 +68,7 @@ namespace PTLEnglish.GUI
 			fpnl_Course_Content.VerticalScroll.Maximum = 0;
 			fpnl_Course_Content.AutoScroll = true;
 			#endregion
-		}
 
-		#region fMain
-		private void fMain_Load(object sender, EventArgs e)
-		{
 			for (int i = 0; i < ListCourses.Length; i++)
 			{
 				//Tạo dannh sách các course và hiển thị.
@@ -116,7 +120,6 @@ namespace PTLEnglish.GUI
 				ListCourses[i].Size = new Size(ListCourses[i].Width, 35);
 				fpnl_Course_Content.Controls.Add(ListCourses[i]);
 			}
-
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender, true);
 		}
@@ -133,17 +136,21 @@ namespace PTLEnglish.GUI
 		#region pnl_Info
 		private void pnlInfo_Click(object sender, EventArgs e)
 		{
+			//Set các animation khi Click vào chữ Infomation
 			if (pnl_SideBar.Width == 50)
 				return;
 			if (pnl_Info_Content.Height == 0)
 			{
+				//Show ra cái hình với tên
 				Animation.Transition(pnl_Info_Content, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
+				//Di chuyển cái khung Course
 				Animation.Move(pnl_Course_Block, new Point(pnl_Course_Block.Location.X, pnl_Course_Block.Location.Y + 140), Animation.Duration.Normal);
 				
 				Animation.Transition(pnl_Course_Block, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
 			}
 			else
 			{
+				//Ẩn đi cái hình với tên
 				Animation.Transition(pnl_Info_Content, -140, Animation.Duration.Fast, Animation.Direction.Horizontal);
 				Animation.Move(pnl_Course_Block, new Point(pnl_Course_Block.Location.X, pnl_Course_Block.Location.Y - 140), Animation.Duration.Normal);
 				Animation.Transition(pnl_Course_Block, 140, Animation.Duration.Fast, Animation.Direction.Horizontal);
@@ -203,6 +210,11 @@ namespace PTLEnglish.GUI
 			return false;
 		}
 
+		/// <summary>
+		/// hàm sửa tên
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void txtRename_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (TestKeyValid(e.KeyChar) && txt_Rename.Text.Length <= 8)
@@ -228,7 +240,6 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Course_Click(object sender, EventArgs e)
 		{
-			//Manage.ThisCourse = "Source";
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
 
@@ -280,8 +291,9 @@ namespace PTLEnglish.GUI
 
 		private void Course_Clk(object sender, EventArgs e)
 		{
-			Label lbl = sender as Label;
 
+			Label lbl = sender as Label;
+			// Hiển thị và ẩn những cái tên khóa học 
 			if(ListCourses[(int)(lbl.Tag)].Height == 35 )
 			{
 				ListCourses[(int)(lbl.Tag)].Visible = true;
@@ -306,7 +318,6 @@ namespace PTLEnglish.GUI
 				}
 			}
 
-
 			Manage.ThisCourse ="Source\\" + lbl.Text;
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
@@ -317,8 +328,8 @@ namespace PTLEnglish.GUI
 			Label lbl = sender as Label;
 			Manage.ThisTopic= "\\"+ lbl.Text;
 			fSub f = new fSub();
-			//this.Hide();
-			f.Show();
+			this.Hide();
+			f.ShowDialog();
 		}
 
 
@@ -365,8 +376,15 @@ namespace PTLEnglish.GUI
 		}
 		#endregion
 
+		/// <summary>
+		/// Vẽ hình tổ ông lên Control
+		/// </summary>
+		/// <param name="control"></param>
 		private void DrawHexagons(Control control)
 		{
+			//----- Ý tưởng 
+			//Khởi tạo 1 List 2 chiều chứa các hình
+			//Tạo các hình theo thứ tự duyệt là vẽ theo hình dọc
 			control.Controls.Clear();
 			int move = 0;
 			Point pointStart;
@@ -376,6 +394,7 @@ namespace PTLEnglish.GUI
 			for (int i = 0; i < Cons.numOfCol; i++)
 			{
 				HexagonGrid.Add(new List<Hexagon>());
+				// Set vị trí đầu tiên so le giữa các hàng với nhau
 				if (i % 2 == 0)
 				{
 					pointStart = new Point(10 + move, 10);
@@ -391,36 +410,50 @@ namespace PTLEnglish.GUI
 					hexagon = new Hexagon();
 					if (j == 0)
 					{
+						//Nếu nó là phần tử đầu tiên của cái cột, thì set vị trí nó bằng pointStart
 						hexagon.Location = pointStart;
 					}
 					else
 					{
+						//Ngược lại thì vị trí được tính toán dựa trên vị trí của cái Hexagon phía trên
 						hexagon.Location = new Point(HexagonGrid[i][j - 1].Location.X, HexagonGrid[i][j - 1].Location.Y + Cons.Size - 15);
 					}
-
 					HexagonGrid[i].Add(hexagon);
 					control.Controls.Add(HexagonGrid[i][j]);
 				}
 			}
 		}
-
+		/// <summary>
+		/// Load các tên Topic hay Course vào trong hình lục giác
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="Load"></param>
 		private void LoadTextToHexagon(object sender, bool Load = false)
 		{
+			//---- Ý tưởng
+			// Biến Load là để kiểm tra xem hàm này đươc gọi ở hàm fMain.Load hay không
+			// List iRandom chứa lần lượt các giá trị từ 0 -> Cons.numOfRow*Cons.numOfCol đùng để tính toán vị trí random
+			//		của cái Hexagon từ mảng 1 chiều
+			//
+			//Kiểm tra xem Hàm này được gọi ở đâu, nếu được Click từ chữ Course hoặc khi Load fMain thì sẽ Load tên các
+			//	chủ đề lớn vào các hình lục giác
+			//Ngược lại sẽ Load tên các Topic nhỏ trong chủ đề lớn vào hình lục giác
 			Label lbl = new Label();
+			int ran;
+			int row, col;
+			Label text;
+			List<int> iRandom = new List<int>();
+
 			if (!Load)
 			{
 				lbl = sender as Label;
 			}
-			List<int> iRandom = new List<int>();
+
 			for (int i = 0; i < Cons.numOfRow*Cons.numOfCol; i++)
 			{
 				iRandom.Add(i);
 			}
-
-			int ran;
-			Random random = new Random();
-			int row, col;
-			Label text;
+			//Nếu được gọi từ khi Load hoặc Click vào chữ Course thì sẽ load các Course Name vào Hexagon
 			if (lbl.Name == "lbl_Course" || Load)
 			{
 				for (int i = 0; i < Cons.CourseDir.Length; i++)
@@ -428,25 +461,27 @@ namespace PTLEnglish.GUI
 					text = new Label();
 					text.Text = Cons.CourseDir[i].Name;
 
-					ran = random.Next(iRandom.Count -1);
+					ran = Cons.rand.Next(iRandom.Count -1);
 					row = iRandom[ran] % Cons.numOfRow;
 					col = iRandom[ran] / Cons.numOfRow;
 
 					iRandom.RemoveAt(ran);
 					HexagonGrid[col][row].Text = text.Text;
 					HexagonGrid[col][row].Cursor = Cursors.Hand;
+					//Load các TopicName vào Hexagon khi Click vào Hexagon
 					HexagonGrid[col][row].Click += Hexagon_Clk;
 				}
 			}
 			else
 			{
+				//Ngược lại Load các Topic Name trong Course vào Hexagon chỉ khi Click vào các lable
 				int k = int.Parse(lbl.Name);
 				for (int i = 0; i < Cons.CourseDir[k].GetDirectories().Length; i++)
 				{
 					text = new Label();
 					text.Text = Cons.CourseDir[k].GetDirectories()[i].Name;
 
-					ran = random.Next(iRandom.Count-1);
+					ran = Cons.rand.Next(iRandom.Count-1);
 					row = iRandom[ran] % Cons.numOfRow;
 					col = iRandom[ran] / Cons.numOfRow;
 					iRandom.RemoveAt(ran);
@@ -466,34 +501,40 @@ namespace PTLEnglish.GUI
 
 		private void Hexagon_Clk(object sender, EventArgs e)
 		{
-			Hexagon hexa = sender as Hexagon;
-			Manage.ThisCourse = "Source\\"+hexa.Text;
+			//---- Hàm để Gán tên của các Topic Name vào Hexagon
+			//---------Ý tưởng 
+			//Đầu tiên sẽ lấy thứ tự của cái Course trong mảng CourseDir
+			//Sau đó tạo List iRandom chứa lần lượt các giá trị từ 0 -> Cons.numOfRow*Cons.numOfCol đùng để tính toán vị 
+			//	trí random của cái Hexagon từ mảng 1 chiều
+			//Load từng Topic Name vào vị trí random của hexagon
 
-			int i;
+			Hexagon hexa = sender as Hexagon;
+			Label text;
+			int ran, i, row, col;
+			List<int> iRandom = new List<int>();
+
+			//Gán giá trị lại đề phòng trường hợp Click nhiều lần
+			Manage.ThisCourse = "Source\\"+ hexa.Text;
+
 			for (i = 0; i < Cons.CourseDir.Length; i++)
 			{
 				if(Cons.CourseDir[i].Name == hexa.Text)
 					break;
 			}
 
-			Label text;
 			DrawHexagons(pnl_Grid);
-			List<int> iRandom = new List<int>();
 			for (int j = 0; j < Cons.numOfRow * Cons.numOfCol; j++)
 			{
 				iRandom.Add(j);
 			}
 
-			int ran;
-			Random random = new Random();
-			int row, col;
-
+			//Load từng Topic Name vào vị trí random của hexagon
 			for (int j = 0; j < Cons.CourseDir[i].GetDirectories().Length; j++)
 			{
 				text = new Label();
 				text.Text = Cons.CourseDir[i].GetDirectories()[j].Name;
 
-				ran = random.Next(iRandom.Count-1);
+				ran = Cons.rand.Next(iRandom.Count - 1);
 				row = iRandom[ran] % Cons.numOfRow;
 				col = iRandom[ran] / Cons.numOfRow;
 				iRandom.RemoveAt(ran);

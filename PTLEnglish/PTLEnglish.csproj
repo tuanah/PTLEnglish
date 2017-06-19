@@ -80,6 +80,12 @@
     <Compile Include="GUI\Hexagon.Designer.cs">
       <DependentUpon>Hexagon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Learn\UC_Finish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Learn\UC_Finish.Designer.cs">
+      <DependentUpon>UC_Finish.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Learn\UC_Learn.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     </Compile>
     <Compile Include="GUI\Learn\UC_Learn_Choose.Designer.cs">
       <DependentUpon>UC_Learn_Choose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Learn\UC_Learn_Shuffle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Learn\UC_Learn_Shuffle.Designer.cs">
+      <DependentUpon>UC_Learn_Shuffle.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Learn\UC_Learn_Type.cs">
       <SubType>UserControl</SubType>
@@ -106,7 +118,7 @@
     </Compile>
     <Compile Include="GUI\myFonts.cs" />
     <Compile Include="GUI\RoundBtn.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\RoundBtn.Designer.cs">
       <DependentUpon>RoundBtn.cs</DependentUpon>
@@ -131,11 +143,17 @@
     <EmbeddedResource Include="GUI\Hexagon.resx">
       <DependentUpon>Hexagon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Learn\UC_Finish.resx">
+      <DependentUpon>UC_Finish.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Learn\UC_Learn.resx">
       <DependentUpon>UC_Learn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Learn\UC_Learn_Choose.resx">
       <DependentUpon>UC_Learn_Choose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Learn\UC_Learn_Shuffle.resx">
+      <DependentUpon>UC_Learn_Shuffle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Learn\UC_Learn_Type.resx">
       <DependentUpon>UC_Learn_Type.cs</DependentUpon>

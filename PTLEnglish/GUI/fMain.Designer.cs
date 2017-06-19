@@ -35,6 +35,7 @@
 			this.lbl_Close = new System.Windows.Forms.Label();
 			this.lbl_Minimize = new System.Windows.Forms.Label();
 			this.pnl_SideBar = new System.Windows.Forms.Panel();
+			this.pnl_Line = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pnl_Course_Block = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
 			this.pnl_Info = new System.Windows.Forms.Panel();
 			this.lbl_lnfo = new System.Windows.Forms.Label();
 			this.pic_Account = new System.Windows.Forms.PictureBox();
-			this.pnl_Line = new System.Windows.Forms.Panel();
 			this.pnl_Content.SuspendLayout();
 			this.pnl_Panel.SuspendLayout();
 			this.pnl_SideBar.SuspendLayout();
@@ -65,7 +65,7 @@
 			// 
 			// pnl_Content
 			// 
-			this.pnl_Content.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.pnl_Content.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
 			this.pnl_Content.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.pnl_Content.Controls.Add(this.pnl_Grid);
 			this.pnl_Content.Controls.Add(this.pnl_Panel);
@@ -146,6 +146,14 @@
 			this.pnl_SideBar.Name = "pnl_SideBar";
 			this.pnl_SideBar.Size = new System.Drawing.Size(250, 561);
 			this.pnl_SideBar.TabIndex = 0;
+			// 
+			// pnl_Line
+			// 
+			this.pnl_Line.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.pnl_Line.Location = new System.Drawing.Point(25, 38);
+			this.pnl_Line.Name = "pnl_Line";
+			this.pnl_Line.Size = new System.Drawing.Size(200, 1);
+			this.pnl_Line.TabIndex = 5;
 			// 
 			// label1
 			// 
@@ -316,14 +324,6 @@
 			this.pic_Account.Click += new System.EventHandler(this.pnlInfo_Click);
 			this.pic_Account.MouseEnter += new System.EventHandler(this.picAccount_MouseEnter);
 			this.pic_Account.MouseLeave += new System.EventHandler(this.picAccount_MouseLeave);
-			// 
-			// pnl_Line
-			// 
-			this.pnl_Line.BackColor = System.Drawing.SystemColors.ButtonFace;
-			this.pnl_Line.Location = new System.Drawing.Point(25, 38);
-			this.pnl_Line.Name = "pnl_Line";
-			this.pnl_Line.Size = new System.Drawing.Size(200, 1);
-			this.pnl_Line.TabIndex = 5;
 			// 
 			// fMain
 			// 

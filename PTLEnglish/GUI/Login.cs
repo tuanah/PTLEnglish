@@ -37,18 +37,21 @@ namespace PTLEnglish.GUI
 		{
 			if (TestKeyValid(e.KeyChar) && (lblName.Text.Length <= 8 ||
 				(lblName.Text.Length > 8 && e.KeyChar == (char)Keys.Back)) ||
-				lblName.Text == "Enter your name" && e.KeyChar != (char)Keys.Escape)
+				(lblName.Text == "Default" || lblName.Text == "Enter your name") && e.KeyChar != (char)Keys.Escape)
 			{
+				//Xóa kí tự cuối cùng khi nhấn phím BackSpace
 				if (e.KeyChar == (char)Keys.Back)
 				{
 					if (lblName.Text != "")
 						lblName.Text = lblName.Text.Remove(lblName.Text.Length - 1, 1);
 				}
+				//Nếu nhấn Enter đầu tiên và text khác Enter your name thì chạy cái lbContinue_Click
 				else if (e.KeyChar == (char)Keys.Enter && lblName.Text != "Enter your name")
 				{
-					lblName.Text = lblName.Text.Insert(0, " ");
+					lbContinue_Click(sender, e);
 				}
-				else if (lblName.Text == "Enter your name")
+				else if (lblName.Text == "Default" || lblName.Text == "Enter your name")
+					//gán text bằng kí tự vừa nhấn
 					lblName.Text = e.KeyChar.ToString();
 				else lblName.Text += e.KeyChar;
 			}
@@ -56,7 +59,7 @@ namespace PTLEnglish.GUI
 
 		private void lbName_Click(object sender, EventArgs e)
 		{
-			if (lblName.Text == "Enter your name" || lblName.Text == "" || lblName.Text[0] == ' ')
+			if (lblName.Text == "Default" || lblName.Text == "Enter your name" || lblName.Text[0] == ' ')
 			{
 				lblName.Text = "";
 			}
@@ -67,26 +70,26 @@ namespace PTLEnglish.GUI
 			lblName.Visible = false;
 			pnlContinue.Visible = false;
 
-			Thread.Sleep(800);
+			Thread.Sleep(500);
 			picLoad_1.Visible = true;
 			this.Refresh();
 
-			Thread.Sleep(700);
+			Thread.Sleep(400);
 			picLoad_2.Visible = true;
 			this.Refresh();
 
-			Thread.Sleep(600);
+			Thread.Sleep(300);
 			picLoad_3.Visible = true;
 			this.Refresh();
 
-			Thread.Sleep(500);
+			Thread.Sleep(300);
 			picLoad_4.Visible = true;
 			this.Refresh();
 
-			Thread.Sleep(400);
+			Thread.Sleep(300);
 			picLoad_5.Visible = true;
 			this.Refresh();
-			Thread.Sleep(800);
+			Thread.Sleep(200);
 
 		}
 
@@ -124,6 +127,17 @@ namespace PTLEnglish.GUI
 				lblName.Text = "Enter your name";
 		}
 
+		private void Login_Load(object sender, EventArgs e)
+		{
+			//PrivateFontCollection pfc = new PrivateFontCollection();
+			//pfc.AddFontFile("Daisy's_Delights.ttf");
+			//lbName.Font = new Font(pfc.Families[0], 30);
+			//lbContinue.Font = new Font(pfc.Families[0], 30);
+
+			lblName.Font = new Font(myFonts.f, 30);
+			lblContinue.Font = new Font(myFonts.f, 30);
+		}
+
 		private void Login_Activated(object sender, EventArgs e)
 		{
 			if (User.UserName != "")
@@ -134,17 +148,7 @@ namespace PTLEnglish.GUI
 				PTLE.Show();
 			}
 			else this.Show();
-		}
 
-		private void Login_Load(object sender, EventArgs e)
-		{
-			//PrivateFontCollection pfc = new PrivateFontCollection();
-			//pfc.AddFontFile("Daisy's_Delights.ttf");
-			//lbName.Font = new Font(pfc.Families[0], 30);
-			//lbContinue.Font = new Font(pfc.Families[0], 30);
-
-			lblName.Font = new Font(myFonts.f, 30);
-			lblContinue.Font = new Font(myFonts.f, 30);
 		}
 	}
 }

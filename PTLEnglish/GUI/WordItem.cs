@@ -74,6 +74,7 @@ namespace PTLEnglish.GUI
 			SizeF stringSize = new SizeF();
 			//Get Size của tất cả các chữ
 			stringSize = TextRenderer.MeasureText(ctrl.Text, ctrl.Font);
+			//Nếu tổng size lớn hơn ctrl.Width - 10 thì đổi cỡ chữ nhỏ lại
 			if (stringSize.Width > ctrl.Width - 10)
 			{
 				while (stringSize.Width > ctrl.Width - 10)
@@ -84,6 +85,7 @@ namespace PTLEnglish.GUI
 					stringSize = TextRenderer.MeasureText(ctrl.Text, ctrl.Font);
 				}
 			}
+			//Ngược lại nếu tổng size nhỏ hơn ctrl.Width - 20 thì đổi cỡ chữ lớn hơn
 			else while (stringSize.Width < ctrl.Width-20)
 				{
 					float emSize = ctrl.Font.Size;
@@ -96,11 +98,6 @@ namespace PTLEnglish.GUI
 					stringSize = TextRenderer.MeasureText(ctrl.Text, ctrl.Font);
 				}
 
-		}
-
-		private void lbl_Score_ClientSizeChanged(object sender, EventArgs e)
-		{
-			AutoFontSize((Label)sender);
 		}
 
 		private void pic_Hard_Click(object sender, EventArgs e)
@@ -127,6 +124,11 @@ namespace PTLEnglish.GUI
 		{
 			ToolTip tlt = new ToolTip();
 			tlt.SetToolTip(lbl_Score, "Correct: " + word.NumRight + " times\nMissed: "+word.NumWrong + " times");
+		}
+
+		private void lbl_Score_TextChanged(object sender, EventArgs e)
+		{
+			AutoFontSize((Label)sender);
 		}
 	}
 }

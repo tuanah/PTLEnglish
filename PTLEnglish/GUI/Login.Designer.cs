@@ -171,7 +171,7 @@
 			this.lblName.Name = "lblName";
 			this.lblName.Size = new System.Drawing.Size(397, 47);
 			this.lblName.TabIndex = 0;
-			this.lblName.Text = "Enter your name";
+			this.lblName.Text = "Default";
 			this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.lblName.UseCompatibleTextRendering = true;
 			this.lblName.Click += new System.EventHandler(this.lbName_Click);

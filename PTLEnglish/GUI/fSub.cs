@@ -15,27 +15,21 @@ namespace PTLEnglish.GUI
 {
 	public partial class fSub : Form
 	{
+		//Panel được tạo khi Nhấn Learn
 		Panel pnl = new Panel();
+
+		public static fSub Current;
 		public fSub()
 		{
 			InitializeComponent();
-
-			pnl.Size = new Size(697, 561);
-			pnl.Location = new Point(187, 0);
-			pnl.Anchor = AnchorStyles.Left;
-
-			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl, new object[] { true });
-
-
+			Current = this;
 			this.Controls.Add(pnl);
-			pnl.BackColor = SystemColors.ControlDarkDark;
 
+			UC_Learn_Type.pnl = UC_Learn.pnl = UC_Learn_Choose.pnl = UC_Learn_Shuffle.pnl = UC_Finish.pnl = pnl;
 
-			UC_Learn_Type.pnl = UC_Learn.pnl = UC_Learn_Choose.pnl = pnl;
-			Manage.ThisCourse = "Source\\Economic";
-			Manage.ThisTopic= "\\Job";
-
-			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance |BindingFlags.NonPublic, null, pnl_SideBar, new object[] { true });
+			//Set Double Buffer 
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl, new object[] { true });
+			typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnl_SideBar, new object[] { true });
 
 			#region Hide ScrollBar
 			pnl_WordItems.AutoScroll = false;
@@ -48,12 +42,12 @@ namespace PTLEnglish.GUI
 			pnl_WordItems.VerticalScroll.Maximum = 0;
 			pnl_WordItems.AutoScroll = true;
 			#endregion
-
 		}
 
 		#region fSub
 		private void fSub_Load(object sender, EventArgs e)
 		{
+			//Thực hiện Load dữ liệu từ file lên chương trình 
 			try
 			{
 				Manage.TopicData = (Topic)Manage.DeserializeFromXML(Cons.Path + Manage.ThisTopic + ".xml");
@@ -63,22 +57,10 @@ namespace PTLEnglish.GUI
 				Manage.LoadData(Manage.ThisCourse + Manage.ThisTopic);
 			}
 
-			try
-			{
-				if (Manage.TopicData.Learnt.Progress == 0)
-				{
-					Manage.TopicData.Learnt.RandomListWord();
-				}
-			}
-			catch (Exception)
-			{
-				Manage.TopicData.Learnt = new DAL.Learn();
-				Manage.TopicData.Learnt.RandomListWord();
-			}
-
 			this.Text = Manage.TopicData.TopicName;
 			SetToolTipfSub();
 
+			//Thêm các WordItem vào trong các panel 
 			for (int i = 0; i < Manage.TopicData.WordList.Count; i++)
 			{
 				WordItem item = new WordItem(i);
@@ -89,11 +71,13 @@ namespace PTLEnglish.GUI
 				else pnl_Sometimes.Controls.Add(item);
 			}
 
+			//Resize các panel mới vừa được thêm vào
 			foreach (Control ctl in pnl_WordItems.Controls)
 			{
 				ctl.Height = (ctl.Controls.Count - 1) * 105 + 42;
 			}
 
+			//Nếu các panel đó trống, thì ẩn nó đi
 			if (pnl_Sometimes.Controls.Count == 1)
 			{
 				pnl_Sometimes.Visible = false;
@@ -109,11 +93,16 @@ namespace PTLEnglish.GUI
 			else pnl_Never.Visible = true;
 		}
 
-		private void fSub_FormClosed(object sender, FormClosedEventArgs e)
+		private void fSub_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			string filePath = Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml";
-			Manage.SerializeToXML(Manage.TopicData, filePath);
-			Application.Exit();
+			if (MessageBox.Show("Are you want to quit???", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+			{
+				string filePath = Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml";
+				Manage.SerializeToXML(Manage.TopicData, filePath);
+				//fMain.Current.Show();
+				Application.Exit();
+			}
+			else e.Cancel = true;
 		}
 
 		private void SetToolTipfSub()
@@ -187,7 +176,6 @@ namespace PTLEnglish.GUI
 		{
 
 		}
-
 		//
 		//	pnl_Learn
 		//
@@ -205,13 +193,19 @@ namespace PTLEnglish.GUI
 			lbl_Learn.ForeColor = SystemColors.ButtonFace;
 		}
 
-		private void pnl_Learn_Click(object sender, EventArgs e)
+		public void pnl_Learn_Click(object sender, EventArgs e)
 		{
+			pnl.Size = new Size(697, 561);
+			pnl.Location = new Point(187, 0);
+			pnl.Anchor = AnchorStyles.Left;
+			pnl.BackColor = SystemColors.ControlDarkDark;
+
+			pnl_Menu.Enabled = false;
 			pnl_Content.Visible = false;
 			Manage.CheckUseTest = false;
 			if (Manage.TopicData.Learnt.Progress == 25)
 			{
-				MessageBox.Show("Done");
+				Manage.ShowUC(pnl, Manage.UC.UC_Finish, Manage.TopicData.Learnt.Progress, 70, 190);
 			}
 			else
 			{
@@ -388,17 +382,26 @@ namespace PTLEnglish.GUI
 		#region pnl_Content
 		private void pnl_Info_Paint(object sender, PaintEventArgs e)
 		{
-			if (Manage.TopicData.Learnt.Progress != 0)
-				pnl_LearntValue.Width = (pnl_LearntValue.MaximumSize.Width / Manage.TopicData.WordList.Count) * (Manage.TopicData.Learnt.Progress + 1);
-			else pnl_LearntValue.Width = 2;
+			if (Manage.TopicData.Learnt.Progress == Manage.TopicData.WordList.Count)
+				pnl_LearntValue.Width = pnl_Learnt.Width;
+			else if (Manage.TopicData.Learnt.Progress == 0)
+				pnl_LearntValue.Width = 2;
+			else
+				pnl_LearntValue.Width = (pnl_Learnt.Width / Manage.TopicData.WordList.Count) * (Manage.TopicData.Learnt.Progress + 1);
 
-			if (Manage.TopicData.Learnt.CorrectWords != 0)
-				pnl_RightValue.Width = (pnl_LearntValue.Width / Manage.TopicData.Learnt.Progress) * Manage.TopicData.Learnt.CorrectWords;
-			else pnl_RightValue.Width = 2;
+			if (Manage.TopicData.Learnt.CorrectWords == Manage.TopicData.WordList.Count)
+				pnl_RightValue.Width = pnl_Right.Width;
+			else if (Manage.TopicData.Learnt.CorrectWords == 0)
+				pnl_RightValue.Width = 2;
+			else
+				pnl_RightValue.Width = (pnl_Learnt.Width / Manage.TopicData.Learnt.Progress) * Manage.TopicData.Learnt.CorrectWords;
 
-			if (Manage.TopicData.Learnt.WrongWords != 0)
-				pnl_WrongValue.Width = (pnl_LearntValue.Width / Manage.TopicData.Learnt.Progress) * Manage.TopicData.Learnt.WrongWords;
-			else pnl_WrongValue.Width = 2;
+			if (Manage.TopicData.Learnt.WrongWords == Manage.TopicData.WordList.Count)
+				pnl_WrongValue.Width = pnl_Wrong.Width;
+			else if (Manage.TopicData.Learnt.WrongWords == 0)
+				pnl_WrongValue.Width = 2;
+			else
+				pnl_WrongValue.Width = (pnl_Learnt.Width / Manage.TopicData.Learnt.Progress) * Manage.TopicData.Learnt.WrongWords;
 		}
 
 		private void pnl_WordItems_SizeChanged(object sender, EventArgs e)
@@ -412,8 +415,8 @@ namespace PTLEnglish.GUI
 				}
 			}
 		}
-		#endregion
 
+		#endregion
 
 	}
 }

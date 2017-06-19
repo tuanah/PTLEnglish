@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace PTLEnglish.GUI
 {
-	public partial class RoundBtn : UserControl
+	public partial class RoundBtn : Label
 	{
 		public RoundBtn()
 		{
 			InitializeComponent();
+			this.BackgroundImage = global::PTLEnglish.Properties.Resources.frame;
 		}
+		[Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+	 DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		public override Image BackgroundImage { get => base.BackgroundImage; set => base.BackgroundImage = value; }
 
-		public override string Text { get => lbl.Text; set => lbl.Text = value; }
 	}
 }

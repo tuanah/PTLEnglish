@@ -80,7 +80,7 @@
 			this.tpnl_Right.ColumnCount = 3;
 			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.6473F));
 			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.3527F));
-			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+			this.tpnl_Right.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
 			this.tpnl_Right.Controls.Add(this.pic_Spell, 0, 0);
 			this.tpnl_Right.Controls.Add(this.pic_Hard, 0, 0);
 			this.tpnl_Right.Controls.Add(this.lbl_Mean, 0, 0);
@@ -111,7 +111,7 @@
 			this.pic_Hard.BackColor = System.Drawing.Color.Transparent;
 			this.pic_Hard.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pic_Hard.Image = ((System.Drawing.Image)(resources.GetObject("pic_Hard.Image")));
-			this.pic_Hard.Location = new System.Drawing.Point(200, 10);
+			this.pic_Hard.Location = new System.Drawing.Point(199, 10);
 			this.pic_Hard.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
 			this.pic_Hard.Name = "pic_Hard";
 			this.pic_Hard.Size = new System.Drawing.Size(29, 27);
@@ -126,7 +126,7 @@
 			this.lbl_Mean.Font = new System.Drawing.Font("Segoe UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_Mean.Location = new System.Drawing.Point(3, 0);
 			this.lbl_Mean.Name = "lbl_Mean";
-			this.lbl_Mean.Size = new System.Drawing.Size(191, 94);
+			this.lbl_Mean.Size = new System.Drawing.Size(190, 94);
 			this.lbl_Mean.TabIndex = 6;
 			this.lbl_Mean.Text = "Phòng nghiên cứu và phát triển thị trường";
 			this.lbl_Mean.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -190,6 +190,7 @@
 			this.lbl_Score.TabIndex = 5;
 			this.lbl_Score.Text = "-225";
 			this.lbl_Score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl_Score.TextChanged += new System.EventHandler(this.lbl_Score_TextChanged);
 			// 
 			// WordItem
 			// 

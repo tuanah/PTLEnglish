@@ -8,16 +8,28 @@ namespace PTLEnglish.DAL
 {
 	public class Learn
 	{
-		private int progress = 0;
-		private int correctWords = 0;
-		private int wrongWords = 0;
-		private List<int> listRandom = new List<int>();
-		private List<int> listWrongWord = new List<int>();
+		private int progress;
+		private int correctWords;
+		private int wrongWords;
+		private List<int> listRandom;
+		private List<int> listWrongWord;
+		/// <summary>
+		/// Số từ đã được học. Tính theo danh sách Random trong ListRandom
+		/// </summary>
 		public int Progress { get => progress; set => progress = value; }
 		public int CorrectWords { get => correctWords; set => correctWords = value; }
 		public List<int> ListRandom { get => listRandom; set => listRandom = value; }
 		public List<int> ListWrongWord { get => listWrongWord; set => listWrongWord = value; }
 		public int WrongWords { get => wrongWords; set => wrongWords = value; }
+
+		public Learn()
+		{
+			progress = 0;
+			correctWords = 0;
+			wrongWords = 0;
+			listRandom = new List<int>();
+			listWrongWord = new List<int>();
+		}
 
 		public List<int> AddNumberIntoList()
 		{
@@ -27,6 +39,9 @@ namespace PTLEnglish.DAL
 			return lInt;
 		}
 
+		/// <summary>
+		/// Tạo danh sách random chứa vị trí các từ trong WordList dùng để học
+		/// </summary>
 		public void RandomListWord()
 		{
 			List<int> lInt = AddNumberIntoList();
