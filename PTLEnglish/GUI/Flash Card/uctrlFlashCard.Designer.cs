@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctrlFlashCard));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbQuickKeyBoard = new System.Windows.Forms.PictureBox();
             this.pbLeft = new System.Windows.Forms.PictureBox();
             this.pbRight = new System.Windows.Forms.PictureBox();
             this.pnProgress = new System.Windows.Forms.Panel();
@@ -42,46 +41,28 @@
             this.btnSuffle = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnBoth = new System.Windows.Forms.Button();
-            this.pnQuickPress = new System.Windows.Forms.Panel();
-            this.pbDown = new System.Windows.Forms.PictureBox();
             this.timerPlay = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbQuickKeyBoard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRight)).BeginInit();
             this.pnProgress.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDown)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pbQuickKeyBoard);
             this.panel1.Controls.Add(this.pbLeft);
             this.panel1.Controls.Add(this.pbRight);
-            this.panel1.Location = new System.Drawing.Point(48, 361);
+            this.panel1.Location = new System.Drawing.Point(48, 344);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 62);
             this.panel1.TabIndex = 6;
-            // 
-            // pbQuickKeyBoard
-            // 
-            this.pbQuickKeyBoard.Image = global::PTLEnglish.Properties.Resources.Keyboard_Filled_50__1_;
-            this.pbQuickKeyBoard.Location = new System.Drawing.Point(549, 13);
-            this.pbQuickKeyBoard.Name = "pbQuickKeyBoard";
-            this.pbQuickKeyBoard.Size = new System.Drawing.Size(45, 42);
-            this.pbQuickKeyBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbQuickKeyBoard.TabIndex = 2;
-            this.pbQuickKeyBoard.TabStop = false;
-            this.pbQuickKeyBoard.Click += new System.EventHandler(this.pbQuickKeyBoard_Click);
-            this.pbQuickKeyBoard.MouseLeave += new System.EventHandler(this.pbQuickKeyBoard_MouseLeave);
-            this.pbQuickKeyBoard.MouseHover += new System.EventHandler(this.pbQuickKeyBoard_MouseHover);
             // 
             // pbLeft
             // 
             this.pbLeft.BackColor = System.Drawing.Color.Transparent;
             this.pbLeft.Image = global::PTLEnglish.Properties.Resources.Back_100__1_;
-            this.pbLeft.Location = new System.Drawing.Point(153, 2);
+            this.pbLeft.Location = new System.Drawing.Point(178, -1);
             this.pbLeft.Name = "pbLeft";
             this.pbLeft.Size = new System.Drawing.Size(48, 59);
             this.pbLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -95,7 +76,7 @@
             // 
             this.pbRight.BackColor = System.Drawing.Color.Transparent;
             this.pbRight.Image = global::PTLEnglish.Properties.Resources.Back_100__1__opt;
-            this.pbRight.Location = new System.Drawing.Point(375, 2);
+            this.pbRight.Location = new System.Drawing.Point(400, -1);
             this.pbRight.Name = "pbRight";
             this.pbRight.Size = new System.Drawing.Size(48, 59);
             this.pbRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -136,15 +117,14 @@
             // 
             // flipPanel
             // 
-            this.flipPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.flipPanel.BackColor = System.Drawing.SystemColors.Control;
             this.flipPanel.Behind = null;
             this.flipPanel.CheckAnimation = true;
             this.flipPanel.Front = null;
-            this.flipPanel.H_Behind = null;
-            this.flipPanel.H_Front = null;
-            this.flipPanel.Location = new System.Drawing.Point(25, 30);
+           
+            this.flipPanel.Location = new System.Drawing.Point(38, 39);
             this.flipPanel.Name = "flipPanel";
-            this.flipPanel.Size = new System.Drawing.Size(643, 339);
+            this.flipPanel.Size = new System.Drawing.Size(623, 303);
             this.flipPanel.TabIndex = 10;
             this.flipPanel.TimerInterval = 100;
             // 
@@ -153,7 +133,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.pnProgress);
             this.panel3.Controls.Add(this.lbProgress);
-            this.panel3.Location = new System.Drawing.Point(25, 416);
+            this.panel3.Location = new System.Drawing.Point(25, 420);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(643, 45);
             this.panel3.TabIndex = 11;
@@ -165,7 +145,7 @@
             this.btnSuffle.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.btnSuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnSuffle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuffle.Location = new System.Drawing.Point(233, 485);
+            this.btnSuffle.Location = new System.Drawing.Point(235, 490);
             this.btnSuffle.Name = "btnSuffle";
             this.btnSuffle.Size = new System.Drawing.Size(176, 43);
             this.btnSuffle.TabIndex = 17;
@@ -176,14 +156,17 @@
             // btnPlay
             // 
             this.btnPlay.BackColor = System.Drawing.Color.White;
+            this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnPlay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(222)))), ((int)(((byte)(224)))));
             this.btnPlay.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnPlay.Location = new System.Drawing.Point(25, 485);
+            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
+            this.btnPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlay.Location = new System.Drawing.Point(25, 490);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(176, 43);
             this.btnPlay.TabIndex = 18;
-            this.btnPlay.Text = "Play";
+            this.btnPlay.Text = "       Auto Play";
             this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
@@ -193,33 +176,13 @@
             this.btnBoth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(222)))), ((int)(((byte)(224)))));
             this.btnBoth.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.btnBoth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnBoth.Location = new System.Drawing.Point(443, 485);
+            this.btnBoth.Location = new System.Drawing.Point(461, 490);
             this.btnBoth.Name = "btnBoth";
             this.btnBoth.Size = new System.Drawing.Size(176, 43);
             this.btnBoth.TabIndex = 19;
             this.btnBoth.Text = "Both";
             this.btnBoth.UseVisualStyleBackColor = false;
             this.btnBoth.Click += new System.EventHandler(this.btnBoth_Click);
-            // 
-            // pnQuickPress
-            // 
-            this.pnQuickPress.Location = new System.Drawing.Point(493, 3);
-            this.pnQuickPress.Name = "pnQuickPress";
-            this.pnQuickPress.Size = new System.Drawing.Size(174, 353);
-            this.pnQuickPress.TabIndex = 20;
-            this.pnQuickPress.Visible = false;
-            // 
-            // pbDown
-            // 
-            this.pbDown.BackColor = System.Drawing.Color.White;
-            this.pbDown.Image = ((System.Drawing.Image)(resources.GetObject("pbDown.Image")));
-            this.pbDown.Location = new System.Drawing.Point(601, 355);
-            this.pbDown.Name = "pbDown";
-            this.pbDown.Size = new System.Drawing.Size(36, 26);
-            this.pbDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDown.TabIndex = 4;
-            this.pbDown.TabStop = false;
-            this.pbDown.Visible = false;
             // 
             // timerPlay
             // 
@@ -229,9 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Controls.Add(this.pbDown);
-            this.Controls.Add(this.pnQuickPress);
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.btnBoth);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSuffle);
@@ -242,13 +203,11 @@
             this.Size = new System.Drawing.Size(697, 561);
             this.Load += new System.EventHandler(this.uctrlFlashCard_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbQuickKeyBoard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRight)).EndInit();
             this.pnProgress.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,9 +224,6 @@
         private System.Windows.Forms.Button btnBoth;
         private System.Windows.Forms.Button btnSuffle;
         private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.PictureBox pbQuickKeyBoard;
-        private System.Windows.Forms.Panel pnQuickPress;
-        private System.Windows.Forms.PictureBox pbDown;
         private System.Windows.Forms.Timer timerPlay;
     }
 }

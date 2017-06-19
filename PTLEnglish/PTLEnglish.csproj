@@ -75,18 +75,6 @@
     <Compile Include="GUI\Flash Card\FlipPanel.Designer.cs">
       <DependentUpon>FlipPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Flash Card\fQuickPress.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Flash Card\fQuickPress.Designer.cs">
-      <DependentUpon>fQuickPress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Flash Card\ShadowPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Flash Card\ShadowPanel.Designer.cs">
-      <DependentUpon>ShadowPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Flash Card\uctrlEnglish.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +86,12 @@
     </Compile>
     <Compile Include="GUI\Flash Card\uctrlFlashCard.Designer.cs">
       <DependentUpon>uctrlFlashCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlMainFlashCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Flash Card\uctrlMainFlashCard.Designer.cs">
+      <DependentUpon>uctrlMainFlashCard.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Flash Card\uctrlVietnamese.cs">
       <SubType>UserControl</SubType>
@@ -117,6 +111,24 @@
     <Compile Include="GUI\fSub.Designer.cs">
       <DependentUpon>fSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlGravityMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlGravityMain.Designer.cs">
+      <DependentUpon>uctrlGravityMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlIntroduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlIntroduction.Designer.cs">
+      <DependentUpon>uctrlIntroduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlState.Designer.cs">
+      <DependentUpon>uctrlState.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Gravity\Ailien_1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,12 +140,6 @@
     </Compile>
     <Compile Include="GUI\Gravity\Introduction.Designer.cs">
       <DependentUpon>Introduction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Gravity\Meteorite_.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Gravity\Meteorite_.Designer.cs">
-      <DependentUpon>Meteorite_.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Gravity\ShowWrongWord.cs">
       <SubType>UserControl</SubType>
@@ -183,11 +189,41 @@
     <Compile Include="GUI\Listen\uctrlListen.Designer.cs">
       <DependentUpon>uctrlListen.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Listen\uctrlListen1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen1.Designer.cs">
+      <DependentUpon>uctrlListen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen2.Designer.cs">
+      <DependentUpon>uctrlListen2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlListen3.Designer.cs">
+      <DependentUpon>uctrlListen3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlMain.Designer.cs">
+      <DependentUpon>uctrlMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Listen\uctrlMissedWord.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\Listen\uctrlMissedWord.Designer.cs">
       <DependentUpon>uctrlMissedWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Listen\uctrlProgressBar.Designer.cs">
+      <DependentUpon>uctrlProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -210,14 +246,14 @@
     <EmbeddedResource Include="GUI\Flash Card\FlipPanel.resx">
       <DependentUpon>FlipPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Flash Card\fQuickPress.resx">
-      <DependentUpon>fQuickPress.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Flash Card\uctrlEnglish.resx">
       <DependentUpon>uctrlEnglish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Flash Card\uctrlFlashCard.resx">
       <DependentUpon>uctrlFlashCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Flash Card\uctrlMainFlashCard.resx">
+      <DependentUpon>uctrlMainFlashCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Flash Card\uctrlVietnamese.resx">
       <DependentUpon>uctrlVietnamese.cs</DependentUpon>
@@ -228,14 +264,20 @@
     <EmbeddedResource Include="GUI\fSub.resx">
       <DependentUpon>fSub.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Game Gravity\uctrlGravityMain.resx">
+      <DependentUpon>uctrlGravityMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Game Gravity\uctrlIntroduction.resx">
+      <DependentUpon>uctrlIntroduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Game Gravity\uctrlState.resx">
+      <DependentUpon>uctrlState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\Ailien_1.resx">
       <DependentUpon>Ailien_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\Introduction.resx">
       <DependentUpon>Introduction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Gravity\Meteorite_.resx">
-      <DependentUpon>Meteorite_.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\ShowWrongWord.resx">
       <DependentUpon>ShowWrongWord.cs</DependentUpon>
@@ -261,8 +303,23 @@
     <EmbeddedResource Include="GUI\Listen\uctrlListen.resx">
       <DependentUpon>uctrlListen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen1.resx">
+      <DependentUpon>uctrlListen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen2.resx">
+      <DependentUpon>uctrlListen2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlListen3.resx">
+      <DependentUpon>uctrlListen3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlMain.resx">
+      <DependentUpon>uctrlMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Listen\uctrlMissedWord.resx">
       <DependentUpon>uctrlMissedWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Listen\uctrlProgressBar.resx">
+      <DependentUpon>uctrlProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -378,6 +435,41 @@
     <None Include="Resources\Restart-64 %281%29.png" />
     <None Include="Resources\Keyboard Filled-50 %281%29.png" />
     <None Include="Resources\Keyboard Filled-50.png" />
+    <None Include="Resources\Courses-50.png" />
+    <None Include="Resources\Courses-100.png" />
+    <None Include="Resources\Gallery-100.png" />
+    <None Include="Resources\_Bookmark_Image-256.png" />
+    <None Include="Resources\click.png" />
+    <None Include="Resources\normal.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\wrong.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\back_.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\next_.png" />
+    <None Include="Resources\auto 2.png" />
+    <None Include="Resources\auto 3.png" />
+    <None Include="Resources\both 1.png" />
+    <None Include="Resources\both 2.png" />
+    <None Include="Resources\shuffle 1.png" />
+    <None Include="Resources\shuffle 2.png" />
+    <None Include="Resources\Right-3-512_.png" />
+    <None Include="Resources\Right-3-5121.png" />
+    <None Include="Resources\Left-5121.png" />
+    <None Include="Resources\Left-512_.png" />
+    <None Include="Resources\Mole.png" />
+    <None Include="Resources\MoleBackground.png" />
+    <None Include="Resources\ws.png" />
+    <None Include="Resources\Game Music.wav" />
+    <None Include="Resources\LOSE.wav" />
+    <None Include="Resources\PUNCH.wav" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Game Menu.png" />
+    <None Include="Resources\guide.PNG" />
+    <None Include="Resources\MenuNext.png" />
+    <None Include="Resources\7-512.png" />
+    <None Include="Resources\7-5121.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />

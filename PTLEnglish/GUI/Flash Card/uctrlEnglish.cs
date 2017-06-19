@@ -18,11 +18,22 @@ namespace PTLEnglish.GUI.Flash_Card
         {
             InitializeComponent();
             uctrlFlashCard.pnEnglish = pnEnglish;
+            uctrlMainFlashCard.pnEnglish = pnEnglish;
             load(index);
         }
         void load(int index)
         {
             lbEnglish.Text = Manage.TopicData.WordList[index].Key;
+            try
+            {
+                pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
+            }
+            catch
+            {
+
+                pbImage.Image = Properties.Resources.error_image;
+            }
+            pbImage.Refresh();
             readText();
         }
 

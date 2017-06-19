@@ -34,7 +34,7 @@
             // 
             // lbWord
             // 
-            this.lbWord.Font = new System.Drawing.Font("Cambria", 20F, System.Drawing.FontStyle.Bold);
+            this.lbWord.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.lbWord.ForeColor = System.Drawing.Color.Green;
             this.lbWord.Location = new System.Drawing.Point(39, 211);
             this.lbWord.Name = "lbWord";

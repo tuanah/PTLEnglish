@@ -14,6 +14,7 @@ using PTLEnglish.GUI.Listen;
 
 namespace PTLEnglish.GUI.Flash_Card
 {
+    
     public partial class uctrlFlashCard : UserControl
     {
         // Tạo panel lưu lại lần click vào 2 cái English hoặc Vietnamese:
@@ -41,16 +42,12 @@ namespace PTLEnglish.GUI.Flash_Card
             Manage.ThisCourse = "Source\\Economic";
             Manage.ThisTopic = "\\Job";
             filePath = Cons.Path + "\\" + Manage.TopicData.TopicName + ".xml";
-
         }
 
-        fQuickPress Quick = new fQuickPress();
         private void uctrlFlashCard_Load(object sender, EventArgs e)
         {
-            
-            Quick.TopLevel = false;
-            pnQuickPress.Controls.Add(Quick);
 
+            // Đếm từ đã học
             countNormal = 0;
             // Khởi tạo các form
             uEnglish = new uctrlEnglish(countNormal);
@@ -61,12 +58,15 @@ namespace PTLEnglish.GUI.Flash_Card
             // Do lúc đầu không thể quay ngược lại chữ phía trước được nên chúng ta sẽ enable pbLeft đi:
             pbLeft.Enabled = false;
             //
-            // flipPanel.H_Front = uEnglish;
             flipPanel.TimerInterval = 15;
-
+            // Tăng progressbar
             IncreasingProgressbar();
         }
 
+        /// <summary>
+        /// Lấy vị trí từ tiếp theo trong lRandom
+        /// </summary>
+        /// <returns></returns>
         int GetIndex()
         {
             int index = countNormal;
@@ -76,6 +76,9 @@ namespace PTLEnglish.GUI.Flash_Card
         }
 
         #region Hàm Xử lý ProgressBar
+        /// <summary>
+        /// Hàm tăng progress bar
+        /// </summary>
         void IncreasingProgressbar()
         {
             // Tăng progress
@@ -87,6 +90,9 @@ namespace PTLEnglish.GUI.Flash_Card
             }
         }
 
+        /// <summary>
+        /// Giảm Progressbar
+        /// </summary>
         void DecreaseProgressbar()
         {
             int temp = pnProgressRun.Width - 21;
@@ -97,6 +103,9 @@ namespace PTLEnglish.GUI.Flash_Card
             }
         }
 
+        /// <summary>
+        /// Đặt progressbar về mặc định
+        /// </summary>
         void ClearProgressbar()
         {
             int dem = 0;
@@ -113,9 +122,6 @@ namespace PTLEnglish.GUI.Flash_Card
         #region Hàm click vào Các Flash Card English - Vietnamese
         private void PnEnglish_Click(object sender, EventArgs e)
         {
-            // Ẩn cái click hiện các nút click nhanh
-            pnQuickPress.Visible = false;
-            pbDown.Visible = false;
             // Dùng animation lật dọc:
             flipPanel.CheckAnimation = true;
             // Lấy vị trí tiếp theo
@@ -124,19 +130,16 @@ namespace PTLEnglish.GUI.Flash_Card
             flipPanel.Behind = uVietnamese;
             // Sinh hàm click:
             pnVietnamese.Click += PnVietnamese_Click;
-            // Xóa phần dư ra:
+            // Xóa phần dư ra trong flipPannel:
             if (flipPanel.Controls.Count == 3)
                 flipPanel.Controls[1].Dispose();
+            // Thực hiện flip
             flipPanel.Flip();
         }
 
 
         private void PnVietnamese_Click(object sender, EventArgs e)
         {
-            // Ẩn cái click hiện các nút click nhanh
-            pnQuickPress.Visible = false;
-            pbDown.Visible = false;
-
             // Dùng animation lật dọc:
             flipPanel.CheckAnimation = true;
             // Lấy vị trí tiếp theo
@@ -145,24 +148,31 @@ namespace PTLEnglish.GUI.Flash_Card
             flipPanel.Behind = uEnglish;
             // Sinh hàm click vào uEnglish
             pnEnglish.Click += PnEnglish_Click;
-            // Xóa phần dư ra:
+            // Xóa phần dư ra trong flipPannel:
             if (flipPanel.Controls.Count == 3)
                 flipPanel.Controls[1].Dispose();
+            // Thực hiện flip
             flipPanel.Flip();
         }
         #endregion
 
         #region Hàm Random + Shuffle các từ 
+        /// <summary>
+        /// Hàm add các số vào trong list
+        /// </summary>
+        /// <returns></returns>
         List<int> AddNumberIntoList()
         {
             List<int> lInt = new List<int>();
             for (int i = 0; i < Manage.TopicData.WordList.Count; i++)
-            {
                 lInt.Add(i);
-            }
             return lInt;
         }
 
+        /// <summary>
+        /// Hàm thực hiện Random
+        /// </summary>
+        /// <param name="lRandom"></param>
         void RandomListWord(ref List<int> lRandom)
         {
             List<int> lInt = AddNumberIntoList();
@@ -181,33 +191,31 @@ namespace PTLEnglish.GUI.Flash_Card
             }
         }
 
+        /// <summary>
+        /// Hàm trộn - Random các từ 1 cách ngẫu nhiên
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSuffle_Click(object sender, EventArgs e)
         {
             // Tắt timer:
-            timerPlay.Enabled = false;
-            timerPlay.Interval = 100;
+            timerPlay.Enabled = false; timerPlay.Interval = 100;
+            // Tắt Auto Play
+            checkAutoPlay = 1;
             // Thay đổi hình btnPlay:
 
-            //
-            // Ẩn cái click hiện các nút click nhanh
-            pnQuickPress.Visible = false;
-            pbDown.Visible = false;
+
             // Đặt lại các giá trị mặc định:
-            countNormal = 0;
-            countRandom = 0;
-            pbLeft.Enabled = false;
-            pbRight.Enabled = true;
+            countNormal = 0; countRandom = 0; pbLeft.Enabled = false; pbRight.Enabled = true;
             ClearProgressbar();
             // 
             int index = 0;
-
             if (checkSuffle == 1)  // Hiện đang suffle -> tắt suffle
             {
                 // Thay đổi hình Shuffle:
 
                 //
-                lRandom.Clear();
-                lRandom = null;
+                lRandom.Clear(); lRandom = null;
                 // Thay đổi trạng thái:
                 checkSuffle = 0;
             }
@@ -224,10 +232,7 @@ namespace PTLEnglish.GUI.Flash_Card
 
 
             // Xử lý liên quan đến gdien:
-            flipPanel.Hide();
-            flipPanel.Controls.Clear();
-            Thread.Sleep(1000);
-            flipPanel.Show();
+            flipPanel.Hide(); flipPanel.Controls.Clear(); Thread.Sleep(1000); flipPanel.Show();
 
             if (checkBoth == 0)  // Hiện đang dùng kiểu cả 2 Eng - Vie
             {
@@ -247,7 +252,6 @@ namespace PTLEnglish.GUI.Flash_Card
                 // Bật cho phép click vào uEnglish
                 pnEnglish.Click += PnEnglish_Click;
             }
-
         }
         #endregion
 
@@ -255,8 +259,7 @@ namespace PTLEnglish.GUI.Flash_Card
         private void pbRight_Click(object sender, EventArgs e)
         {
             // Ẩn cái click hiện các nút click nhanh
-            pnQuickPress.Visible = false;
-            pbDown.Visible = false;
+
             // Hiện click trái:            
             pbLeft.Enabled = true;
 
@@ -294,21 +297,16 @@ namespace PTLEnglish.GUI.Flash_Card
             // Nếu click phải vượt quá phạm vi quy định thì tắt click phải cho lượt kế tiếp
             if ((GetIndex() == 24 && countNormal != 0) || (lRandom != null && countRandom == lRandom.Count - 1))
                 pbRight.Enabled = false;
-
-
         }
 
         private void pbLeft_Click(object sender, EventArgs e)
         {
-            // Tắt cái timer:
-            timerPlay.Enabled = false;
-            timerPlay.Interval = 100;
+            // Tắt cái timer: 
+            timerPlay.Enabled = false; timerPlay.Interval = 100;
+            // Chỉnh lại chưa bật auto Play
+            checkAutoPlay = 1;
             // Thay đổi hình btnPlay:
 
-            //
-            // Ẩn cái click hiện các nút click nhanh
-            pnQuickPress.Visible = false;
-            pbDown.Visible = false;
             // Hiện click phải:            
             pbRight.Enabled = true;
             // Lấy giá trị kế tiếp:
@@ -343,42 +341,11 @@ namespace PTLEnglish.GUI.Flash_Card
             // Nếu click trái vượt nhỏ hơn phạm vi quy định thì tắt click trái cho lượt kế tiếp
             if ((GetIndex() == 0 && countRandom == 0) || (lRandom != null && countRandom == 0))
                 pbLeft.Enabled = false;
-
-
         }
         #endregion
 
+        #region Hàm tự động học Flash card - không cần click:   
 
-        #region Hàm Cho phép bấm nhanh các nút bấm trên bàn phím - Chưa làm xong:
-        // Code:
-        int checkQuickKeyboardClick = 0;
-        private void pbQuickKeyBoard_Click(object sender, EventArgs e)
-        {
-            // -------- chưa làm ---------
-            timerPlay.Enabled = false;
-            timerPlay.Interval = 100;
-            // Thay đổi hình btnPlay:
-
-            //
-            if (checkQuickKeyboardClick == 0)
-            {
-                pbDown.Visible = true;
-                pnQuickPress.Visible = true;
-                Quick.Show();
-                checkQuickKeyboardClick = 1;
-            }
-            else
-            {
-                pbDown.Visible = false;
-                pnQuickPress.Visible = false;
-                Quick.Hide();
-                checkQuickKeyboardClick = 0;
-            }
-
-        }
-        #endregion
-
-        #region Hàm tự động học Flash card - không cần click:       
         private void btnPlay_Click(object sender, EventArgs e)
         {
             // Tắt timer:
@@ -404,14 +371,19 @@ namespace PTLEnglish.GUI.Flash_Card
 
         }
 
+        /// <summary>
+        /// Hàm này có tác dụng lật qua từ tiếp theo khi nút auto Play được bật
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerPlay_Tick(object sender, EventArgs e)
         {
             if (pbRight.Enabled == true)
             {
-                pbRight_Click(sender, e);
-                timerPlay.Interval = 3000;
+                pbRight_Click(sender, e); // Qua từ tiếp theo
+                timerPlay.Interval = 3000; // Cho chờ tầm 3s để thuộc
             }
-            else
+            else // Nếu nút qua phải đã đến từ cuối cùng thi dừng auto play
             {
                 timerPlay.Enabled = false;
                 timerPlay.Interval = 100;
@@ -420,7 +392,6 @@ namespace PTLEnglish.GUI.Flash_Card
         }
         #endregion
 
-
         #region Hàm cho phép hiện cả 2 phần Vietnamese và English ra màn hình:
         uctrlBoth Both;
         private void btnBoth_Click(object sender, EventArgs e)
@@ -428,6 +399,8 @@ namespace PTLEnglish.GUI.Flash_Card
             // Tắt timer:
             timerPlay.Enabled = false;
             timerPlay.Interval = 100;
+            // Chỉnh lại AutoPlay
+            checkAutoPlay = 1;
             // Thay đổi hình btnPlay:
 
             //
@@ -462,7 +435,6 @@ namespace PTLEnglish.GUI.Flash_Card
                     flipPanel.Controls[0].Dispose();
                 checkBoth = 1;
             }
-
         }
         #endregion
 
@@ -493,17 +465,5 @@ namespace PTLEnglish.GUI.Flash_Card
         }
         #endregion
 
-        #region Xử lý giao diện các nút bấm nhanh:
-        private void pbQuickKeyBoard_MouseHover(object sender, EventArgs e)
-        {
-            pbQuickKeyBoard.Image = Properties.Resources.Keyboard_Filled_50;
-        }
-
-        private void pbQuickKeyBoard_MouseLeave(object sender, EventArgs e)
-        {
-            pbQuickKeyBoard.Image = Properties.Resources.Keyboard_Filled_50__1_;
-        }
-
-        #endregion
     }
 }

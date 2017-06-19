@@ -87,16 +87,7 @@ namespace PTLEnglish.GUI.Flash_Card
         }
 
         public bool CheckAnimation { get => checkAnimation; set => checkAnimation = value; }
-        public Control H_Front
-        {
-            get { return h_Front; }
-            set { Controls.Add(value); h_Front = value; }
-        }
-        public Control H_Behind
-        {
-            get { return h_Behind; }
-            set { Controls.Add(value); h_Behind = value; }
-        }
+
 
         #endregion
 

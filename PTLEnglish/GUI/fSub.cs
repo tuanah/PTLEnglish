@@ -12,6 +12,9 @@ using System.Reflection;
 using PTLEnglish.GUI.Listen;
 using PTLEnglish.GUI.Flash_Card;
 using PTLEnglish.GUI.Gravity;
+using PTLEnglish.GUI.Game_Gravity;
+
+
 namespace PTLEnglish.GUI
 {
 	public partial class fSub : Form
@@ -159,15 +162,19 @@ namespace PTLEnglish.GUI
 
 		private void pic_Fcard_Click(object sender, EventArgs e)
 		{
-            uctrlFlashCard flashCard = new uctrlFlashCard();
+            //uctrlFlashCard flashCard = new uctrlFlashCard();
+            //pnl_Content.Controls.Clear();
+            //pnl_Content.Controls.Add(flashCard);
+
+            uctrlMainFlashCard flashCard = new uctrlMainFlashCard();
             pnl_Content.Controls.Clear();
             pnl_Content.Controls.Add(flashCard);
         }
 
-		//
-		//	pnl_Learn
-		//
-		private void pnl_Learn_MouseEnter(object sender, EventArgs e)
+        //
+        //	pnl_Learn
+        //
+        private void pnl_Learn_MouseEnter(object sender, EventArgs e)
 		{
 			pnl_Learn.BackColor = Cons.ColorHov;
 			pic_Learn.Image = global::PTLEnglish.Properties.Resources.learn_hover;
@@ -205,17 +212,21 @@ namespace PTLEnglish.GUI
 
 		public void pnl_Listen_Click(object sender, EventArgs e)
 		{
-           
-            uctrlListen listen = new uctrlListen();
+
+            //uctrlListen listen = new uctrlListen();
+            //pnl_Content.Controls.Clear();
+            //pnl_Content.Controls.Add(listen);
+            //listen.GetFunction = this;
+            uctrlMain uMain = new uctrlMain();
             pnl_Content.Controls.Clear();
-            pnl_Content.Controls.Add(listen);
-            listen.GetFunction=this;
+            pnl_Content.Controls.Add(uMain);
+            uMain.GetControl = this;
         }
 
-		//
-		//	pnl_Test
-		//
-		private void pnl_Test_MouseEnter(object sender, EventArgs e)
+        //
+        //	pnl_Test
+        //
+        private void pnl_Test_MouseEnter(object sender, EventArgs e)
 		{
 			pnl_Test.BackColor = Cons.ColorHov;
 			pic_Test.Image = global::PTLEnglish.Properties.Resources.test_hover;
@@ -282,6 +293,7 @@ namespace PTLEnglish.GUI
 		{
 
 		}
+        
 
 		//
 		//	pnl_Gravity
@@ -304,11 +316,14 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Gravity_Click(object sender, EventArgs e)
 		{
-            uctrlGravity Gravity = new uctrlGravity();
-            
+            //uctrlGravity Gravity = new uctrlGravity();
+            //pnl_Content.Controls.Clear();
+            //pnl_Content.Controls.Add(Gravity);
+
+            uctrlGravityMain Gravity = new uctrlGravityMain();
             pnl_Content.Controls.Clear();
             pnl_Content.Controls.Add(Gravity);
-		}
+        }
 
 		//
 		//	pnl_Shooter
@@ -330,7 +345,7 @@ namespace PTLEnglish.GUI
 		private void pnl_Shooter_Click(object sender, EventArgs e)
 		{
 
-		}
+        }
 
 		//
 		//	pnl_Back
