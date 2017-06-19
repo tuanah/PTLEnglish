@@ -334,4 +334,40 @@
   <data name="Left-512_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Left-512_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Game_Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Game Music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LOSE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOSE.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Mole" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoleBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MoleBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PUNCH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PUNCH.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ws" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ws.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Game_Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Game Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guide.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_7_5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7-5121.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

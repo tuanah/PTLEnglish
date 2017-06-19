@@ -63,6 +63,16 @@ namespace PTLEnglish.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _7_5121 {
+            get {
+                object obj = ResourceManager.GetObject("_7_5121", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _Bookmark_Image_256 {
             get {
                 object obj = ResourceManager.GetObject("_Bookmark_Image-256", resourceCulture);
@@ -423,6 +433,35 @@ namespace PTLEnglish.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Game_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Game_Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Game_Music {
+            get {
+                return ResourceManager.GetStream("Game_Music", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap guide {
+            get {
+                object obj = ResourceManager.GetObject("guide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hammer {
             get {
                 object obj = ResourceManager.GetObject("hammer", resourceCulture);
@@ -436,6 +475,16 @@ namespace PTLEnglish.Properties {
         internal static System.Drawing.Bitmap hammer_hover {
             get {
                 object obj = ResourceManager.GetObject("hammer_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help {
+            get {
+                object obj = ResourceManager.GetObject("help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -501,6 +550,15 @@ namespace PTLEnglish.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream LOSE {
+            get {
+                return ResourceManager.GetStream("LOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap match {
@@ -536,6 +594,36 @@ namespace PTLEnglish.Properties {
         internal static System.Drawing.Bitmap menu_def {
             get {
                 object obj = ResourceManager.GetObject("menu_def", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MenuNext {
+            get {
+                object obj = ResourceManager.GetObject("MenuNext", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mole {
+            get {
+                object obj = ResourceManager.GetObject("Mole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MoleBackground {
+            get {
+                object obj = ResourceManager.GetObject("MoleBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,6 +681,16 @@ namespace PTLEnglish.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Play {
+            get {
+                object obj = ResourceManager.GetObject("Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap point_1 {
             get {
                 object obj = ResourceManager.GetObject("point_1", resourceCulture);
@@ -637,6 +735,15 @@ namespace PTLEnglish.Properties {
             get {
                 object obj = ResourceManager.GetObject("point_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream PUNCH {
+            get {
+                return ResourceManager.GetStream("PUNCH", resourceCulture);
             }
         }
         
@@ -776,6 +883,16 @@ namespace PTLEnglish.Properties {
         internal static System.Drawing.Bitmap wrong {
             get {
                 object obj = ResourceManager.GetObject("wrong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ws {
+            get {
+                object obj = ResourceManager.GetObject("ws", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

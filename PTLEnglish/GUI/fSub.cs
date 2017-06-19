@@ -12,6 +12,9 @@ using System.Reflection;
 using PTLEnglish.GUI.Listen;
 using PTLEnglish.GUI.Flash_Card;
 using PTLEnglish.GUI.Gravity;
+using PTLEnglish.GUI.Game_Gravity;
+
+
 namespace PTLEnglish.GUI
 {
 	public partial class fSub : Form
@@ -313,11 +316,14 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Gravity_Click(object sender, EventArgs e)
 		{
-            uctrlGravity Gravity = new uctrlGravity();
-            
+            //uctrlGravity Gravity = new uctrlGravity();
+            //pnl_Content.Controls.Clear();
+            //pnl_Content.Controls.Add(Gravity);
+
+            uctrlGravityMain Gravity = new uctrlGravityMain();
             pnl_Content.Controls.Clear();
             pnl_Content.Controls.Add(Gravity);
-		}
+        }
 
 		//
 		//	pnl_Shooter
@@ -339,7 +345,7 @@ namespace PTLEnglish.GUI
 		private void pnl_Shooter_Click(object sender, EventArgs e)
 		{
 
-		}
+        }
 
 		//
 		//	pnl_Back

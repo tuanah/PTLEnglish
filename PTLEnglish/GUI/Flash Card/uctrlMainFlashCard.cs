@@ -14,7 +14,7 @@ namespace PTLEnglish.GUI.Flash_Card
 {
     public partial class uctrlMainFlashCard : UserControl
     {
-        // Tạo panel lưu lại lần click vào 2 cái English hoặc Vietnamese:
+        // Tạo panel lưu lại lần click vào 2 cái English hoặc Vietnamese:       
         public static Panel pnEnglish = new Panel();
         public static Panel pnVietnamese = new Panel();
 

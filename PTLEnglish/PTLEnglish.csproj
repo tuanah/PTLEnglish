@@ -111,6 +111,24 @@
     <Compile Include="GUI\fSub.Designer.cs">
       <DependentUpon>fSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlGravityMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlGravityMain.Designer.cs">
+      <DependentUpon>uctrlGravityMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlIntroduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlIntroduction.Designer.cs">
+      <DependentUpon>uctrlIntroduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Game Gravity\uctrlState.Designer.cs">
+      <DependentUpon>uctrlState.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Gravity\Ailien_1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,12 +140,6 @@
     </Compile>
     <Compile Include="GUI\Gravity\Introduction.Designer.cs">
       <DependentUpon>Introduction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Gravity\Meteorite_.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Gravity\Meteorite_.Designer.cs">
-      <DependentUpon>Meteorite_.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Gravity\ShowWrongWord.cs">
       <SubType>UserControl</SubType>
@@ -252,14 +264,20 @@
     <EmbeddedResource Include="GUI\fSub.resx">
       <DependentUpon>fSub.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Game Gravity\uctrlGravityMain.resx">
+      <DependentUpon>uctrlGravityMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Game Gravity\uctrlIntroduction.resx">
+      <DependentUpon>uctrlIntroduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Game Gravity\uctrlState.resx">
+      <DependentUpon>uctrlState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\Ailien_1.resx">
       <DependentUpon>Ailien_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\Introduction.resx">
       <DependentUpon>Introduction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Gravity\Meteorite_.resx">
-      <DependentUpon>Meteorite_.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Gravity\ShowWrongWord.resx">
       <DependentUpon>ShowWrongWord.cs</DependentUpon>
@@ -439,6 +457,19 @@
     <None Include="Resources\Right-3-5121.png" />
     <None Include="Resources\Left-5121.png" />
     <None Include="Resources\Left-512_.png" />
+    <None Include="Resources\Mole.png" />
+    <None Include="Resources\MoleBackground.png" />
+    <None Include="Resources\ws.png" />
+    <None Include="Resources\Game Music.wav" />
+    <None Include="Resources\LOSE.wav" />
+    <None Include="Resources\PUNCH.wav" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Game Menu.png" />
+    <None Include="Resources\guide.PNG" />
+    <None Include="Resources\MenuNext.png" />
+    <None Include="Resources\7-512.png" />
+    <None Include="Resources\7-5121.png" />
     <Content Include="Source\Economic\Business\Business.txt" />
     <Content Include="Source\Economic\Business\Image\budget.jpg" />
     <Content Include="Source\Economic\Business\Image\capital.jpg" />
