@@ -240,6 +240,7 @@ namespace PTLEnglish.GUI
 
 		private void pnl_Course_Click(object sender, EventArgs e)
 		{
+			//Manage.ThisCourse = "Source";
 			DrawHexagons(pnl_Grid);
 			LoadTextToHexagon(sender);
 

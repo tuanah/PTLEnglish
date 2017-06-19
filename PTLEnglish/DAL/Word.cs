@@ -11,6 +11,7 @@ namespace PTLEnglish.DAL
 		private string key;
 		private string pronunciation;
 		private string mean;
+		private bool isLearnt;
 		private string imgPath;
 		private byte numWrong;
 		private byte numRight;

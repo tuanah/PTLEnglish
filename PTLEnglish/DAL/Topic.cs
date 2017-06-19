@@ -16,6 +16,11 @@ namespace PTLEnglish.DAL
 		public string TopicName { get => topicName; set => topicName = value; }
 		public Learn Learnt { get => learnt; set => learnt = value; }
 
+        
+        private Listen listen = new Listen();
+
+       
+        public Listen Listen { get => listen; set => listen = value; }
 		public List<Word> WordList { get => wordList; set => wordList = value; }
 	}
 }
