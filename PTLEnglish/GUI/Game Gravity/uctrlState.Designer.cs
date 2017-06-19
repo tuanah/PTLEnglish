@@ -114,7 +114,7 @@
             // 
             this.lbEnglish.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.lbEnglish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.lbEnglish.Location = new System.Drawing.Point(184, 363);
+            this.lbEnglish.Location = new System.Drawing.Point(179, 363);
             this.lbEnglish.Name = "lbEnglish";
             this.lbEnglish.Size = new System.Drawing.Size(334, 26);
             this.lbEnglish.TabIndex = 9;
@@ -126,9 +126,9 @@
             // 
             this.lbVietnamese.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
             this.lbVietnamese.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.lbVietnamese.Location = new System.Drawing.Point(179, 148);
+            this.lbVietnamese.Location = new System.Drawing.Point(146, 147);
             this.lbVietnamese.Name = "lbVietnamese";
-            this.lbVietnamese.Size = new System.Drawing.Size(339, 26);
+            this.lbVietnamese.Size = new System.Drawing.Size(406, 26);
             this.lbVietnamese.TabIndex = 10;
             this.lbVietnamese.Text = "VietNamese";
             this.lbVietnamese.TextAlign = System.Drawing.ContentAlignment.TopCenter;

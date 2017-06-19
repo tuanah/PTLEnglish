@@ -42,7 +42,16 @@ namespace PTLEnglish.GUI.Listen
             lbEnglish.Text = Manage.TopicData.WordList[index].Key;
             lbPronunciation.Text = "/ "+Manage.TopicData.WordList[index].Pronunciation+" /";
             lbVietNamese.Text = Manage.TopicData.WordList[index].Mean;
-            pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
+            try
+            {
+                pbImage.Image = new Bitmap(Manage.TopicData.WordList[index].ImgPath);
+            }
+            catch (Exception)
+            {
+
+                pbImage.Image = Properties.Resources.error_image;
+            }
+           
             pbSound.Click += delegate
               {
                   ReadText(lbEnglish.Text, 0);

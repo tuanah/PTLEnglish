@@ -69,7 +69,14 @@ namespace PTLEnglish.GUI.Listen
                 tbText.Focus();
                 CheckPnHorizontal("TYPE THE VIETNAMESE", Color.FromArgb(103, 183, 255), Color.FromArgb(52, 152, 219));
                 // Lưu tại từ tiếng anh đúng tí mang ra kiểm tra với từ mình nhập vào
-                pbImage.Image = new Bitmap(Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].ImgPath);
+                try
+                {
+                    pbImage.Image = new Bitmap(Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].ImgPath);
+                }
+                catch 
+                {
+                    pbImage.Image = Properties.Resources.error_image;
+                }
                 pbImage.Refresh();
                 tbText.Tag = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Mean;
                 lbWrong.Tag = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Key;

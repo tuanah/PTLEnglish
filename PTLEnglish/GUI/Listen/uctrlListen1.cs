@@ -116,7 +116,15 @@ namespace PTLEnglish.GUI.Listen
                 // Lưu tại từ tiếng anh đúng tí mang ra kiểm tra với từ mình nhập vào
                 tbText.Tag = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Key;
                 // Gán hình ảnh cho từ hiện tại:
-                pbImage.Image = new Bitmap(Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].ImgPath);
+                try
+                {
+                    pbImage.Image = new Bitmap(Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].ImgPath);
+
+                }
+                catch
+                {
+                    pbImage.Image = Properties.Resources.error_image;
+                }
                 pbImage.Refresh();
                 // Hiện từ tiếng việt:
                 lbMean.Text = Manage.TopicData.WordList[Manage.TopicData.Listen.ListRandom[count]].Mean;

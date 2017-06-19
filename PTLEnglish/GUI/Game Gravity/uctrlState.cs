@@ -60,12 +60,14 @@ namespace PTLEnglish.GUI.Game_Gravity
          * word: lấy từ tiếng việt hiện tại 
          * CheckWrong : Biến kiểm tra có ghi lại từ sai hay không
          * locationX, locationY : Biến lưu lại tọa độ
+         * checkRefresh : Kiểm tra on paint cho vẽ text hay không cho vẽ text
          */
         int id = 0;
         int Score = 0;
         string word;
         bool CheckWrong = false;
         int locationX, locationY;
+        bool checkRefresh = true;
         void CreateGame()
         {
             lbCommand.Text = "TYPE YOUR ANSWER";
@@ -94,7 +96,10 @@ namespace PTLEnglish.GUI.Game_Gravity
             }
         }
 
-        bool checkRefresh = true;
+       /// <summary>
+       /// Hàm vẽ
+       /// </summary>
+       /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.Clear(Color.Black); // Xóa chữ bằng cách tô màu đen đè lên
@@ -105,15 +110,25 @@ namespace PTLEnglish.GUI.Game_Gravity
             base.OnPaint(e);
         }
 
+        /// <summary>
+        /// Chờ người dùng nhấn enter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbAnswer_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
+                // Hàm kiểm tra đúng hay sai
                 checkTrueFalse();
                 e.Handled = false;
             }
         }
 
+        /// <summary>
+        /// Set ẩn hiện các control
+        /// </summary>
+        /// <param name="check"></param>
         void SetVisible(bool check=true)
         {
             lbCorrectAnswer.Visible = check;
@@ -123,8 +138,13 @@ namespace PTLEnglish.GUI.Game_Gravity
             pbImage.Visible = check;
         }
         
+
+        /// <summary>
+        /// Hàm kiểm tra từ đúng hay sai
+        /// </summary>
         private void checkTrueFalse()
         {
+            // Nếu từ đó đúng
             if (tbAnswer.Text == tbAnswer.Tag.ToString())
             {
                 timerPictureBox.Stop();
@@ -147,7 +167,7 @@ namespace PTLEnglish.GUI.Game_Gravity
                 timerPictureBox.Start();
             }
             else
-            {
+            { // Nếu sai thì hiện kiểu sai
                 pnHorizontal.BackColor = Color.Red;
                 lbCommand.Text = "NOT CORRECT"; lbCommand.ForeColor = Color.Red; lbCommand.Refresh();
             }
@@ -155,15 +175,22 @@ namespace PTLEnglish.GUI.Game_Gravity
 
         private void timerPictureBox_Tick(object sender, EventArgs e)
         {
-            if (locationY >= Height)
+            if (locationY >= Height-75)
             {
                 timerPictureBox.Stop();
-                ShowWrongWord();
+                checkRefresh = false;
+                Invalidate();
+                ShowWrongWord(); // Show từ sai
             }
             locationY += 3;
             Invalidate();
         }
 
+        /// <summary>
+        /// Người dùng click vào không biết
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbDontKnow_Click(object sender, EventArgs e)
         {
             timerPictureBox.Stop();
@@ -172,6 +199,9 @@ namespace PTLEnglish.GUI.Game_Gravity
             ShowWrongWord();
         }
 
+        /// <summary>
+        /// hàm hiện ra các từ sai
+        /// </summary>
         private void ShowWrongWord()
         {
             CheckWrong = true;
